@@ -82,6 +82,10 @@ Make your contribution and make a pull request (PR). Only make a PR to the devel
 
 Please contribute using [GitHub Flow](https://guides.github.com/introduction/flow). Create a branch, add commits, and [open a pull request](https://github.com/momeniHIN/calendar-app/compare).
 
+### Figma Design
+
+[Figma Calender File](https://www.figma.com/file/V9hWgfsAPJFU3izkO2yruc/Zuri-Holiday-Calendar-Plugin?node-id=0%3A1)
+
 ## 💻 Built with
 
 - [React](https://reactjs.org/)
