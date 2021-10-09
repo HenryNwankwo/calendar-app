@@ -47,22 +47,10 @@ cd calendar-app
 3. Install dependencies
 
 ```bash
-npm install
-```
-
-or
-
-```bash
 yarn install
 ```
 
 4. Run the app
-
-```bash
-npm start
-```
-
-or
 
 ```bash
 yarn start
@@ -84,7 +72,7 @@ Please contribute using [GitHub Flow](https://guides.github.com/introduction/flo
 
 ### Figma Design
 
-[Figma Calender File](https://www.figma.com/file/V9hWgfsAPJFU3izkO2yruc/Zuri-Holiday-Calendar-Plugin?node-id=0%3A1)
+[Figma Calendar File](https://www.figma.com/file/V9hWgfsAPJFU3izkO2yruc/Zuri-Holiday-Calendar-Plugin?node-id=0%3A1)
 
 ## 💻 Built with
 
