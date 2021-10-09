@@ -47,22 +47,10 @@ cd calendar-app
 3. Install dependencies
 
 ```bash
-npm install
-```
-
-or
-
-```bash
 yarn install
 ```
 
 4. Run the app
-
-```bash
-npm start
-```
-
-or
 
 ```bash
 yarn start
@@ -76,7 +64,8 @@ yarn start
 git checkout -b NEW BRANCH NAME
 ```
 
-Make your contribution and make a pull request (PR). Only make a PR to the develop branch
+- Make use of the component folder for your components.
+- Make your contribution and make a pull request (PR). Only make a PR to the develop branch.
 
 > Make sure that you installed all required dependencies and resolve any conflict before making a pull request
 
@@ -84,7 +73,7 @@ Please contribute using [GitHub Flow](https://guides.github.com/introduction/flo
 
 ### Figma Design
 
-[Figma Calender File](https://www.figma.com/file/V9hWgfsAPJFU3izkO2yruc/Zuri-Holiday-Calendar-Plugin?node-id=0%3A1)
+[Figma Calendar File](https://www.figma.com/file/V9hWgfsAPJFU3izkO2yruc/Zuri-Holiday-Calendar-Plugin?node-id=0%3A1)
 
 ## 💻 Built with
 
