@@ -64,7 +64,8 @@ yarn start
 git checkout -b NEW BRANCH NAME
 ```
 
-Make your contribution and make a pull request (PR). Only make a PR to the develop branch
+- Make use of the component folder for your components.
+- Make your contribution and make a pull request (PR). Only make a PR to the develop branch.
 
 > Make sure that you installed all required dependencies and resolve any conflict before making a pull request
 
