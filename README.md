@@ -30,10 +30,12 @@
 
 ## 🛠️ Installation Steps
 
-1. Clone the repository
+1. Fork the repository
+
+2. Clone the forked repository from your list of repos into your local machine
 
 ```bash
-git clone https://github.com/momeniHIN/calendar-app.git
+git clone https://github.com/YOUR_GITHUB_USERNAME/calendar-app.git
 ```
 
 2. Change the working directory
@@ -96,4 +98,4 @@ Calendar app will not be brought to life without you. Feel free to contribute in
 
 ## 🙏 Support
 
-This project needs a 🌟 from you
+This project needs a :star: from you
