@@ -26,6 +26,9 @@ module.exports = {
       width: {
         61: '243px',
       },
+      spacing: {
+        18: '75px',
+      },
     },
   },
   variants: {
