@@ -10,3 +10,6 @@
     font-weight: 400;
   }
 }
+.content-area {
+  @apply mx-auto h-screen w-screen max-h-screen p-0;
+}

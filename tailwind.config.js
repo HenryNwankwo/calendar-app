@@ -2,6 +2,7 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    screens: {},
     extend: {
       colors: {
         'primary-color': '#00B87C',
@@ -14,10 +15,18 @@ module.exports = {
         'bg-color-grey': '#F6F6F6',
         'bg-color-white': '#FFFFFF',
       },
+      padding: {
+        4.5: '18px',
+      },
+      height: {
+        18: '71px',
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      cursor: ['hover', 'focus'],
+    },
   },
   plugins: [],
 };
