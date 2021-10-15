@@ -4,7 +4,7 @@ import { RiArrowDropDownLine } from 'react-icons/ri';
 
 const MonthYearPopUp = () => {
   return (
-    <div className='flex flex-col rounded h-41 w-61'>
+    <div className='flex flex-col rounded h-41 w-61 absolute bg-bg-color-white top-12 left-4 shadow-md'>
       <div className='text-white w-full bg-primary-color px-3 h-6 flex flex-row rounded-t'>
         <span className='text-white font-medium hover:cursor-pointer flex'>
           2021

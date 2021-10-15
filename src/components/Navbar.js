@@ -8,7 +8,6 @@ const Navbar = () => {
   const [isMonthClicked, setIsMonthClicked] = useState(false);
   return (
     <>
-      <MonthYearPopUp />
       <header className='w-full flex items-center justify-between bg-light-green fixed mx-auto h-18'>
         <div
           className='text-primary-color font-bold flex flex-row ml-2 hover:cursor-pointer'
@@ -30,6 +29,7 @@ const Navbar = () => {
             Add Event
           </button>
         </div>
+        <MonthYearPopUp />
       </header>
     </>
   );
