@@ -14,12 +14,17 @@ module.exports = {
         'light-green': '#E1FDF4',
         'bg-color-grey': '#F6F6F6',
         'bg-color-white': '#FFFFFF',
+        'txt-color': 'hsla(300, 1%, 38%, 1)',
       },
       padding: {
         4.5: '18px',
       },
       height: {
         18: '71px',
+        41: '165px',
+      },
+      width: {
+        61: '243px',
       },
     },
   },
