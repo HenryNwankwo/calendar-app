@@ -1,19 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 
-*,
-**::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+  }
 }
