@@ -65,6 +65,8 @@ git checkout -b NEW BRANCH NAME
 ```
 
 - Make use of the component folder for your components.
+- Create your states or include your data in `App.js` and include them in the `AppContext.Provider` value object.
+- Import the react useContext hook to have access to your states or data.
 - Make your contribution and make a pull request (PR). Only make a PR to the develop branch.
 
 > Make sure that you installed all required dependencies and resolve any conflict before making a pull request
@@ -80,6 +82,7 @@ Please contribute using [GitHub Flow](https://guides.github.com/introduction/flo
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/): for styling
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start): for routing
+- [React Context API](https://reactjs.org/docs/context): for passing of data down the component tree.
 
 ## 🛡️ License
 
