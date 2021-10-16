@@ -12,6 +12,7 @@ function App() {
   const [year, setYear] = useState(new Date().getFullYear());
   const [isMonthClicked, setIsMonthClicked] = useState(false);
   const [isYearClicked, setIsYearClicked] = useState(false);
+  const [holidayList, setHolidayList] = useState([]);
   return (
     <AppContext.Provider
       value={{
@@ -23,6 +24,8 @@ function App() {
         setIsMonthClicked,
         isYearClicked,
         setIsYearClicked,
+        holidayList,
+        setHolidayList,
       }}
     >
       <Router>
