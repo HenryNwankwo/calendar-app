@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CalendarApp from './pages/CalendarApp';
-import CreateEvent from './components/CreateEvent/CreateEvent';
 //Creating an app context using context API
 export const AppContext = React.createContext();
 function App() {
@@ -31,7 +30,6 @@ function App() {
         <Switch>
           <Route path='/' exact>
             <CalendarApp />
-            <CreateEvent/>
           </Route>
         </Switch>
       </Router>

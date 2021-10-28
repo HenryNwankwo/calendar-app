@@ -1,7 +1,7 @@
 
 export default function CreateEvent (){
      return(
-          <div className="p-3 "> 
+          <div className="p-3 h-screen"> 
 <form class=" shadow-md mx-auto max-w-sm rounded-xl space-y-3 ">
 
 <div className="p-4  bg-green-500 flex flex-row justify-between ">
@@ -11,40 +11,40 @@ export default function CreateEvent (){
                
           </div>
 
-          <div className=" px-3 flex flex-row sm:flex-row md:flex-`col lg:flex-col m-2" id="event-note">
-          <span class=" font-serif text-md font-bold inline-flex active text-gray-800">Event</span> 
-          <span class=" font-serif text-gray-600">Reminder</span> 
+          <div className=" space-x-3 px-3 flex flex-row sm:flex-row md:flex-`col lg:flex-col m-2" id="event-note">
+          <span class=" font-serif text-md   border-b-2 border-green-500 font-bold inline-flex active text-gray-800">Event</span> 
+          <span class="  font-serif text-gray-600">Reminder</span> 
           </div>
 
 <div className = "Event-name p-2 mx-2 flex flex-row "> 
 <label for = "eventName" class =" space-x-5" ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM5.92 19H5v-.92l9.06-9.06.92.92L5.92 19zM20.71 5.63l-2.34-2.34c-.2-.2-.45-.29-.71-.29s-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41z"/></svg>
 </label>
-<input  id ="eventName"type="text"placeholder="Trip to ..." class ="ring-1 ring-gray-300 w-full rounded-md px-2  outline-bottom" />
+<input  id ="eventName"type="text"placeholder="Trip to ..." class =" border-gray-300 w-full rounded-md px-2 border-b-2" />
 </div>
 
-<div className=" Date  flex flex-col md:flex-row xl:flex-row justify-center px-4 space-x-1 m-4">
+<div className=" Date  flex flex-row md:flex-row xl:flex-row w-1/2 px-3 justify-space-between ">
      <div className="startdate "> 
      <label id = "start"for="startdate" class=" font-serif text-sm  text-gray-600"  >Start Date </label>
-     <input  id = "startdate"type="date" placeholder ="Start Date" required class = "ring-1 ring-gray-300 w-full rounded-md px-2  outline-bottom"/>
+     <input  id = "startdate"type="date" placeholder ="Start Date" required class = "  border-b-2 border-gray-300 w-full rounded-md px-2  outline-bottom"/>
       </div>
 
       <div className="endate "> 
      <label for="endate" id="end" class=" font-serif text-sm  text-gray-600">End Date </label>
-     <input id = "endate" type="date" placeholder ="End Date" required class = "ring-1 ring-gray-300 w-full rounded-md px-2  outline-bottom"/>
+     <input id = "endate" type="date" placeholder ="End Date" required class = "  border-b-2 border-gray-300 w-full rounded-md px-2  outline-bottom"/>
       </div>
 </div>
 
 <div className ="  flex flex-row p-3 space-x-3 mt-4" id="time"> 
-<input type = "time" placeholder class = "ring-1 ring-gray-300 w-full rounded-md px-2  outline-bottom"/>
-<input type = "time" placeholder class = "ring-1 ring-gray-300 w-full rounded-md px-2  outline-bottom"/>
-<input type = "time" placeholder class = "ring-1 ring-gray-300 w-full rounded-md px-2  outline-bottom"/>
+<input type = "time" placeholder class = "  border-b-2 border-gray-300 w-full rounded-md px-2  outline-bottom"/>
+<input type = "time" placeholder class = "  border-b-2 border-gray-300 w-full rounded-md px-2  outline-bottom"/>
+<input type = "time" placeholder class = "  border-b-2 border-gray-300 w-full rounded-md px-2  outline-bottom"/>
 
 
 </div>
 
 <div className="p-2 mx-3">
 <label for="" class=" font-serif text-gray-600"> All Day</label>
-<input type="checkbox" class = "ring-1 ring-gray-300  rounded-md p-5 mx-1  outline-bottom" />
+<input type="checkbox" class = "  border-b-2 border-gray-300  rounded-md p-5 mx-1  outline-bottom" />
 </div>
 
 <div className ="Description p-3 mx-3">
@@ -59,12 +59,14 @@ export default function CreateEvent (){
      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z"/></svg>
      </div>
 </div>
-<div> <input  type ="text"  class = "ring-1 ring-gray-300  w-full rounded-md   outline-bottom"/></div>
+<div> <input  type ="text" placeholder="Enter Text here" class = " border-b-2 border-gray-300  w-full rounded-md   outline-bottom"/></div>
 </div>
 
-<div className ="eventag p-2 mx-3"> 
-<h3 class ="font-bold text-md font-serif text-gray-600" > Event Tag</h3>
-<input type ="text"  class = "ring-1 ring-gray-300  w-full rounded-md   outline-bottom"/>
+<div className ="eventag p-2 mx-3 flex space-between"> 
+<div> <label class ="font-bold text-md font-serif text-gray-600" > Event Tag</label>
+<input type ="text"  class = "  border-b-2 border-gray-300  w-full rounded-md   outline-bottom"/></div>
+
+<input type="color" class=" rounded-lg"/>
 </div>
 
 <div className ="Buttons flex justify-end space-x-3 p-2 sm:text-sm">
