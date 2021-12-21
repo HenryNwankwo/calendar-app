@@ -13,3 +13,7 @@
 .content-area {
   @apply mx-auto h-screen w-screen max-h-screen p-0;
 }
+.scroll-bar::-webkit-scrollbar-thumb{
+  @apply scrollbar-thin scrollbar-thumb-light-green scrollbar-track-bg-color-grey; 
+  border-radius: 10px;
+}

@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import CalendarApp from './pages/CalendarApp';
+import PageLoader from './components/loaders/PageLoader';
+
+//Lazy loaded imports
+const CalendarApp = React.lazy(() => import('./pages/CalendarApp'));
 
 //Creating an app context using context API
 export const AppContext = React.createContext();
@@ -33,9 +36,11 @@ function App() {
     >
       <Router>
         <Switch>
-          <Route path='/' exact>
-            <CalendarApp />
-          </Route>
+          <Suspense fallback={<PageLoader />}>
+            <Route path='/' exact>
+              <CalendarApp />
+            </Route>
+          </Suspense>
         </Switch>
       </Router>
     </AppContext.Provider>

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../App';
+import EventLoader from './loaders/EventLoader';
 
 const MainContent = () => {
   const {
@@ -22,7 +23,10 @@ const MainContent = () => {
       {holidayList.length !== 0 ? (
         <div>There is content</div>
       ) : (
-        <div>There is no content</div>
+        <>
+          <div>There is no content</div>
+          <EventLoader />
+        </>
       )}
     </main>
   );

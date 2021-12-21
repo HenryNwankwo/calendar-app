@@ -1,0 +1,28 @@
+export const holidayList = [
+  {
+    id: 1,
+    eventTitle: 'Company Picnic',
+    startDate: new Date(),
+    endDate: new Date(),
+    startTime: '09:10AM',
+    endTime: '2:00PM',
+    timeZone: '+1 GMT',
+    allDay: false,
+    description: 'This is just a company picnic',
+    tag: 'Company Holiday',
+    color: '#3f3f46',
+  },
+  {
+    id: 1,
+    eventTitle: 'Company Picnic',
+    startDate: new Date(),
+    endDate: new Date(),
+    startTime: '09:10AM',
+    endTime: '2:00PM',
+    timeZone: '+1 GMT',
+    allDay: false,
+    description: 'This is just a company picnic',
+    tag: 'Company Holiday',
+    color: '#3f3f46',
+  },
+];

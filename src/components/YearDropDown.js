@@ -6,7 +6,7 @@ const YearDropDown = () => {
     useContext(AppContext);
   return (
     <div
-      className='bg-bg-color-white h-96 w-20 overflow-y-scroll absolute shadow-md top-18 left-4 '
+      className='bg-bg-color-white h-96 w-20 overflow-y-scroll absolute shadow-md top-17 left-4 scroll-bar'
       onClick={() => {
         setIsYearClicked(!isYearClicked);
       }}
