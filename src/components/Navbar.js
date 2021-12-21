@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <>
       <header
-        className='w-full flex items-center justify-between bg-light-green fixed mx-auto h-18'
+        className='w-full flex items-center justify-between bg-light-green fixed h-18'
         onClick={() => {
           if (isMonthClicked || isYearClicked) {
             setIsMonthClicked(false);
@@ -42,7 +42,7 @@ const Navbar = () => {
             <span className='mx-0.5 text-lg'>{year}</span>
           </div>
           <span className='justify-center items-center'>
-            <RiArrowDropDownLine className='text-2xl hidden md:flex' />
+            <RiArrowDropDownLine className='text-2xl' />
           </span>
         </div>
         <div className='mr-4 flex'>

@@ -1,4 +1,4 @@
-export const holidayList = [
+export const eventList = [
   {
     id: 1,
     eventTitle: 'Company Picnic',
@@ -11,18 +11,26 @@ export const holidayList = [
     description: 'This is just a company picnic',
     tag: 'Company Holiday',
     color: '#3f3f46',
+    reminder: {
+      status: false,
+      time: new Date(),
+    },
   },
   {
-    id: 1,
-    eventTitle: 'Company Picnic',
+    id: 2,
+    eventTitle: 'Wedding Party',
     startDate: new Date(),
     endDate: new Date(),
     startTime: '09:10AM',
     endTime: '2:00PM',
     timeZone: '+1 GMT',
     allDay: false,
-    description: 'This is just a company picnic',
-    tag: 'Company Holiday',
-    color: '#3f3f46',
+    description: "This is just Emeka's wedding Party",
+    tag: 'Wedding Party',
+    color: '#AfE23C',
+    reminder: {
+      status: true,
+      time: new Date(),
+    },
   },
 ];

@@ -1,6 +1,9 @@
-import React, { useContext } from 'react';
+import React, { lazy, useContext } from 'react';
 import { AppContext } from '../App';
 import EventLoader from './loaders/EventLoader';
+
+//Lazy imports
+const EventCard = lazy(() => import('./EventCard.js'));
 
 const MainContent = () => {
   const {
@@ -12,7 +15,7 @@ const MainContent = () => {
   } = useContext(AppContext);
   return (
     <main
-      className='w-full pt-18 pl-2 overflow-y-scroll h-full max-h-screen'
+      className='w-full h-full max-h-screen pt-24 bg-line-color'
       onClick={() => {
         if (isMonthClicked || isYearClicked) {
           setIsMonthClicked(false);
@@ -21,7 +24,9 @@ const MainContent = () => {
       }}
     >
       {holidayList.length !== 0 ? (
-        <div>There is content</div>
+        <div>
+          <EventCard />
+        </div>
       ) : (
         <>
           <div>There is no content</div>

@@ -1,9 +1,10 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PageLoader from './components/loaders/PageLoader';
 
 //Lazy loaded imports
-const CalendarApp = React.lazy(() => import('./pages/CalendarApp'));
+const CalendarApp = lazy(() => import('./pages/CalendarApp'));
+const { eventList } = lazy(() => import('./assets/holidayList'));
 
 //Creating an app context using context API
 export const AppContext = React.createContext();
@@ -15,7 +16,7 @@ function App() {
   const [year, setYear] = useState(new Date().getFullYear());
   const [isMonthClicked, setIsMonthClicked] = useState(false);
   const [isYearClicked, setIsYearClicked] = useState(false);
-  const [holidayList, setHolidayList] = useState([]);
+  const [holidayList, setHolidayList] = useState([eventList]);
   const [pageIsLoading, setPageIsLoading] = useState(true);
   return (
     <AppContext.Provider
