@@ -35,6 +35,7 @@ module.exports = {
       spacing: {
         17: '72px',
         18: '75px',
+        106: '425px',
         '1/2': '50%',
       },
       fontFamily: {
