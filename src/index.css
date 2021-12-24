@@ -11,9 +11,12 @@
   }
 }
 .content-area {
-  @apply h-screen w-screen max-h-screen p-0;
+  @apply h-screen w-screen max-w-7xl max-h-screen p-0 mx-auto;
 }
-.scroll-bar::-webkit-scrollbar-thumb {
-  @apply scrollbar-thin scrollbar-thumb-light-green scrollbar-track-bg-color-grey;
+.scrollBar {
+  @apply scrollbar-thin scrollbar-thumb-primary-color scrollbar-track-bg-color-grey;
+  border-radius: 10px;
+}
+.scrollBar-border-radius::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }

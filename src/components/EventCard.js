@@ -12,12 +12,12 @@ function EventCard() {
         <span className='flex flex-row w-auto items-center'>
           <h6 className='font-bold text-lg'>Company Break</h6>
           <span>
-            <RiNotification2Line className='ml-4 text-xl hover:cursor-pointer' />
+            <RiNotification2Line className='ml-4 text-xl hover:cursor-pointer text-primary-color' />
           </span>
         </span>
         <span className='flex flex-row w-auto items-center'>
-          <FiEdit2 className='mr-3 text-xl hover:cursor-pointer' />
-          <RiDeleteBinLine className='text-xl hover:cursor-pointer' />
+          <FiEdit2 className='mr-3 text-xl hover:cursor-pointer text-primary-color' />
+          <RiDeleteBinLine className='text-xl hover:cursor-pointer text-primary-color' />
         </span>
       </div>
       <p className='text-sm' style={{ color: `#fb3cde` }}>

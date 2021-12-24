@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../App';
 
 import MainContent from '../components/MainContent';
 import Navbar from '../components/Navbar';
+import AddEvent from '../components/AddEvent';
 
 function CalendarApp() {
-  return(
-  <div className='content-area font-Lato'>
-    <Navbar />
-    <MainContent />
-  </div>
+  const { isAddEventOpen, setIsAddEventOpen } = useContext(AppContext);
+  return (
+    <div className='content-area font-Lato'>
+      <Navbar />
+      <MainContent />
+      {isAddEventOpen && <AddEvent />}
+    </div>
   );
 }
 

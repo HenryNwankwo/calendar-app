@@ -13,11 +13,13 @@ const Navbar = () => {
     isYearClicked,
     isMonthClicked,
     setIsMonthClicked,
+    isAddEventOpen,
+    setIsAddEventOpen,
   } = useContext(AppContext);
   return (
     <>
       <header
-        className='w-full flex items-center justify-between bg-light-green fixed h-18'
+        className='w-full flex items-center justify-between bg-light-green fixed h-18 max-w-7xl'
         onClick={() => {
           if (isMonthClicked || isYearClicked) {
             setIsMonthClicked(false);
@@ -46,11 +48,17 @@ const Navbar = () => {
           </span>
         </div>
         <div className='mr-4 flex'>
-          <button className='hidden md:flex bg-primary-color text-white text-center py-3 px-4.5 rounded '>
+          <button
+            className='hidden md:flex bg-primary-color text-white text-center py-3 px-4.5 rounded '
+            onClick={() => setIsAddEventOpen(true)}
+          >
             Add Event
           </button>
           <div className='text-primary-color font-bold block md:hidden'>
-            <FaPlus className='text-lg cursor-pointer block md:hidden' />
+            <FaPlus
+              className='text-lg cursor-pointer block md:hidden'
+              onClick={() => setIsAddEventOpen(true)}
+            />
           </div>
         </div>
       </header>

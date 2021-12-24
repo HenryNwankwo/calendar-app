@@ -18,6 +18,7 @@ function App() {
   const [isYearClicked, setIsYearClicked] = useState(false);
   const [holidayList, setHolidayList] = useState([eventList]);
   const [pageIsLoading, setPageIsLoading] = useState(true);
+  const [isAddEventOpen, setIsAddEventOpen] = useState(false);
   return (
     <AppContext.Provider
       value={{
@@ -33,6 +34,8 @@ function App() {
         setHolidayList,
         pageIsLoading,
         setPageIsLoading,
+        isAddEventOpen,
+        setIsAddEventOpen,
       }}
     >
       <Router>

@@ -3,11 +3,11 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
-      'sm':'480px',
-      'md':'547px',
-      'lg':'768px',
-      'xl':'1024px',
-      '2xl':'1680px',
+      sm: '480px',
+      md: '547px',
+      lg: '768px',
+      xl: '1024px',
+      '2xl': '1680px',
     },
     extend: {
       colors: {
@@ -35,6 +35,7 @@ module.exports = {
       spacing: {
         17: '72px',
         18: '75px',
+        '1/2': '50%',
       },
       fontFamily: {
         Lato: ['Lato', 'sans-serif'],
