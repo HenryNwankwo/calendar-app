@@ -29,7 +29,11 @@ module.exports = {
         18: '71px',
         41: '165px',
       },
+      borderWidth: {
+        1: '1px',
+      },
       width: {
+        33: '135',
         61: '243px',
       },
       spacing: {
@@ -46,6 +50,7 @@ module.exports = {
   variants: {
     extend: {
       cursor: ['hover', 'focus'],
+      a: ['active'],
     },
   },
   plugins: [require('tailwind-scrollbar')],

@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9",
+    "miragejs": "^0.1.43",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "web-vitals": "^2.1.1"

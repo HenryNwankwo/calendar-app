@@ -19,6 +19,7 @@ function App() {
   const [holidayList, setHolidayList] = useState([eventList]);
   const [pageIsLoading, setPageIsLoading] = useState(true);
   const [isAddEventOpen, setIsAddEventOpen] = useState(false);
+  const [whichTab, setWhichTab] = useState('event');
   return (
     <AppContext.Provider
       value={{
@@ -36,6 +37,8 @@ function App() {
         setPageIsLoading,
         isAddEventOpen,
         setIsAddEventOpen,
+        whichTab,
+        setWhichTab,
       }}
     >
       <Router>

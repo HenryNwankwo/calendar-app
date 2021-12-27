@@ -2,16 +2,18 @@ import React, { useContext } from 'react';
 import { FaTimes, FaRegTimesCircle } from 'react-icons/fa';
 import Modal from 'react-modal';
 import { AppContext } from '../App';
+import CustomButton from './CustomButton';
 
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,.5)';
-
+Modal.setAppElement('#root');
 function AddEvent() {
-  const { isAddEventOpen, setIsAddEventOpen } = useContext(AppContext);
+  const { isAddEventOpen, setIsAddEventOpen, whichTab, setWhichTab } =
+    useContext(AppContext);
 
   return (
     <>
       <Modal
-        isOpen={() => isAddEventOpen}
+        isOpen={isAddEventOpen}
         onRequestClose={() => setIsAddEventOpen(false)}
         contentLabel='Add Event'
         className='absolute bottom-auto right-0 left-0 -translate-x-1/2 -translate-y-1/2 mx-auto bg-white w-screen h-screen md:w-106 outline-none'
@@ -28,8 +30,29 @@ function AddEvent() {
             Add New Event
           </p>
         </div>
-        <div></div>
-        <div></div>
+        <div className='flex justify-between px-6 md:mt-3'>
+          <CustomButton
+            allClasses={`text-primary-color px-10 ${
+              whichTab === 'event' && 'bg-light-green'
+            }`}
+            onClick={() => setWhichTab('event')}
+            textValue='Event'
+          />
+          <CustomButton
+            allClasses={`text-primary-color px-6 ${
+              whichTab === 'reminder' && 'bg-light-green'
+            }`}
+            onClick={() => setWhichTab('reminder')}
+            textValue='Reminder'
+          />
+        </div>
+
+        {whichTab === 'event' && (
+          <div className=''>This is the event trial</div>
+        )}
+        {whichTab === 'reminder' && (
+          <div className=''>This is the reminder trial</div>
+        )}
       </Modal>
     </>
   );
