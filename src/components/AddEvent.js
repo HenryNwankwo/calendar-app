@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { FaTimes, FaRegTimesCircle } from 'react-icons/fa';
+import { FaTimes, FaRegTimesCircle, FaEdit } from 'react-icons/fa';
 import Modal from 'react-modal';
 import { AppContext } from '../App';
 import CustomButton from './CustomButton';
+import CustomTextInput from './CustomTextInput';
 
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,.5)';
 Modal.setAppElement('#root');
@@ -48,7 +49,27 @@ function AddEvent() {
         </div>
 
         {whichTab === 'event' && (
-          <div className=''>This is the event trial</div>
+          <div className='flex px-6 mt-5'>
+            <form action='' className='w-full'>
+              <div className='flex w-full'>
+                <label htmlFor='title'>
+                  <FaEdit className='text-xl text-txt-color' />
+                </label>
+                <CustomTextInput
+                  placeholder='Add a title'
+                  name='title'
+                  id='title'
+                  otherClasses='pl-2'
+                />
+              </div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </form>
+          </div>
         )}
         {whichTab === 'reminder' && (
           <div className=''>This is the reminder trial</div>
