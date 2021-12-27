@@ -1,10 +1,10 @@
 import React from 'react';
 
-function CustomInputLabel({ labelComponent, name, otherClasses }) {
+function CustomInputLabel({ labelIcon, name, otherClasses }) {
   return (
     <>
       <label htmlFor={name} className={`absolute ${otherClasses}`}>
-        {labelComponent}
+        {labelIcon}
       </label>
     </>
   );
