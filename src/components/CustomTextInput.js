@@ -1,8 +1,15 @@
 import React from 'react';
 
-function CustomTextInput({ otherClasses, name, id, ...otherProps }) {
+function CustomTextInput({
+  otherClasses,
+  name,
+  id,
+  labelComponent,
+  ...otherProps
+}) {
   return (
     <>
+      {labelComponent}
       <input
         type='text'
         name={name}

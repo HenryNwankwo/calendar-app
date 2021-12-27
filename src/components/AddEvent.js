@@ -51,15 +51,15 @@ function AddEvent() {
         {whichTab === 'event' && (
           <div className='flex px-6 mt-5'>
             <form action='' className='w-full'>
-              <div className='flex w-full'>
-                <label htmlFor='title'>
-                  <FaEdit className='text-xl text-txt-color' />
-                </label>
+              <div className='flex w-full relative'>
                 <CustomTextInput
                   placeholder='Add a title'
                   name='title'
                   id='title'
-                  otherClasses='pl-2'
+                  labelComponent={
+                    <FaEdit className='text-xl text-icon-color' />
+                  }
+                  otherClasses='pl-8'
                 />
               </div>
               <div></div>

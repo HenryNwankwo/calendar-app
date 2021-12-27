@@ -21,6 +21,7 @@ module.exports = {
         'bg-color-grey': '#F6F6F6',
         'bg-color-white': '#FFFFFF',
         'txt-color': 'hsla(300, 1%, 38%, 1)',
+        'icon-color': '#616061',
       },
       padding: {
         4.5: '18px',
