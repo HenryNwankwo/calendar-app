@@ -15,8 +15,15 @@
 }
 .scrollBar {
   @apply scrollbar-thin scrollbar-thumb-primary-color scrollbar-track-bg-color-grey;
-  border-radius: 10px;
 }
 .scrollBar-border-radius::-webkit-scrollbar-thumb {
   border-radius: 10px;
+}
+.toggleSwitch::after {
+  content: '';
+  @apply w-7 h-7 rounded-full absolute transition duration-200 transform scale-110 bg-gray-500 flex left-0 my-auto;
+}
+.toggleSwitch:checked::after {
+  content: '';
+  @apply transition duration-200 bg-primary-color transform translate-x-5;
 }

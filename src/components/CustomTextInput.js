@@ -16,7 +16,7 @@ function CustomTextInput({
         type='text'
         name={name}
         id={id}
-        className={`w-full border-b-2 border-bg-color-grey outline-none px-1 py-1 border-solid ${otherClasses}`}
+        className={`w-full border-b-2 border-bg-color-grey outline-none px-1 pt-1 border-solid ${otherClasses}`}
         {...otherProps}
       />
       {secondLabel && secondLabel}

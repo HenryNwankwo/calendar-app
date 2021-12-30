@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+
+import { FiEdit, FiCalendar, FiClock } from 'react-icons/fi';
 import {
-  FaTimes,
-  FaRegTimesCircle,
-  FaRegCalendarAlt,
-  FaRegClock,
-  FaCaretDown,
-} from 'react-icons/fa';
-import { FiEdit, FiCalendar } from 'react-icons/fi';
-import { RiArrowDownSLine } from 'react-icons/ri';
+  RiArrowDownSLine,
+  RiCloseLine,
+  RiCloseCircleLine,
+} from 'react-icons/ri';
 import Modal from 'react-modal';
+import { CirclePicker } from 'react-color';
 import { AppContext } from '../App';
 import CustomButton from './CustomButton';
 import CustomTextInput from './CustomTextInput';
 import CustomInputLabel from './CustomInputLabel';
+import ToggleSwitch from './ToggleSwitch';
 
 //Setted add event modal oveylay color and app root
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,.5)';
@@ -20,6 +20,8 @@ Modal.setAppElement('#root');
 function AddEvent() {
   const { isAddEventOpen, setIsAddEventOpen, whichTab, setWhichTab } =
     useContext(AppContext);
+  const [color, setColor] = useState('#00B87C');
+  const [isColorClicked, setisColorClicked] = useState(false);
 
   return (
     <>
@@ -28,23 +30,29 @@ function AddEvent() {
         isOpen={isAddEventOpen}
         onRequestClose={() => setIsAddEventOpen(false)}
         contentLabel='Add Event'
-        className='absolute bottom-auto right-0 left-0 -translate-x-1/2 -translate-y-1/2 mx-auto bg-white w-screen h-screen md:w-106 outline-none'
+        className='absolute bottom-auto right-0 left-0 -translate-x-1/2 -translate-y-1/2 mx-auto bg-white w-screen h-screen md:w-106 outline-none overflow-y-auto scrollBar scrollBar-border-radius'
       >
-        <div className='flex justify-center items-center w-full h-14 md:bg-primary-color md:text-white px-6'>
+        <div
+          className='flex justify-center items-center w-full h-14 md:bg-primary-color md:text-white px-6'
+          onClick={() => setisColorClicked(false)}
+        >
           <span
             className='flex justify-center items-center cursor-pointer md:order-3'
             onClick={() => setIsAddEventOpen(false)}
           >
-            <FaTimes className='md:hidden' />
-            <FaRegTimesCircle className='hidden md:flex text-lg' />
+            <RiCloseLine className='md:hidden text-xl' />
+            <RiCloseCircleLine className='hidden md:flex text-xl' />
           </span>
-          <p className='justify-self-center mx-auto font-bold text-lg'>
+          <p className='justify-self-center mx-auto font-bold text-xl'>
             Add New Event
           </p>
         </div>
 
         {/* Event and Reminder navigation tabs  group*/}
-        <div className='flex justify-between px-6 md:mt-3'>
+        <div
+          className='flex justify-between px-6 md:mt-3'
+          onClick={() => setisColorClicked(false)}
+        >
           <CustomButton
             allClasses={`text-primary-color px-10 ${
               whichTab === 'event' && 'bg-light-green'
@@ -63,7 +71,10 @@ function AddEvent() {
 
         {whichTab === 'event' && (
           //Create event form groups
-          <div className='flex px-6 mt-5'>
+          <div
+            className='flex px-6 mt-5'
+            onClick={() => isColorClicked && setisColorClicked(false)}
+          >
             <form action='' className='w-full'>
               {/*  Add title group */}
               <div className='flex w-full relative'>
@@ -77,7 +88,7 @@ function AddEvent() {
                       labelIcon={<FiEdit className='text-lg text-icon-color' />}
                     />
                   }
-                  otherClasses='px-6'
+                  otherClasses='pl-6 pr-1'
                   inputGroupClasses='w-full'
                 />
               </div>
@@ -152,7 +163,7 @@ function AddEvent() {
                         name='startTime'
                         otherClasses='mt-1'
                         labelIcon={
-                          <FaRegClock className='text-lg text-icon-color' />
+                          <FiClock className='text-lg text-icon-color' />
                         }
                       />
                     }
@@ -181,7 +192,7 @@ function AddEvent() {
                         name='endTime'
                         otherClasses='mt-1'
                         labelIcon={
-                          <FaRegClock className='text-lg text-icon-color' />
+                          <FiClock className='text-lg text-icon-color' />
                         }
                       />
                     }
@@ -208,7 +219,7 @@ function AddEvent() {
                     labelComponent={
                       <CustomInputLabel
                         name='timeZone'
-                        otherClasses='text-xs font-bold absolute left-0 -top-4'
+                        otherClasses='text-xs font-bold absolute left-0 -top-4 text-txt-color'
                         labelIcon='Time Zone'
                       />
                     }
@@ -224,10 +235,77 @@ function AddEvent() {
                   />
                 </div>
               </div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+              {/* All day toggle switch */}
+              <div className='w-full mt-6'>
+                <ToggleSwitch
+                  toggleFor='allDaySwitch'
+                  toggleName='allDaySwitch'
+                  toggleId='allDaySwitch'
+                  toggleText='All Day'
+                  inputGroupClass='flex'
+                  labelClasses='mr-2'
+                />
+              </div>
+              {/* Event Description Group */}
+              <div className='mt-6 w-full flex flex-col'>
+                <p className='text-txt-color font-solid text-sm'>Description</p>
+                <div></div>
+              </div>
+              {/* Event tag and color group */}
+              <div className='mt-6 flex flex-col w-full'>
+                <p className='text-sm font-solid text-txt-color'>Event Tag</p>
+                <div className='flex flex-row w-full'>
+                  <CustomTextInput
+                    placeholder='Enter the Event Tag'
+                    otherClasses='w-8/12'
+                  />
+                  <div
+                    className='relative flex flex-row items-center hover:cursor-pointer ml-2 md:ml-10 w-3/12'
+                    onClick={() => setisColorClicked(!isColorClicked)}
+                  >
+                    <span
+                      className='block rounded-full w-6 h-6'
+                      style={{ backgroundColor: color }}
+                    ></span>
+                    <RiArrowDownSLine className='text-icon-color text-lg ml-2' />
+                    {isColorClicked && (
+                      <div className='absolute bg-white top-0 left-0 shadow-md flex justify-center items-center rounded py-6 pl-5 mt-7'>
+                        <CirclePicker
+                          width='118px'
+                          color={color}
+                          circleSpacing={22}
+                          colors={[
+                            '#2573F6',
+                            '#8CB7FF',
+                            '#8F3985',
+                            '#C2185B',
+                            '#FF9800',
+                            '#FFEB3B',
+                            '#00B87C',
+                            '#D0E888',
+                            '#454545',
+                            '#999999',
+                          ]}
+                          onChange={(updatedColor) =>
+                            setColor(updatedColor.hex)
+                          }
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              {/* Cancel and create event button groups */}
+              <div className='flex justify-between mb-6 mt-16'>
+                <CustomButton
+                  allClasses='border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11'
+                  textValue='Cancel'
+                />
+                <CustomButton
+                  allClasses='border-1 bg-primary-color text-white text-sm px-11'
+                  textValue='Create'
+                />
+              </div>
             </form>
           </div>
         )}

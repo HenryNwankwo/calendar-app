@@ -50,6 +50,8 @@ module.exports = {
   },
   variants: {
     extend: {
+      backgroundColor: ['checked'],
+      borderColor: ['checked'],
       cursor: ['hover', 'focus'],
       a: ['active'],
     },
