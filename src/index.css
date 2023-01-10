@@ -27,3 +27,15 @@
   content: '';
   @apply transition duration-200 bg-primary-color transform translate-x-5;
 }
+.colorGroup {
+  @apply flex justify-around items-center;
+}
+.toolbarClassName {
+  @apply p-0 border-0 !important mt-3;
+}
+:is(.rdw-inline-wrapper, .rdw-list-wrapper, .rdw-embedded-wrapper) > * {
+  border: none !important;
+}
+.public-DraftStyleDefault-block {
+  @apply my-2 !important;
+}

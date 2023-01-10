@@ -8,20 +8,30 @@ import {
 } from 'react-icons/ri';
 import Modal from 'react-modal';
 import { CirclePicker } from 'react-color';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { AppContext } from '../App';
 import CustomButton from './CustomButton';
 import CustomTextInput from './CustomTextInput';
 import CustomInputLabel from './CustomInputLabel';
 import ToggleSwitch from './ToggleSwitch';
+import { EditorState } from 'draft-js';
 
 //Setted add event modal oveylay color and app root
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,.5)';
 Modal.setAppElement('#root');
 function AddEvent() {
+  const editorState = EditorState.createEmpty();
   const { isAddEventOpen, setIsAddEventOpen, whichTab, setWhichTab } =
     useContext(AppContext);
   const [color, setColor] = useState('#00B87C');
   const [isColorClicked, setisColorClicked] = useState(false);
+  const [descriptionState, setDescriptionState] = useState(editorState);
+
+  //onchange funnction for the editor state
+  const onEditorStateChange = (editorState) => {
+    setDescriptionState(editorState);
+  };
 
   return (
     <>
@@ -249,7 +259,35 @@ function AddEvent() {
               {/* Event Description Group */}
               <div className='mt-6 w-full flex flex-col'>
                 <p className='text-txt-color font-solid text-sm'>Description</p>
-                <div></div>
+                <div>
+                  <Editor
+                    editorState={descriptionState}
+                    toolbarClassName='toolbarClassName'
+                    wrapperClassName='wrapperClassName'
+                    editorClassName='editorClassName'
+                    onEditorStateChange={onEditorStateChange}
+                    toolbar={{
+                      options: ['inline', 'list', 'embedded'],
+                      inline: {
+                        inDropdown: false,
+                        className: undefined,
+                        component: undefined,
+                        dropdownClassName: undefined,
+                        options: ['bold', 'italic', 'underline'],
+                      },
+
+                      list: {
+                        inDropdown: false,
+                        className: undefined,
+                        component: undefined,
+                        dropdownClassName: undefined,
+                        options: ['unordered', 'ordered'],
+                      },
+                      image: {},
+                    }}
+                    placeholder='Enter text here!'
+                  />
+                </div>
               </div>
               {/* Event tag and color group */}
               <div className='mt-6 flex flex-col w-full'>
@@ -271,6 +309,7 @@ function AddEvent() {
                     {isColorClicked && (
                       <div className='absolute bg-white top-0 left-0 shadow-md flex justify-center items-center rounded py-6 pl-5 mt-7'>
                         <CirclePicker
+                          className='colorGroup absolute top-0 left-0 bg-white pl-4 pt-4 mt-2 shadow-md rounded'
                           width='118px'
                           color={color}
                           circleSpacing={22}
