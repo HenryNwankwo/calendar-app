@@ -9,7 +9,7 @@ function EventCard() {
   return eventList.map((holiday) => {
     return (
       <div
-        className='flex flex-col bg-bg-color-white mt-1.5 mx-4 md:mx-7 p-4 md:p-6 hover:bg-gray-50'
+        className='flex flex-col bg-bg-color-white mt-1.5 mx-4 md:mx-7 p-4 md:p-6 hover:bg-gray-50 shadow-md'
         style={{ borderLeft: `8px solid ${holiday.color}` }}
         key={holiday.id}
       >

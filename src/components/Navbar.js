@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <>
       <header
-        className='w-full flex items-center justify-between bg-light-green fixed h-18 max-w-7xl'
+        className='w-full flex items-center justify-between bg-light-green fixed h-18 max-w-7xl shadow-md'
         onClick={() => {
           if (isMonthClicked || isYearClicked) {
             setIsMonthClicked(false);
