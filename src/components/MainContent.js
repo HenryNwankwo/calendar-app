@@ -16,7 +16,7 @@ const MainContent = () => {
   } = useContext(AppContext);
   return (
     <main
-      className='w-full h-full max-h-screen pt-24 bg-line-color'
+      className='w-screen max-w-full h-auto min-h-screen pt-24 bg-line-color'
       onClick={() => {
         if (isMonthClicked || isYearClicked) {
           setIsMonthClicked(false);
@@ -25,9 +25,9 @@ const MainContent = () => {
       }}
     >
       {holidayList.length !== 0 ? (
-        <div>
+        <>
           <EventCard />
-        </div>
+        </>
       ) : (
         <>
           <div>There is no content</div>
