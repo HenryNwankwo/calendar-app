@@ -50,10 +50,15 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ['checked'],
-      borderColor: ['checked'],
+      backgroundColor: ['checked', 'hover'],
+      borderColor: ['checked', 'hover'],
+      border: ['hover'],
       cursor: ['hover', 'focus'],
       a: ['active'],
+      height: ['hover'],
+      width: ['hover'],
+      padding: ['hover'],
+      color: ['hover'],
     },
   },
   plugins: [require('tailwind-scrollbar')],

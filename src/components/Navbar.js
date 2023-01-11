@@ -28,11 +28,11 @@ const Navbar = () => {
         }}
       >
         <div
-          className='text-primary-color font-bold flex flex-row ml-2 hover:cursor-pointer'
+          className='text-primary-color font-bold flex flex-row ml-2 hover:cursor-pointer hoverRoundedLightGray '
           onClick={() => setIsMonthClicked(!isMonthClicked)}
         >
           <div className='flex items-center justify-center'>
-            <span className='hover:bg-primary-color'>
+            <span className=''>
               <BiCalendar className='text-2xl my-auto hidden md:flex' />
             </span>
             <span className='my-auto mr-1 md:hidden'>
@@ -49,12 +49,12 @@ const Navbar = () => {
         </div>
         <div className='mr-4 flex'>
           <button
-            className='hidden md:flex bg-primary-color text-white text-center py-3 px-4.5 rounded '
+            className='hidden md:flex bg-primary-color text-white text-center py-3 px-4.5 rounded hoverOnGreen'
             onClick={() => setIsAddEventOpen(true)}
           >
             Add Event
           </button>
-          <div className='text-primary-color font-bold block md:hidden'>
+          <div className='text-primary-color font-bold block md:hidden hoverRoundedGray'>
             <FaPlus
               className='text-lg cursor-pointer block md:hidden'
               onClick={() => setIsAddEventOpen(true)}

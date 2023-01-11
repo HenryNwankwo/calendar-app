@@ -9,20 +9,24 @@ function EventCard() {
   return eventList.map((holiday) => {
     return (
       <div
-        className='flex flex-col bg-bg-color-white mt-1.5 mx-4 md:mx-7 p-4 md:p-6'
+        className='flex flex-col bg-bg-color-white mt-1.5 mx-4 md:mx-7 p-4 md:p-6 hover:bg-gray-50'
         style={{ borderLeft: `8px solid ${holiday.color}` }}
         key={holiday.id}
       >
         <div className='flex justify-between mb-2'>
           <span className='flex flex-row w-auto items-center'>
             <h6 className='font-bold text-lg'>{holiday.eventTitle}</h6>
-            <span>
-              <RiNotification2Line className='ml-4 text-xl hover:cursor-pointer text-primary-color' />
+            <span className='hoverRoundedGray ml-4 '>
+              <RiNotification2Line className='text-xl hover:cursor-pointer text-primary-color' />
             </span>
           </span>
           <span className='flex flex-row w-auto items-center'>
-            <FiEdit2 className='mr-3 text-xl hover:cursor-pointer text-primary-color' />
-            <RiDeleteBinLine className='text-xl hover:cursor-pointer text-primary-color' />
+            <span className='hoverRoundedGray mr-1'>
+              <FiEdit2 className='text-xl text-primary-color' />
+            </span>
+            <span className='hoverRoundedGray'>
+              <RiDeleteBinLine className='text-xl hover:cursor-pointer text-primary-color' />
+            </span>
           </span>
         </div>
         <p className='text-sm' style={{ color: holiday.color }}>

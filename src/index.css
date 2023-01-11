@@ -39,3 +39,17 @@
 .public-DraftStyleDefault-block {
   @apply my-2 !important;
 }
+
+.hoverRoundedGray {
+  @apply p-2 rounded-full flex items-center justify-center hover:cursor-pointer hover:bg-gray-200;
+}
+.hoverRoundedLightGray {
+  @apply p-2 rounded-full flex items-center justify-center hover:cursor-pointer hover:bg-gray-50;
+}
+
+.hoverOnGreen:hover {
+  @apply bg-green-400;
+}
+.hoverOnGreen-2:hover {
+  @apply bg-green-100;
+}

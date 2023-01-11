@@ -337,11 +337,12 @@ function AddEvent() {
               {/* Cancel and create event button groups */}
               <div className='flex justify-between mb-6 mt-16'>
                 <CustomButton
-                  allClasses='border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11'
+                  allClasses='border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green'
                   textValue='Cancel'
+                  onClick={() => setIsAddEventOpen(false)}
                 />
                 <CustomButton
-                  allClasses='border-1 bg-primary-color text-white text-sm px-11'
+                  allClasses='border-1 bg-primary-color text-white text-sm px-11 hoverOnGreen hover:border-green-100'
                   textValue='Create'
                 />
               </div>
