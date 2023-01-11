@@ -11,6 +11,7 @@ function EventCard() {
       <div
         className='flex flex-col bg-bg-color-white mt-1.5 mx-4 md:mx-7 p-4 md:p-6'
         style={{ borderLeft: `8px solid ${holiday.color}` }}
+        key={holiday.id}
       >
         <div className='flex justify-between mb-2'>
           <span className='flex flex-row w-auto items-center'>

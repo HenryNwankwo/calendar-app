@@ -11,7 +11,7 @@ const MonthYearPopUp = () => {
   return (
     <>
       <div
-        className='flex flex-col rounded h-41 w-61 absolute bg-bg-color-white top-12 shadow-md ml-2 mt-1'
+        className='flex flex-col rounded h-41 w-61 fixed bg-bg-color-white top-12 shadow-md ml-2 mt-1'
         onClick={() => {
           if (isYearClicked) {
             setIsYearClicked(false);

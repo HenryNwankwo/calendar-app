@@ -6,11 +6,24 @@ import Navbar from '../components/Navbar';
 import AddEvent from '../components/AddEvent';
 
 function CalendarApp() {
-  const { isAddEventOpen, setIsAddEventOpen } = useContext(AppContext);
+  const {
+    isAddEventOpen,
+    setIsAddEventOpen,
+    isMonthClicked,
+    isYearClicked,
+    setIsMonthClicked,
+    setIsYearClicked,
+  } = useContext(AppContext);
   return (
     <div
       className='content-area font-Lato relative min-h-screen scrollBar'
       id='calendarRoot'
+      onScroll={() => {
+        if (isMonthClicked || isYearClicked) {
+          setIsMonthClicked(false);
+          setIsYearClicked(false);
+        }
+      }}
     >
       <Navbar />
       <MainContent />
