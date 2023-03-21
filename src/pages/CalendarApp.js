@@ -16,7 +16,7 @@ function CalendarApp() {
   } = useContext(AppContext);
   return (
     <div
-      className='content-area font-Lato relative min-h-screen scrollBar'
+      className='content-area font-Lato relative min-h-screen scrollBar max-w-7xl'
       id='calendarRoot'
       onScroll={() => {
         if (isMonthClicked || isYearClicked) {

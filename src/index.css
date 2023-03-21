@@ -11,7 +11,7 @@
   }
 }
 .content-area {
-  @apply h-screen w-screen max-w-full max-h-screen p-0 mx-auto;
+  @apply h-screen w-screen max-w-screen-2xl max-h-screen p-0 mx-auto;
 }
 .scrollBar {
   @apply scrollbar-thin scrollbar-thumb-primary-color scrollbar-track-bg-color-grey;

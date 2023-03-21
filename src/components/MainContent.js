@@ -16,7 +16,7 @@ const MainContent = () => {
   } = useContext(AppContext);
   return (
     <main
-      className='w-screen max-w-full h-auto min-h-screen pt-24 bg-line-color'
+      className='w-screen max-w-full h-auto min-h-screen pt-24 bg-line-color pb-7'
       onClick={() => {
         if (isMonthClicked || isYearClicked) {
           setIsMonthClicked(false);
