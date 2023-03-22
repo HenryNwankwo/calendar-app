@@ -22,7 +22,7 @@ function App() {
   const [isAddEventOpen, setIsAddEventOpen] = useState(false);
   const [whichTab, setWhichTab] = useState('event');
   const [deleteEventPopUp, setDeleteEventPopUp] = useState(false);
-  console.log(eventList);
+
   return (
     <AppContext.Provider
       value={{

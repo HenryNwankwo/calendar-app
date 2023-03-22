@@ -5,9 +5,9 @@ import CustomButton from './CustomButton';
 function DeleteEvent({ theEventID }) {
   const { deleteEventPopUp, setDeleteEventPopUp } = useContext(AppContext);
   return (
-    <>
+    <div className='bg-black bg-opacity-40 flex justify-center items-center fixed top-0 left-0 w-screen min-h-full'>
       <div
-        className='h-41 w-96 rounded flex flex-col flex-nowrap bg-white shadow-md px-5 py-9 justify-between absolute right-0 top-3'
+        className='h-auto md:h-41 w-full md:w-96 rounded flex flex-col flex-nowrap bg-white shadow-md px-5 py-9 md:justify-between'
         key={theEventID}
       >
         <div className='w-full'>
@@ -17,7 +17,7 @@ function DeleteEvent({ theEventID }) {
         </div>
 
         {/*Cancel and Delete Buttons*/}
-        <div className='w-full flex justify-between px-6'>
+        <div className='w-full flex flex-col md:flex-row justify-between px-6 mt-3'>
           <CustomButton
             allClasses={
               'border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-green-100 shadow-md'
@@ -26,13 +26,13 @@ function DeleteEvent({ theEventID }) {
           ></CustomButton>
           <CustomButton
             allClasses={
-              'border-none bg-red-600 text-white text-sm px-11 hover:bg-red-400 hover:border-red-100 shadow-md'
+              'border-none bg-red-600 text-white text-sm px-11 hover:bg-red-400 hover:border-red-100 shadow-md mt-3 md:mt-0'
             }
             textValue={'Delete'}
           ></CustomButton>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

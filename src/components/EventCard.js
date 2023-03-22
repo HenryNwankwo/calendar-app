@@ -8,10 +8,10 @@ function EventCard() {
   const { holidayList } = useContext(AppContext);
 
   const deleteEventMethod = () => {
-    alert('delete this event');
+    setDeleteEventPopUp(!deleteEventPopUp);
   };
   return (
-    <>
+    <div className=''>
       {holidayList.map((holiday) => {
         return (
           <div
@@ -47,10 +47,8 @@ function EventCard() {
         );
       })}
 
-      {/* deleteEventPopUp && (
-          <DeleteEvent theEventID={holiday.id}></DeleteEvent>
-        ) */}
-    </>
+      {deleteEventPopUp && <DeleteEvent></DeleteEvent>}
+    </div>
   );
 }
 
