@@ -20,6 +20,7 @@ function App() {
   const [pageIsLoading, setPageIsLoading] = useState(true);
   const [isAddEventOpen, setIsAddEventOpen] = useState(false);
   const [whichTab, setWhichTab] = useState('event');
+  const [deleteEventPopUp, setDeleteEventPopUp] = useState(false);
   return (
     <AppContext.Provider
       value={{
@@ -39,6 +40,8 @@ function App() {
         setIsAddEventOpen,
         whichTab,
         setWhichTab,
+        deleteEventPopUp,
+        setDeleteEventPopUp,
       }}
     >
       <Router>
