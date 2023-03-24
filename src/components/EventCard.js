@@ -7,8 +7,10 @@ function EventCard() {
   const { holidayList, deleteEventPopUp, setDeleteEventPopUp } =
     useContext(AppContext);
 
-  const deleteEventMethod = () => {
+  const [deleteEventID, setDeleteEventID] = useState(0);
+  const deleteEventMethod = (id) => {
     setDeleteEventPopUp(!deleteEventPopUp);
+    setDeleteEventID(id);
   };
 
   console.log('this is the holiday list: ', holidayList);
@@ -32,7 +34,10 @@ function EventCard() {
                 <span className='hoverRoundedGray mr-1'>
                   <FiEdit2 className='text-xl text-primary-color' />
                 </span>
-                <span className='hoverRoundedGray' onClick={deleteEventMethod}>
+                <span
+                  className='hoverRoundedGray'
+                  onClick={() => deleteEventMethod(holiday.id)}
+                >
                   <RiDeleteBinLine className='text-xl hover:cursor-pointer text-primary-color' />
                 </span>
               </span>
@@ -45,15 +50,16 @@ function EventCard() {
             <p className='font-bold text-sm' style={{ color: holiday.color }}>
               {holiday.description}
             </p>
-            <DeleteEvent
-              theEventID={holiday.id}
-              trigger={deleteEventPopUp}
-              theKey={holiday.id}
-            ></DeleteEvent>
           </div>
         );
       })}
-
+      {
+        <DeleteEvent
+          theEventID={deleteEventID}
+          trigger={deleteEventPopUp}
+          theKey={deleteEventID}
+        ></DeleteEvent>
+      }
       {/* {deleteEventPopUp && <DeleteEvent theEventID={anEventID}></DeleteEvent>} */}
     </div>
   );

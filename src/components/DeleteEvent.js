@@ -26,7 +26,7 @@ function DeleteEvent({ theEventID, trigger, theKey }) {
       className='flex justify-center items-center fixed top-0 left-0 w-screen min-h-full select-none '
       key={theKey}
     >
-      <div className='h-auto md:h-41 w-full md:w-96 rounded flex flex-col flex-nowrap bg-white shadow-md px-5 py-9 md:justify-between z-50'>
+      <div className='h-auto md:h-41 w-full md:w-96 rounded flex flex-col flex-nowrap bg-white shadow-md px-5 py-9 md:justify-between z-20'>
         <div className='w-full'>
           <p className='w-full text-base text-center'>
             Are you sure you want to delete this event?
