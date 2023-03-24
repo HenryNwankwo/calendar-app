@@ -1,15 +1,17 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { RiDeleteBinLine, RiNotification2Line } from 'react-icons/ri';
 import { FiEdit2 } from 'react-icons/fi';
 import { AppContext } from './../App';
 import DeleteEvent from './DeleteEvent';
 function EventCard() {
-  const [deleteEventPopUp, setDeleteEventPopUp] = useState(false);
-  const { holidayList } = useContext(AppContext);
+  const { holidayList, deleteEventPopUp, setDeleteEventPopUp } =
+    useContext(AppContext);
 
   const deleteEventMethod = () => {
     setDeleteEventPopUp(!deleteEventPopUp);
   };
+
+  console.log('this is the holiday list: ', holidayList);
   return (
     <div className=''>
       {holidayList.map((holiday) => {
@@ -43,11 +45,16 @@ function EventCard() {
             <p className='font-bold text-sm' style={{ color: holiday.color }}>
               {holiday.description}
             </p>
+            <DeleteEvent
+              theEventID={holiday.id}
+              trigger={deleteEventPopUp}
+              theKey={holiday.id}
+            ></DeleteEvent>
           </div>
         );
       })}
 
-      {deleteEventPopUp && <DeleteEvent></DeleteEvent>}
+      {/* {deleteEventPopUp && <DeleteEvent theEventID={anEventID}></DeleteEvent>} */}
     </div>
   );
 }
