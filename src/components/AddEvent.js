@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
 
 import { FiEdit, FiCalendar, FiClock } from 'react-icons/fi';
+import { AiOutlineSync } from 'react-icons/ai';
 import {
   RiArrowDownSLine,
   RiCloseLine,
   RiCloseCircleLine,
+  RiArrowDropDownFill,
 } from 'react-icons/ri';
 import Modal from 'react-modal';
 import { CirclePicker } from 'react-color';
@@ -14,6 +16,7 @@ import { AppContext } from '../App';
 import CustomButton from './CustomButton';
 import CustomTextInput from './CustomTextInput';
 import CustomInputLabel from './CustomInputLabel';
+import CustomCheckbox from './CustomCheckbox';
 import ToggleSwitch from './ToggleSwitch';
 import { EditorState } from 'draft-js';
 
@@ -40,7 +43,7 @@ function AddEvent() {
         isOpen={isAddEventOpen}
         onRequestClose={() => setIsAddEventOpen(false)}
         contentLabel='Add Event'
-        className='absolute bottom-auto right-0 left-0 -translate-x-1/2 -translate-y-1/2 mx-auto bg-white w-screen h-screen md:w-106 outline-none overflow-y-auto scrollBar scrollBar-border-radius'
+        className='absolute bottom-auto top-0 right-0 left-0 -translate-x-1/2 -translate-y-1/2 mx-auto my-auto bg-white w-screen h-auto md:w-106 outline-none overflow-y-auto scrollBar scrollBar-border-radius'
       >
         <div
           className='flex justify-center items-center w-full h-14 md:bg-primary-color md:text-white px-6'
@@ -351,7 +354,149 @@ function AddEvent() {
         )}
         {whichTab === 'reminder' && (
           //Create Reminder form groups
-          <div className=''>This is the reminder trial</div>
+          <div
+            className='flex px-6 mt-5'
+            onClick={() => isColorClicked && setisColorClicked(false)}
+          >
+            <form action='' className='w-full'>
+              {/*  Add title group */}
+              <div className='flex w-full relative'>
+                <CustomTextInput
+                  placeholder='Add a title'
+                  name='title'
+                  id='title'
+                  labelComponent={
+                    <CustomInputLabel
+                      name='title'
+                      otherClasses='hover:cursor-pointer'
+                      labelIcon={<FiEdit className='text-lg text-icon-color' />}
+                    />
+                  }
+                  otherClasses='pl-6 pr-1'
+                  inputGroupClasses='w-full'
+                />
+              </div>
+
+              {/* date and time group */}
+              <div className='mt-6 flex justify-between'>
+                {/* date group */}
+                <div className='flex relative w-5/12'>
+                  <CustomTextInput
+                    name='date'
+                    id='date'
+                    placeholder='Date'
+                    otherClasses='px-6'
+                    labelComponent={
+                      <CustomInputLabel
+                        name='date'
+                        otherClasses='hover:cursor-pointer'
+                        labelIcon={
+                          <FiCalendar className='text-lg text-icon-color' />
+                        }
+                      />
+                    }
+                  />
+                  <CustomInputLabel
+                    name='startDate'
+                    otherClasses='absolute right-0 mt-1 hover:cursor-pointer'
+                    labelIcon={
+                      <RiArrowDownSLine className='text-icon-color text-lg' />
+                    }
+                  />
+                </div>
+
+                {/* time group */}
+
+                <div className='flex relative w-5/12'>
+                  <CustomTextInput
+                    name='reminderTIme'
+                    id='reminderTIme'
+                    placeholder='Time'
+                    otherClasses='px-6'
+                    labelComponent={
+                      <CustomInputLabel
+                        name='reminderTIme'
+                        otherClasses='mt-1 hover:cursor-pointer'
+                        labelIcon={
+                          <FiClock className='text-lg text-icon-color' />
+                        }
+                      />
+                    }
+                    secondLabel={
+                      <CustomInputLabel
+                        name='reminderTIme'
+                        otherClasses='absolute right-0 mt-1 hover:cursor-pointer'
+                        labelIcon={
+                          <RiArrowDownSLine className='text-icon-color text-lg' />
+                        }
+                      />
+                    }
+                  />
+                </div>
+              </div>
+
+              {/* Does not Repeat group */}
+              <div className='mt-6 flex justify-between'>
+                {/* Does not repeat group */}
+                <div className='flex relative w-5/12'>
+                  <CustomTextInput
+                    name='doNotRepeat'
+                    id='doNotRepeat'
+                    placeholder='Do not Repeat'
+                    otherClasses='px-6 border-none'
+                    labelComponent={
+                      <CustomInputLabel
+                        name='doNotRepeat'
+                        otherClasses='hover:cursor-pointer'
+                        labelIcon={
+                          <AiOutlineSync className='text-lg text-icon-color' />
+                        }
+                      />
+                    }
+                  />
+                  <CustomInputLabel
+                    name='doNotRepeat'
+                    otherClasses='absolute right-0 mt-1 hover:cursor-pointer'
+                    labelIcon={
+                      <RiArrowDropDownFill className='text-icon-color text-3xl' />
+                    }
+                  />
+                </div>
+
+                {/* All day group */}
+
+                <div className='flex relative w-5/12'>
+                  <CustomCheckbox
+                    name='allDay'
+                    id='allDay'
+                    placeholder='allDay'
+                    otherClasses='px-6 hover:cursor-pointer'
+                    labelComponent={
+                      <CustomInputLabel
+                        name='allDay'
+                        otherClasses='w-21 h-21 border-1 bg-black hover:cursor-pointer'
+                      />
+                    }
+                    secondLabel={
+                      <CustomInputLabel
+                        name='allDay'
+                        otherClasses='absolute right-20 mt-1 text-gray-500 hover:cursor-pointer'
+                        labelIcon='All Day'
+                      />
+                    }
+                  />
+                </div>
+              </div>
+
+              {/* Cancel and create event button groups */}
+              <div className='flex justify-end mb-6 mt-16'>
+                <CustomButton
+                  allClasses='border-1 bg-primary-color text-white text-sm px-11 hoverOnGreen hover:border-green-100 shadow-md hover:cursor-pointer'
+                  textValue='Save'
+                />
+              </div>
+            </form>
+          </div>
         )}
       </Modal>
     </>

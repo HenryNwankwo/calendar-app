@@ -11,11 +11,6 @@ function DeleteEvent({ theEventID, trigger, theKey }) {
     deleteEventPopUp && setDeleteEventPopUp(false);
   };
 
-  //Show event popup function
-  const showEventPopUp = () => {
-    deleteEventPopUp && setDeleteEventPopUp(true);
-  };
-
   //Delete an event function
   const deleteAnEvent = (id) => {
     setHolidayList(holidayList.filter((holiday) => holiday.id !== id));
@@ -52,7 +47,7 @@ function DeleteEvent({ theEventID, trigger, theKey }) {
         </div>
       </div>
       <span
-        className='bg-black bg-opacity-10 fixed top-0 left-0 w-screen min-h-full'
+        className='bg-black bg-opacity-40 fixed top-0 left-0 w-screen min-h-full'
         onClick={closeEventPopUp}
       ></span>
     </div>

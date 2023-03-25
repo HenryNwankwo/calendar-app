@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { RiDeleteBinLine, RiNotification2Line } from 'react-icons/ri';
 import { FiEdit2 } from 'react-icons/fi';
 import { AppContext } from './../App';
@@ -7,13 +7,13 @@ function EventCard() {
   const { holidayList, deleteEventPopUp, setDeleteEventPopUp } =
     useContext(AppContext);
 
+  //Calls an event delete pop up and assigns its id to a state
   const [deleteEventID, setDeleteEventID] = useState(0);
   const deleteEventMethod = (id) => {
     setDeleteEventPopUp(!deleteEventPopUp);
     setDeleteEventID(id);
   };
 
-  console.log('this is the holiday list: ', holidayList);
   return (
     <div className=''>
       {holidayList.map((holiday) => {
@@ -60,7 +60,6 @@ function EventCard() {
           theKey={deleteEventID}
         ></DeleteEvent>
       }
-      {/* {deleteEventPopUp && <DeleteEvent theEventID={anEventID}></DeleteEvent>} */}
     </div>
   );
 }
