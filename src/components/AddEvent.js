@@ -43,7 +43,7 @@ function AddEvent() {
         isOpen={isAddEventOpen}
         onRequestClose={() => setIsAddEventOpen(false)}
         contentLabel='Add Event'
-        className='absolute bottom-auto top-0 right-0 left-0 -translate-x-1/2 -translate-y-1/2 mx-auto my-auto bg-white w-screen h-auto md:w-106 outline-none overflow-y-auto scrollBar scrollBar-border-radius'
+        className='absolute bottom-auto top-0 right-0 left-0 -translate-x-1/2 -translate-y-1/2 mx-auto bg-white w-screen h-auto max-h-screen md:w-106 outline-none overflow-y-auto scrollBar scrollBar-border-radius'
       >
         <div
           className='flex justify-center items-center w-full h-14 md:bg-primary-color md:text-white px-6'
@@ -465,22 +465,16 @@ function AddEvent() {
 
                 {/* All day group */}
 
-                <div className='flex relative w-5/12'>
+                <div className='flex relative w-5/12 right'>
                   <CustomCheckbox
                     name='allDay'
                     id='allDay'
                     placeholder='allDay'
-                    otherClasses='px-6 hover:cursor-pointer'
-                    labelComponent={
-                      <CustomInputLabel
-                        name='allDay'
-                        otherClasses='w-21 h-21 border-1 bg-black hover:cursor-pointer'
-                      />
-                    }
+                    otherClasses='hover:cursor-pointer'
                     secondLabel={
                       <CustomInputLabel
                         name='allDay'
-                        otherClasses='absolute right-20 mt-1 text-gray-500 hover:cursor-pointer'
+                        otherClasses='absolute right-17 mt-1 text-gray-500 hover:cursor-pointer'
                         labelIcon='All Day'
                       />
                     }

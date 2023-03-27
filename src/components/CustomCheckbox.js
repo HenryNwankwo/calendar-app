@@ -16,7 +16,7 @@ function CustomCheckbox({
         type='checkbox'
         name={checkBoxName}
         id={checkBoxID}
-        className={` w-full border-b-2 border-bg-color-grey outline-none px-1 pt-1  ${otherClasses}`}
+        className={` w-6 h-6 rounded border-2 outline-none appearance-none border-bg-gray-400 flex justify-center items-center customCheck ${otherClasses}`}
         {...otherProps}
       />
       {secondLabel && secondLabel}

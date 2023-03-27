@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
 
 @tailwind base;
 @tailwind components;
@@ -52,4 +53,18 @@
 }
 .hoverOnGreen-2:hover {
   @apply bg-green-100;
+}
+
+.customCheck::after {
+  font-family: 'Font Awesome 6 Free';
+  @apply font-black text-sm text-white;
+  content: '\f00c';
+  display: none;
+}
+
+.customCheck:checked {
+  @apply bg-primary-color;
+}
+.customCheck:checked::after {
+  display: block;
 }
