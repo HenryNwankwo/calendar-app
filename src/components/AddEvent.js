@@ -474,7 +474,7 @@ function AddEvent() {
                     secondLabel={
                       <CustomInputLabel
                         name='allDay'
-                        otherClasses='absolute right-17 mt-1 text-gray-500 hover:cursor-pointer'
+                        otherClasses='absolute right-14 md:right-17 mt-1 text-gray-500 hover:cursor-pointer'
                         labelIcon='All Day'
                       />
                     }
