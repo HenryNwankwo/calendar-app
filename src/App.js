@@ -25,6 +25,7 @@ function App() {
   const [currentEventID, setCurrentEventID] = useState(0);
   const [clickedEvent, setClickedEvent] = useState(false);
   const [showEditEvent, setShowEditEvent] = useState(false);
+  const [reminderState, setReminderState] = useState(false);
 
   return (
     <AppContext.Provider
@@ -53,6 +54,8 @@ function App() {
         setClickedEvent,
         showEditEvent,
         setShowEditEvent,
+        reminderState,
+        setReminderState,
       }}
     >
       <Router>

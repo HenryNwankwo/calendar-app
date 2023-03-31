@@ -345,7 +345,7 @@ function AddEvent() {
                   onClick={() => setIsAddEventOpen(false)}
                 />
                 <CustomButton
-                  allClasses='border-1 bg-primary-color text-white text-sm px-11 hoverOnGreen hover:border-green-100 shadow-md'
+                  allClasses='border-1 bg-primary-color text-white text-sm px-11 hoverOnGreen hover:border-green-100 shadow-md outline-none'
                   textValue='Create'
                 />
               </div>

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import CustomButton from './CustomButton';
 import { RiNotification2Line, RiArrowDownSLine } from 'react-icons/ri';
+import { AppContext } from '../App';
 
 function NoReminderButton() {
+  const { reminderState, setReminderState } = useContext(AppContext);
   return (
     <>
       <CustomButton
@@ -18,7 +20,22 @@ function NoReminderButton() {
             </span>
           </p>
         }
+        onClick={() => setReminderState(!reminderState)}
       ></CustomButton>
+      {reminderState && (
+        <form>
+          <div className='flex justify-between items-center w-full h-auto mt-3'>
+            <CustomButton
+              allClasses={`border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md`}
+              textValue='Cancel'
+            ></CustomButton>
+            <CustomButton
+              allClasses={`border-1 bg-primary-color text-white text-sm px-11 hoverOnGreen hover:border-green-100 shadow-md outline-none`}
+              textValue='Create'
+            ></CustomButton>
+          </div>
+        </form>
+      )}
     </>
   );
 }
