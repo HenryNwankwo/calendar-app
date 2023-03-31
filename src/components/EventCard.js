@@ -6,10 +6,17 @@ import DeleteEvent from './DeleteEvent';
 import EditEvent from './EditEvent';
 import ShowEventPopUp from './ShowEventPopUp';
 function EventCard() {
-  const { holidayList, deleteEventPopUp, setDeleteEventPopUp } =
-    useContext(AppContext);
-
-  const [currentEventID, setCurrentEventID] = useState(0);
+  const {
+    holidayList,
+    currentEventID,
+    setCurrentEventID,
+    deleteEventPopUp,
+    setDeleteEventPopUp,
+    clickedEvent,
+    setClickedEvent,
+    showEditEvent,
+    setShowEditEvent,
+  } = useContext(AppContext);
 
   //Calls an event delete pop up and assigns its id to a state
   const deleteEventMethod = (id) => {
@@ -19,14 +26,14 @@ function EventCard() {
 
   //state that determines the view state of an event details
   const currentEventRef = useRef();
-  const [clickedEvent, setClickedEvent] = useState(false);
+
   const clickedEventHandler = (id) => {
     setClickedEvent(!clickedEvent);
     setCurrentEventID(id);
   };
 
   //Edit event handler
-  const [showEditEvent, setShowEditEvent] = useState(false);
+
   const editEventHandler = (id) => {
     setShowEditEvent(!showEditEvent);
     setCurrentEventID(id);
@@ -44,6 +51,7 @@ function EventCard() {
             onClick={() => clickedEventHandler(holiday.id)}
           >
             <div className='flex justify-between mb-2'>
+              {/* Event Title */}
               <span className='flex flex-row w-auto items-center'>
                 <h6 className='font-bold text-lg'>{holiday.eventTitle}</h6>
                 <span className='hoverRoundedGray ml-4 '>
@@ -65,11 +73,13 @@ function EventCard() {
                 </span>
               </span>
             </div>
+            {/* Event Color */}
             <p className='text-sm' style={{ color: holiday.color }}>
               {holiday.allDay
                 ? 'All Day'
                 : `${holiday.startTime} - ${holiday.endTime}`}
             </p>
+            {/* Event Description */}
             <p className='font-bold text-sm' style={{ color: holiday.color }}>
               {holiday.description}
             </p>
@@ -81,7 +91,6 @@ function EventCard() {
         <ShowEventPopUp
           theKey={currentEventID}
           id={currentEventID}
-          theState={clickedEvent}
         ></ShowEventPopUp>
       )}
       {

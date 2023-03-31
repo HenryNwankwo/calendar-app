@@ -68,6 +68,3 @@
 .customCheck:checked::after {
   display: block;
 }
-.popUpOverlay {
-  z-index: 999;
-}

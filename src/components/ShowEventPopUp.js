@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../App';
+import EventModal from './EventModal';
 import PopUp from './PopUp';
 
-function ShowEventPopUp({ theState, theKey, id }) {
+function ShowEventPopUp({ theKey, id }) {
+  const { clickedEvent } = useContext(AppContext);
   return (
     <>
-      <PopUp theState={theState} theKey={theKey} theID={id}>
-        <div>This is Show Event</div>
+      <PopUp
+        theState={clickedEvent}
+        theKey={theKey}
+        theID={id}
+        otherClasses={''}
+      >
+        <EventModal></EventModal>
       </PopUp>
     </>
   );
