@@ -3,6 +3,7 @@ import CustomButton from './CustomButton';
 import { RiNotification2Line, RiArrowDownSLine } from 'react-icons/ri';
 import { AppContext } from '../App';
 import DateAndTimeGroup from './DateAndTimeGroup';
+import DoNotRepeatGroup from './DoNotRepeatGroup';
 
 function NoReminderButton() {
   const { reminderState, setReminderState } = useContext(AppContext);
@@ -25,9 +26,14 @@ function NoReminderButton() {
       ></CustomButton>
       {reminderState && (
         <form>
-          <DateAndTimeGroup></DateAndTimeGroup>
-
           {/* The reminder Group */}
+          <DateAndTimeGroup></DateAndTimeGroup>
+          <DoNotRepeatGroup
+            inputLabelClass='md:right-14'
+            doNotRepeatGroupClass='w-1/2'
+            allDayGroupClass='w-1/2'
+          ></DoNotRepeatGroup>
+          {/* The reminder button group */}
           <div className='flex justify-between items-center w-full h-auto mt-3'>
             <CustomButton
               allClasses={`border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md`}

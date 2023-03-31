@@ -20,6 +20,7 @@ import CustomCheckbox from './CustomCheckbox';
 import ToggleSwitch from './ToggleSwitch';
 import DateAndTimeGroup from './DateAndTimeGroup';
 import { EditorState } from 'draft-js';
+import DoNotRepeatGroup from './DoNotRepeatGroup';
 
 //Setted add event modal oveylay color and app root
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,.5)';
@@ -382,52 +383,8 @@ function AddEvent() {
               <DateAndTimeGroup></DateAndTimeGroup>
 
               {/* Does not Repeat group */}
-              <div className='mt-6 flex justify-between'>
-                {/* Does not repeat group */}
-                <div className='flex relative w-5/12'>
-                  <CustomTextInput
-                    name='doNotRepeat'
-                    id='doNotRepeat'
-                    placeholder='Do not Repeat'
-                    otherClasses='px-6 border-none'
-                    labelComponent={
-                      <CustomInputLabel
-                        name='doNotRepeat'
-                        otherClasses='hover:cursor-pointer'
-                        labelIcon={
-                          <AiOutlineSync className='text-lg text-icon-color' />
-                        }
-                      />
-                    }
-                  />
-                  <CustomInputLabel
-                    name='doNotRepeat'
-                    otherClasses='absolute right-0 mt-1 hover:cursor-pointer'
-                    labelIcon={
-                      <RiArrowDropDownFill className='text-icon-color text-3xl' />
-                    }
-                  />
-                </div>
 
-                {/* All day group */}
-
-                <div className='flex relative w-5/12 right'>
-                  <CustomCheckbox
-                    name='allDay'
-                    id='allDay'
-                    placeholder='allDay'
-                    otherClasses='hover:cursor-pointer'
-                    secondLabel={
-                      <CustomInputLabel
-                        name='allDay'
-                        otherClasses='absolute right-14 md:right-17 mt-1 text-gray-500 hover:cursor-pointer'
-                        labelIcon='All Day'
-                      />
-                    }
-                  />
-                </div>
-              </div>
-
+              <DoNotRepeatGroup inputLabelClass='md:right-17'></DoNotRepeatGroup>
               {/* Cancel and create event button groups */}
               <div className='flex justify-end mb-6 mt-16'>
                 <CustomButton
