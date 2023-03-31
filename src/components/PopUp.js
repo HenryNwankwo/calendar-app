@@ -4,6 +4,7 @@ import { AppContext } from '../App';
 function PopUp(props) {
   const { clickedEvent } = useContext(AppContext);
   const [showPopUp, setShowPopUp] = useState(clickedEvent);
+
   //Assigning a reference to the pop up child element
   const popUpRef = useRef();
 
