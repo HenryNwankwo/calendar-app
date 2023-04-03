@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 function DNRList() {
   return (
     <>
-      <div className='h-auto w-57 rounded shadow-md py-3'>
+      <div className='h-auto w-57 rounded shadow-md py-3 absolute bg-white top-7 left-1'>
         <ul className='text-sm text-txt-color'>
           <li className='px-4 py-1 hover:cursor-pointer hover:text-black hover:bg-light-green'>
             Do not repeat
@@ -32,4 +32,4 @@ function DNRList() {
   );
 }
 
-export default DNRList
+export default DNRList;

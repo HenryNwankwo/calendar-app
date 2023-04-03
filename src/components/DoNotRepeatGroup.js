@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import CustomTextInput from './CustomTextInput';
 import CustomInputLabel from './CustomInputLabel';
 import CustomCheckbox from './CustomCheckbox';
@@ -10,18 +10,23 @@ import {
   RiCloseCircleLine,
   RiArrowDropDownFill,
 } from 'react-icons/ri';
+import DNRList from './DNRList';
+import { AppContext } from '../App';
 
 function DoNotRepeatGroup({
   doNotRepeatGroupClass,
   allDayGroupClass,
   inputLabelClass,
 }) {
+  const { dnrOpenState, setDnrOpenState } = useContext(AppContext);
   return (
     <>
       {/* Does not Repeat group */}
       <div className='mt-6 flex justify-between'>
         {/* Does not repeat group */}
-        <div className={`flex relative w-5/12 ${doNotRepeatGroupClass}`}>
+        <div
+          className={`flex relative w-1/2 justify-center ${doNotRepeatGroupClass}`}
+        >
           <CustomTextInput
             name='doNotRepeat'
             id='doNotRepeat'
@@ -36,6 +41,7 @@ function DoNotRepeatGroup({
                 }
               />
             }
+            onClick={() => setDnrOpenState(!dnrOpenState)}
           />
           <CustomInputLabel
             name='doNotRepeat'
@@ -44,6 +50,8 @@ function DoNotRepeatGroup({
               <RiArrowDropDownFill className='text-icon-color text-3xl' />
             }
           />
+          {/* Do not repeat list dropdown */}
+          {dnrOpenState && <DNRList></DNRList>}
         </div>
 
         {/* All day group */}

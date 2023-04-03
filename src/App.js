@@ -26,6 +26,7 @@ function App() {
   const [clickedEvent, setClickedEvent] = useState(false);
   const [showEditEvent, setShowEditEvent] = useState(false);
   const [reminderState, setReminderState] = useState(false);
+  const [dnrOpenState, setDnrOpenState] = useState(false);
 
   return (
     <AppContext.Provider
@@ -56,6 +57,8 @@ function App() {
         setShowEditEvent,
         reminderState,
         setReminderState,
+        dnrOpenState,
+        setDnrOpenState,
       }}
     >
       <Router>
