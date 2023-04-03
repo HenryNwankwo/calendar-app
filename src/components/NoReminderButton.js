@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import CustomButton from './CustomButton';
 import { RiNotification2Line, RiArrowDownSLine } from 'react-icons/ri';
 import { AppContext } from '../App';
 import DateAndTimeGroup from './DateAndTimeGroup';
 import DoNotRepeatGroup from './DoNotRepeatGroup';
+import DNRList from './DNRList';
 
 function NoReminderButton() {
   const { reminderState, setReminderState } = useContext(AppContext);
+  const [dnrListState, setDnrListState] = useState(false);
   return (
     <>
       <CustomButton
@@ -32,7 +34,10 @@ function NoReminderButton() {
             inputLabelClass='md:right-14'
             doNotRepeatGroupClass='w-1/2'
             allDayGroupClass='w-1/2'
+            itsOpen={dnrListState}
           ></DoNotRepeatGroup>
+          {/* Do not repeat list dropdown */}
+          {dnrListState && <DNRList></DNRList>}
           {/* The reminder button group */}
           <div className='flex justify-between items-center w-full h-auto mt-3'>
             <CustomButton

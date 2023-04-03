@@ -36,6 +36,7 @@ module.exports = {
       width: {
         33: '135px',
         34: '139px',
+
         61: '243px',
       },
       minHeight: {
@@ -44,6 +45,7 @@ module.exports = {
       spacing: {
         17: '72px',
         18: '75px',
+        57: '228px',
         106: '425px',
         '1/2': '50%',
       },
