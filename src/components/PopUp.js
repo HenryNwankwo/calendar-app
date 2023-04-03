@@ -30,7 +30,7 @@ function PopUp(props) {
         key={props.theKey}
       >
         <div
-          className={`bg-white md:rounded shadow-md w-full h-auto md:w-96 ${props.otherClasses}`}
+          className={`bg-white md:rounded shadow-md w-full h-auto select-none md:w-96 ${props.otherClasses}`}
           ref={popUpRef}
         >
           {props.children}

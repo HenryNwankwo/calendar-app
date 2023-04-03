@@ -5,6 +5,7 @@ import { AppContext } from '../App';
 import DateAndTimeGroup from './DateAndTimeGroup';
 import DoNotRepeatGroup from './DoNotRepeatGroup';
 import DNRList from './DNRList';
+import CustomRadioButton from './CustomRadioButton';
 
 function NoReminderButton() {
   const { reminderState, setReminderState } = useContext(AppContext);
@@ -35,6 +36,16 @@ function NoReminderButton() {
             doNotRepeatGroupClass='w-1/2'
             allDayGroupClass='w-1/2'
           ></DoNotRepeatGroup>
+
+          {/* Available and Visibity group */}
+          <div>
+            <p>Show Me:</p>
+            <CustomRadioButton></CustomRadioButton>
+          </div>
+          <div>
+            <p>Visibility:</p>
+            <CustomRadioButton></CustomRadioButton>
+          </div>
 
           {/* The reminder button group */}
           <div className='flex justify-between items-center w-full h-auto mt-3'>
