@@ -9,11 +9,11 @@ import ShowReminderGroup from './ShowReminderGroup';
 function EventModal({ theState }) {
   const [showReminder, setShowReminder] = useState(theState);
   return (
-    <div className='flex flex-col justify-between'>
+    <div className='flex flex-col justify-between p-6 h-full max-h-screen overflow-y-auto scrollBar scrollBar-border-radius'>
       <h6 className='font-bold py-1'>Company Break</h6>
 
       {/* Event Image */}
-      <div className='my-2 shadow-sm w-full h-44 overflow-hidden'>
+      <div className='my-2 shadow-sm w-full h-44 min-h-44 overflow-hidden'>
         <img
           src='https://res.cloudinary.com/dxrmhv6fy/image/upload/v1680104623/cld-sample-3.jpg'
           alt='Event Static Pictures'
