@@ -56,7 +56,7 @@ function DoNotRepeatGroup({
 
         {/* All day group */}
 
-        <div className={`flex relative w-5/12 right ${allDayGroupClass}`}>
+        <div className={`flex relative w-5/12 ${allDayGroupClass}`}>
           <CustomCheckbox
             name='allDay'
             id='allDay'
@@ -65,7 +65,7 @@ function DoNotRepeatGroup({
             secondLabel={
               <CustomInputLabel
                 name='allDay'
-                otherClasses={`absolute right-14 mt-1 text-gray-500 hover:cursor-pointer ${inputLabelClass}`}
+                otherClasses={`absolute left-8 mt-1 text-gray-500 hover:cursor-pointer ${inputLabelClass}`}
                 labelIcon='All Day'
               />
             }

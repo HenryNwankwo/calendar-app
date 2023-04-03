@@ -32,19 +32,62 @@ function NoReminderButton() {
           {/* The reminder Group */}
           <DateAndTimeGroup></DateAndTimeGroup>
           <DoNotRepeatGroup
-            inputLabelClass='md:right-14'
             doNotRepeatGroupClass='w-1/2'
             allDayGroupClass='w-1/2'
           ></DoNotRepeatGroup>
 
           {/* Available and Visibity group */}
-          <div>
-            <p>Show Me:</p>
-            <CustomRadioButton></CustomRadioButton>
+          <div className='flex w-full my-5 text-sm text-txt-color'>
+            <p className='font-bold text-black'>Show Me:</p>
+            <span className='ml-8 flex flex-row w-8/12'>
+              <CustomRadioButton
+                radioName='showMe'
+                radioID='busy'
+                labelText='Busy'
+                labelClass='absolute left-5'
+                radioGroupClass='w-4/12'
+                otherInputClass='radioActiveClass'
+              ></CustomRadioButton>
+
+              <CustomRadioButton
+                radioName='showMe'
+                radioID='available'
+                labelText='Available'
+                labelClass='absolute left-5'
+                radioGroupClass='w-4/12'
+                otherInputClass='radioActiveClass'
+              ></CustomRadioButton>
+            </span>
           </div>
-          <div>
-            <p>Visibility:</p>
-            <CustomRadioButton></CustomRadioButton>
+          {/* Visibilty radio Group */}
+          <div className='flex w-full my-5 text-sm text-txt-color'>
+            <p className='font-bold text-black'>Visibility:</p>
+            <span className='ml-8 flex flex-row w-9/12'>
+              <CustomRadioButton
+                radioName='visibility'
+                radioID='default'
+                labelText='Default'
+                labelClass='absolute left-5'
+                radioGroupClass='w-4/12'
+                otherInputClass='radioActiveClass'
+              ></CustomRadioButton>
+              <CustomRadioButton
+                radioName='visibility'
+                radioID='private'
+                labelText='Private'
+                labelClass='absolute left-5'
+                radioGroupClass='w-4/12'
+                otherInputClass='radioActiveClass'
+              ></CustomRadioButton>
+              <CustomRadioButton
+                radioName='visibility'
+                radioID='public'
+                labelText='Public'
+                labelClass='absolute left-5'
+                radioGroupClass='w-4/12'
+                otherInputClass='radioActiveClass'
+              ></CustomRadioButton>
+            </span>
           </div>
 
           {/* The reminder button group */}
