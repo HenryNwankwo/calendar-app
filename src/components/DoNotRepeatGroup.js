@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import CustomTextInput from './CustomTextInput';
 import CustomInputLabel from './CustomInputLabel';
 import CustomCheckbox from './CustomCheckbox';
@@ -19,6 +19,20 @@ function DoNotRepeatGroup({
   inputLabelClass,
 }) {
   const { dnrOpenState, setDnrOpenState } = useContext(AppContext);
+  const dnrListRef = useRef();
+
+  /* closing the Do not repeat dropdown on mousedown */
+  useEffect(() => {
+    const mousedownHandler = (e) => {
+      if (dnrListRef.current && !dnrListRef.current.contains(e.target)) {
+        setDnrOpenState(false);
+      }
+    };
+
+    document.addEventListener('mousedown', mousedownHandler);
+    return () => document.removeEventListener('mousedown', mousedownHandler);
+  });
+
   return (
     <>
       {/* Does not Repeat group */}
@@ -26,6 +40,7 @@ function DoNotRepeatGroup({
         {/* Does not repeat group */}
         <div
           className={`flex relative w-1/2 justify-center ${doNotRepeatGroupClass}`}
+          ref={dnrListRef}
         >
           <CustomTextInput
             name='doNotRepeat'
