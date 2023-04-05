@@ -90,3 +90,9 @@
 .radioActiveClass:checked ~ label {
   @apply font-bold text-black;
 }
+.dayCustomStyle span:nth-child(even) {
+  @apply bg-light-green;
+}
+.dayCustomStyle span:nth-child(odd) {
+  @apply bg-gray-100;
+}

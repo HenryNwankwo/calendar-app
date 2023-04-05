@@ -27,6 +27,7 @@ function App() {
   const [showEditEvent, setShowEditEvent] = useState(false);
   const [reminderState, setReminderState] = useState(false);
   const [dnrOpenState, setDnrOpenState] = useState(false);
+  const [customRecurrOpen, setCustomRecurrOpen] = useState(false);
 
   return (
     <AppContext.Provider
@@ -59,6 +60,8 @@ function App() {
         setReminderState,
         dnrOpenState,
         setDnrOpenState,
+        customRecurrOpen,
+        setCustomRecurrOpen,
       }}
     >
       <Router>

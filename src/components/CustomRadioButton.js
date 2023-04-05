@@ -17,7 +17,7 @@ function CustomRadioButton({
     >
       <label
         htmlFor={radioID}
-        className={`labelChecked hover:cursor-pointer ${labelClass}`}
+        className={`labelChecked absolute left-5 hover:cursor-pointer ${labelClass}`}
       >
         {labelText}
       </label>

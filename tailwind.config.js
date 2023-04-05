@@ -34,6 +34,7 @@ module.exports = {
         1: '1px',
       },
       width: {
+        31: '124px',
         33: '135px',
         34: '139px',
 

@@ -1,14 +1,24 @@
 import React, { useContext, useState } from 'react';
 import CustomButton from './CustomButton';
-import { RiNotification2Line, RiArrowDownSLine } from 'react-icons/ri';
+import {
+  RiNotification2Line,
+  RiArrowDownSLine,
+  RiArrowUpSLine,
+} from 'react-icons/ri';
 import { AppContext } from '../App';
 import DateAndTimeGroup from './DateAndTimeGroup';
 import DoNotRepeatGroup from './DoNotRepeatGroup';
 import DNRList from './DNRList';
 import CustomRadioButton from './CustomRadioButton';
+import CustomRecurrence from './CustomRecurrence';
 
 function NoReminderButton() {
-  const { reminderState, setReminderState } = useContext(AppContext);
+  const {
+    reminderState,
+    setReminderState,
+    customRecurrOpen,
+    setCustomRecurrOpen,
+  } = useContext(AppContext);
 
   return (
     <>
@@ -36,6 +46,8 @@ function NoReminderButton() {
             allDayGroupClass='w-1/2'
           ></DoNotRepeatGroup>
 
+          {customRecurrOpen && <CustomRecurrence></CustomRecurrence>}
+
           {/* Available and Visibity group */}
           <div className='flex w-full my-5 text-sm text-txt-color'>
             <p className='font-bold text-black'>Show Me:</p>
@@ -44,7 +56,6 @@ function NoReminderButton() {
                 radioName='showMe'
                 radioID='busy'
                 labelText='Busy'
-                labelClass='absolute left-5'
                 radioGroupClass='w-4/12'
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
@@ -53,7 +64,6 @@ function NoReminderButton() {
                 radioName='showMe'
                 radioID='available'
                 labelText='Available'
-                labelClass='absolute left-5'
                 radioGroupClass='w-4/12'
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
@@ -67,7 +77,6 @@ function NoReminderButton() {
                 radioName='visibility'
                 radioID='default'
                 labelText='Default'
-                labelClass='absolute left-5'
                 radioGroupClass='w-4/12'
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
@@ -75,7 +84,6 @@ function NoReminderButton() {
                 radioName='visibility'
                 radioID='private'
                 labelText='Private'
-                labelClass='absolute left-5'
                 radioGroupClass='w-4/12'
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
@@ -83,7 +91,6 @@ function NoReminderButton() {
                 radioName='visibility'
                 radioID='public'
                 labelText='Public'
-                labelClass='absolute left-5'
                 radioGroupClass='w-4/12'
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
