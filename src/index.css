@@ -68,3 +68,25 @@
 .customCheck:checked::after {
   display: block;
 }
+
+/* .radioActiveClass:active {
+  @apply bg-primary-color;
+} */
+
+.radioActiveClass::after {
+  content: '';
+  @apply bg-primary-color m-auto;
+  width: 9px;
+  height: 9px;
+  display: none;
+  border-radius: 100%;
+}
+.radioActiveClass:checked {
+  @apply border-primary-color;
+}
+.radioActiveClass:checked:after {
+  display: block;
+}
+.radioActiveClass:checked ~ label {
+  @apply font-bold text-black;
+}

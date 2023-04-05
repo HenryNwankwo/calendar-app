@@ -8,19 +8,26 @@ function CustomRadioButton({
   labelText,
   labelClass,
   radioGroupClass,
+  radioValue,
   ...otherAttributes
 }) {
   return (
-    <div className={`flex flex-row items-center relative ${radioGroupClass}`}>
-      <label htmlFor={radioID} className={`${labelClass}`}>
+    <div
+      className={`flex flex-row items-center hover:cursor-pointer relative ${radioGroupClass}`}
+    >
+      <label
+        htmlFor={radioID}
+        className={`labelChecked hover:cursor-pointer ${labelClass}`}
+      >
         {labelText}
       </label>
       <input
         type='radio'
         name={radioName}
         id={radioID}
+        value={radioValue}
         {...otherAttributes}
-        className={`appearance-none hover:cursor-pointer w-4 h-4 border-1 border-txt-color rounded-full ${otherInputClass}`}
+        className={`appearance-none w-4 h-4 border-2 border-gray-300 rounded-full flex justify-center items-center hover:cursor-pointer relative ${otherInputClass}`}
       />
       {optionalLabel}
     </div>
