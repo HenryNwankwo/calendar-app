@@ -69,10 +69,6 @@
   display: block;
 }
 
-/* .radioActiveClass:active {
-  @apply bg-primary-color;
-} */
-
 .radioActiveClass::after {
   content: '';
   @apply bg-primary-color m-auto;
@@ -95,4 +91,14 @@
 }
 .dayCustomStyle span:nth-child(odd) {
   @apply bg-gray-100;
+}
+
+.customSelect {
+  position: relative;
+  background: red;
+}
+.customSelect::before {
+  font-family: 'Font Awesome 6 Free';
+  @apply font-black text-sm text-white;
+  content: '\f00c';
 }
