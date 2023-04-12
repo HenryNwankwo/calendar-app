@@ -7,15 +7,18 @@ function DNRList() {
   const [dNRValue, setDNRValue] = useState(null);
   return (
     <>
-      <div className='h-auto w-56 rounded '>
+      <div className='h-auto w-full rounded'>
         <Select
           options={options}
           menuPlacement='auto'
+          menuPortalTarget={document.body}
+          menuShouldScrollIntoView={false}
           defaultValue={options[0]}
           placeholder='Do not Repeat'
           onChange={setDNRValue}
-          className='text-sm text-txt-color customSelect pl-3 '
+          className='text-sm text-txt-color customSelect pl-3 block'
           dropDownIndicator={false}
+          minMenuHeight={'100%'}
           styles={{
             control: (baseStyle, state) => ({
               border: 0,
@@ -23,6 +26,16 @@ function DNRList() {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              '::before': {
+                fontFamily: 'Font Awesome 6 Free',
+                content: '"\f0f1"',
+                display: 'block',
+              },
+              '::after': {
+                fontFamily: 'Font Awesome 6 Free',
+                content: '"\f0d7"',
+                display: 'block',
+              },
             }),
             option: (baseStyle, state) => ({
               width: 'auto',
