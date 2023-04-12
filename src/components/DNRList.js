@@ -7,35 +7,38 @@ function DNRList() {
   const [dNRValue, setDNRValue] = useState(null);
   return (
     <>
-      <div className='h-auto w-56 rounded py-3 absolute bg-white top-7 left-1 z-50'>
+      <div className='h-auto w-56 rounded '>
         <Select
           options={options}
           menuPlacement='auto'
           defaultValue={options[0]}
           placeholder='Do not Repeat'
           onChange={setDNRValue}
-          className='text-sm text-txt-color customSelect'
+          className='text-sm text-txt-color customSelect pl-3 '
+          dropDownIndicator={false}
           styles={{
             control: (baseStyle, state) => ({
               border: 0,
-              outlineColor: state.isFocused ? 'red' : 'green',
-              width: '176px',
+              width: '100',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              ':before': {
-                fontFamily: 'Font Awesome 6 Free',
-                content: '"\f2f1"',
-              },
             }),
             option: (baseStyle, state) => ({
-              width: '100',
+              width: 'auto',
               height: 'auto',
               padding: '4px 16px 4px 16px',
               ':hover': {
                 backgroundColor: '#E1FDF4',
                 cursor: 'pointer',
               },
+            }),
+
+            indicatorSeparator: () => ({
+              display: 'none',
+            }),
+            dropdownIndicator: () => ({
+              display: 'none',
             }),
           }}
         ></Select>

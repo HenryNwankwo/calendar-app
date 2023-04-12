@@ -99,6 +99,6 @@
 }
 .customSelect::before {
   font-family: 'Font Awesome 6 Free';
-  @apply font-black text-sm text-white;
+  @apply text-sm text-white absolute top-1/4 left-1;
   content: '\f00c';
 }

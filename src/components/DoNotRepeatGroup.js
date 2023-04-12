@@ -42,31 +42,7 @@ function DoNotRepeatGroup({
           className={`flex relative w-1/2 justify-center ${doNotRepeatGroupClass}`}
           ref={dnrListRef}
         >
-          <CustomTextInput
-            name='doNotRepeat'
-            id='doNotRepeat'
-            placeholder='Do not Repeat'
-            otherClasses='px-6 border-none'
-            labelComponent={
-              <CustomInputLabel
-                name='doNotRepeat'
-                otherClasses='hover:cursor-pointer'
-                labelIcon={
-                  <AiOutlineSync className='text-lg text-icon-color' />
-                }
-              />
-            }
-            onClick={() => setDnrOpenState(!dnrOpenState)}
-          />
-          <CustomInputLabel
-            name='doNotRepeat'
-            otherClasses='absolute right-0 mt-1 hover:cursor-pointer'
-            labelIcon={
-              <RiArrowDropDownFill className='text-icon-color text-3xl' />
-            }
-          />
-          {/* Do not repeat list dropdown */}
-          {dnrOpenState && <DNRList></DNRList>}
+          <DNRList></DNRList>
         </div>
 
         {/* All day group */}
