@@ -49,9 +49,9 @@ function NoReminderButton() {
           {customRecurrOpen && <CustomRecurrence></CustomRecurrence>}
 
           {/* Available and Visibity group */}
-          <div className='flex w-full my-5 text-sm text-txt-color'>
-            <p className='font-bold text-black'>Show Me:</p>
-            <span className='ml-8 flex flex-row w-8/12'>
+          <div className='flex flex-col sm:flex-row w-full my-5 text-sm text-txt-color'>
+            <p className='font-bold text-black mb-2 sm:mb-0'>Show Me:</p>
+            <span className='sm:ml-8 flex flex-row w-8/12'>
               <CustomRadioButton
                 radioName='showMe'
                 radioID='busy'
@@ -64,15 +64,15 @@ function NoReminderButton() {
                 radioName='showMe'
                 radioID='available'
                 labelText='Available'
-                radioGroupClass='w-4/12'
-                otherInputClass='radioActiveClass'
+                radioGroupClass='w-4/12 ml-3 sm:ml-0'
+                otherInputClass='radioActiveClass '
               ></CustomRadioButton>
             </span>
           </div>
           {/* Visibilty radio Group */}
-          <div className='flex w-full my-5 text-sm text-txt-color'>
-            <p className='font-bold text-black'>Visibility:</p>
-            <span className='ml-8 flex flex-row w-9/12'>
+          <div className='flex flex-col sm:flex-row w-full my-5 text-sm text-txt-color'>
+            <p className='font-bold text-black mb-2 sm:mb-0'>Visibility:</p>
+            <span className='sm:ml-8 flex flex-row w-full sm:w-9/12'>
               <CustomRadioButton
                 radioName='visibility'
                 radioID='default'
@@ -84,27 +84,27 @@ function NoReminderButton() {
                 radioName='visibility'
                 radioID='private'
                 labelText='Private'
-                radioGroupClass='w-4/12'
+                radioGroupClass='w-4/12 ml-3 sm:ml-0'
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
               <CustomRadioButton
                 radioName='visibility'
                 radioID='public'
                 labelText='Public'
-                radioGroupClass='w-4/12'
+                radioGroupClass='w-4/12 ml-3 sm:ml-0'
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
             </span>
           </div>
 
           {/* The reminder button group */}
-          <div className='flex justify-between items-center w-full h-auto mt-3'>
+          <div className='flex flex-col-reverse sm:flex-row justify-between items-center w-full h-auto mt-3'>
             <CustomButton
-              allClasses={`border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md`}
+              allClasses={`border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md w-full `}
               textValue='Cancel'
             ></CustomButton>
             <CustomButton
-              allClasses={`border-1 bg-primary-color text-white text-sm px-11 hoverOnGreen hover:border-green-100 shadow-md outline-none`}
+              allClasses={`border-1 bg-primary-color text-white text-sm px-11 hoverOnGreen hover:border-green-100 shadow-md outline-none  mb-3 sm:mb-0 w-full`}
               textValue='Create'
             ></CustomButton>
           </div>
