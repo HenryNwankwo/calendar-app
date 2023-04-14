@@ -37,10 +37,10 @@ module.exports = {
         31: '124px',
         33: '135px',
         34: '139px',
-
         61: '243px',
       },
       minHeight: {
+        32: '128px',
         44: '176px',
       },
       spacing: {

@@ -29,7 +29,7 @@ function DeleteEvent({ theEventID, trigger, theKey }) {
         </div>
 
         {/*Cancel and Delete Buttons*/}
-        <div className='w-full flex flex-col sm:flex-row justify-between px-6 mt-3 items-center'>
+        <div className='w-full flex flex-col-reverse sm:flex-row justify-between sm:px-6 mt-3 items-center'>
           <CustomButton
             allClasses={
               'border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-green-100 shadow-md'
@@ -39,7 +39,7 @@ function DeleteEvent({ theEventID, trigger, theKey }) {
           ></CustomButton>
           <CustomButton
             allClasses={
-              'border-none bg-red-600 text-white text-sm px-11 hover:bg-red-400 hover:border-red-100 shadow-md mt-3 sm:mt-0'
+              'border-none bg-red-600 text-white text-sm px-11 hover:bg-red-400 hover:border-red-100 shadow-md mb-3 sm:mb-0'
             }
             textValue={'Delete'}
             onClick={() => deleteAnEvent(theEventID)}

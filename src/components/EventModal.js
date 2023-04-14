@@ -13,7 +13,7 @@ function EventModal({ theState }) {
       <h6 className='font-bold py-1'>Company Break</h6>
 
       {/* Event Image */}
-      <div className='my-2 shadow-sm w-full h-32 sm:h-44 sm:min-h-44 overflow-hidden'>
+      <div className='my-2 shadow-sm w-full h-32 min-h-32 sm:h-44 sm:min-h-44 overflow-hidden'>
         <img
           src='https://res.cloudinary.com/dxrmhv6fy/image/upload/v1680104623/cld-sample-3.jpg'
           alt='Event Static Pictures'

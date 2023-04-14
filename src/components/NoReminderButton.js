@@ -23,7 +23,7 @@ function NoReminderButton() {
   return (
     <>
       <CustomButton
-        allClasses={`bg-primary-color hoverOnGreen text-white flex items-center justify-center border-none outline-none w-full md:w-44 shadow-md`}
+        allClasses={`bg-primary-color hoverOnGreen text-white flex items-center justify-center border-none outline-none w-full sm:w-44 shadow-md`}
         textValue={
           <p className='flex items-center px-1 py-2'>
             <span className='mr-2'>
@@ -100,11 +100,11 @@ function NoReminderButton() {
           {/* The reminder button group */}
           <div className='flex flex-col-reverse sm:flex-row justify-between items-center w-full h-auto mt-3'>
             <CustomButton
-              allClasses={`border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md w-full `}
+              allClasses={`border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md`}
               textValue='Cancel'
             ></CustomButton>
             <CustomButton
-              allClasses={`border-1 bg-primary-color text-white text-sm px-11 hoverOnGreen hover:border-green-100 shadow-md outline-none  mb-3 sm:mb-0 w-full`}
+              allClasses={`border-1 bg-primary-color text-white text-sm px-11 hoverOnGreen hover:border-green-100 shadow-md outline-none  mb-3 sm:mb-0 `}
               textValue='Create'
             ></CustomButton>
           </div>
