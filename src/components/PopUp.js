@@ -4,6 +4,7 @@ import { AppContext } from '../App';
 function PopUp(props) {
   const { clickedEvent } = useContext(AppContext);
   const [showPopUp, setShowPopUp] = useState(clickedEvent);
+
   //Assigning a reference to the pop up child element
   const popUpRef = useRef();
 
@@ -29,7 +30,7 @@ function PopUp(props) {
         key={props.theKey}
       >
         <div
-          className={`bg-white md:rounded p-6 shadow-md w-full h-auto md:w-96 ${props.otherClasses}`}
+          className={`bg-white md:rounded shadow-md w-full h-auto select-none md:w-96 ${props.otherClasses}`}
           ref={popUpRef}
         >
           {props.children}

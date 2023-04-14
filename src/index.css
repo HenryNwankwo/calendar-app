@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
-
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -67,4 +73,28 @@
 }
 .customCheck:checked::after {
   display: block;
+}
+
+.radioActiveClass::after {
+  content: '';
+  @apply bg-primary-color m-auto;
+  width: 9px;
+  height: 9px;
+  display: none;
+  border-radius: 100%;
+}
+.radioActiveClass:checked {
+  @apply border-primary-color;
+}
+.radioActiveClass:checked:after {
+  display: block;
+}
+.radioActiveClass:checked ~ label {
+  @apply font-bold text-black;
+}
+.dayCustomStyle span:nth-child(even) {
+  @apply bg-light-green;
+}
+.dayCustomStyle span:nth-child(odd) {
+  @apply bg-gray-100;
 }

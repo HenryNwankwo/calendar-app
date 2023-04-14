@@ -13,7 +13,7 @@ function ShowEventPopUp({ theKey, id }) {
         theID={id}
         otherClasses={''}
       >
-        <EventModal></EventModal>
+        <EventModal theState={clickedEvent}></EventModal>
       </PopUp>
     </>
   );
