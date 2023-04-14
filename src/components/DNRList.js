@@ -16,7 +16,7 @@ function DNRList() {
     const { innerProps, innerRef } = props;
     return (
       <>
-        <AiOutlineSync className='text-lg text-icon-color absolute left-1' />
+        <AiOutlineSync className='text-lg text-icon-color absolute left-0' />
         <RiArrowDropDownFill
           className='text-icon-color text-3xl'
           ref={innerRef}
@@ -26,52 +26,19 @@ function DNRList() {
     );
   };
 
-  const customControl = (props) => {
-    const { innerProps, innerRef } = props;
-    return (
-      <div
-        className={`flex relative w-1/2 justify-center ${props.doNotRepeatGroupClass}`}
-        ref={innerRef}
-        {...innerProps}
-      >
-        <CustomTextInput
-          name='doNotRepeat'
-          id='doNotRepeat'
-          placeholder='Do not Repeat'
-          otherClasses='px-6 border-none'
-          labelComponent={
-            <CustomInputLabel
-              name='doNotRepeat'
-              otherClasses='hover:cursor-pointer'
-              labelIcon={<AiOutlineSync className='text-lg text-icon-color' />}
-            />
-          }
-          onClick={() => setDnrOpenState(!dnrOpenState)}
-        />
-        <CustomInputLabel
-          name='doNotRepeat'
-          otherClasses='absolute right-0 mt-1 hover:cursor-pointer'
-          labelIcon={
-            <RiArrowDropDownFill className='text-icon-color text-3xl' />
-          }
-        />
-      </div>
-    );
-  };
-
   return (
     <>
-      <div className='h-auto w-full rounded'>
+      <div className='h-auto w-full rounded hover:cursor-pointer'>
         <Select
           options={options}
           menuPlacement='auto'
           menuPortalTarget={document.body}
-          menuShouldScrollIntoView={false}
-          components={{ customControl }}
+          menuShouldScrollIntoView={true}
           defaultValue={options[0]}
+          components={{ DropdownIndicator: CustomDropdownIndicator }}
           placeholder='Do not Repeat'
           onChange={setDNRValue}
-          className='text-txt-color customSelect pl-3 block relative'
+          className='customSelect pl-4 flex relative text-icon-color w-auto'
           dropDownIndicator={false}
           minMenuHeight={'100%'}
           styles={{
@@ -84,21 +51,30 @@ function DNRList() {
               alignItems: 'center',
             }),
             option: (baseStyle, state) => ({
-              width: 'auto',
+              ...baseStyle,
               height: 'auto',
               padding: '4px 16px 4px 16px',
               fontSize: '13px',
+              color: 'GrayText',
               ':hover': {
                 backgroundColor: '#E1FDF4',
                 cursor: 'pointer',
               },
+              ':selected': {
+                background: 'green',
+              },
+            }),
+            menu: (baseStyle) => ({
+              ...baseStyle,
+              width: '226px',
+              height: '229px',
+              background: 'white',
+              borderRadius: '4px',
+              boxShadow: '1px 1px 2px grey',
             }),
 
             indicatorSeparator: () => ({
               display: 'none',
-            }),
-            placeholder: () => ({
-              color: 'grey',
             }),
           }}
         ></Select>
