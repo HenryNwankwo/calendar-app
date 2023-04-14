@@ -37,14 +37,13 @@ function DNRList() {
           components={{ DropdownIndicator: CustomDropdownIndicator }}
           placeholder='Do not Repeat'
           onChange={setDNRValue}
-          className='customSelect pl-4 flex relative text-icon-color w-auto'
+          className='customSelect pl-4 flex relative text-icon-color border-b-2 border-solid border-bg-color-grey'
           dropDownIndicator={false}
           minMenuHeight={'100%'}
           styles={{
             control: (baseStyle, state) => ({
               border: 0,
-              borderBottom: '1px',
-              width: '100',
+              width: '100%',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
@@ -59,15 +58,14 @@ function DNRList() {
               ':hover': {
                 backgroundColor: '#E1FDF4',
                 cursor: 'pointer',
+                color: state.isSelected ? 'GrayText' : '',
               },
             }),
             menu: (baseStyle) => ({
               ...baseStyle,
               width: '226px',
               height: '229px',
-              background: 'white',
-              borderRadius: '4px',
-              boxShadow: '1px 1px 2px grey',
+              outline: 'none',
             }),
 
             indicatorSeparator: () => ({
