@@ -106,7 +106,7 @@
   position: absolute;
   width: 224px;
 } */
-.customSelect::before {
+/* .customSelect::before {
   font-family: 'Font Awesome 6 Free';
   @apply text-sm absolute top-1/4 left-1;
   content: '\f00c';
@@ -118,3 +118,4 @@
   content: '\f0d7';
   display: block;
 }
+ */

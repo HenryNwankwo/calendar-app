@@ -12,40 +12,50 @@ function DNRList() {
   const { dnrOpenState, setDnrOpenState } = useContext(AppContext);
   const dnrListRef = useRef();
 
-  const customControl = (props) => {
+  const CustomDropdownIndicator = (props) => {
+    const { innerProps, innerRef } = props;
     return (
-      <components.Control {...props}>
-        <div
-          className={`flex relative w-1/2 justify-center ${props.doNotRepeatGroupClass}`}
-          ref={props.dnrListRef}
-        >
-          <CustomTextInput
-            name='doNotRepeat'
-            id='doNotRepeat'
-            placeholder='Do not Repeat'
-            otherClasses='px-6 border-none'
-            labelComponent={
-              <CustomInputLabel
-                name='doNotRepeat'
-                otherClasses='hover:cursor-pointer'
-                labelIcon={
-                  <AiOutlineSync className='text-lg text-icon-color' />
-                }
-              />
-            }
-            onClick={() => setDnrOpenState(!dnrOpenState)}
-          />
-          <CustomInputLabel
-            name='doNotRepeat'
-            otherClasses='absolute right-0 mt-1 hover:cursor-pointer'
-            labelIcon={
-              <RiArrowDropDownFill className='text-icon-color text-3xl' />
-            }
-          />
-          {/* Do not repeat list dropdown */}
-          {dnrOpenState && <DNRList></DNRList>}
-        </div>
-      </components.Control>
+      <>
+        <AiOutlineSync className='text-lg text-icon-color absolute left-1' />
+        <RiArrowDropDownFill
+          className='text-icon-color text-3xl'
+          ref={innerRef}
+          {...innerProps}
+        />
+      </>
+    );
+  };
+
+  const customControl = (props) => {
+    const { innerProps, innerRef } = props;
+    return (
+      <div
+        className={`flex relative w-1/2 justify-center ${props.doNotRepeatGroupClass}`}
+        ref={innerRef}
+        {...innerProps}
+      >
+        <CustomTextInput
+          name='doNotRepeat'
+          id='doNotRepeat'
+          placeholder='Do not Repeat'
+          otherClasses='px-6 border-none'
+          labelComponent={
+            <CustomInputLabel
+              name='doNotRepeat'
+              otherClasses='hover:cursor-pointer'
+              labelIcon={<AiOutlineSync className='text-lg text-icon-color' />}
+            />
+          }
+          onClick={() => setDnrOpenState(!dnrOpenState)}
+        />
+        <CustomInputLabel
+          name='doNotRepeat'
+          otherClasses='absolute right-0 mt-1 hover:cursor-pointer'
+          labelIcon={
+            <RiArrowDropDownFill className='text-icon-color text-3xl' />
+          }
+        />
+      </div>
     );
   };
 
@@ -61,31 +71,23 @@ function DNRList() {
           defaultValue={options[0]}
           placeholder='Do not Repeat'
           onChange={setDNRValue}
-          className='text-sm text-txt-color customSelect pl-3 block'
+          className='text-txt-color customSelect pl-3 block relative'
           dropDownIndicator={false}
           minMenuHeight={'100%'}
           styles={{
             control: (baseStyle, state) => ({
               border: 0,
+              borderBottom: '1px',
               width: '100',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              '::before': {
-                fontFamily: 'Font Awesome 6 Free',
-                content: '"\f0f1"',
-                display: 'block',
-              },
-              '::after': {
-                fontFamily: 'Font Awesome 6 Free',
-                content: '"\f0d7"',
-                display: 'block',
-              },
             }),
             option: (baseStyle, state) => ({
               width: 'auto',
               height: 'auto',
               padding: '4px 16px 4px 16px',
+              fontSize: '13px',
               ':hover': {
                 backgroundColor: '#E1FDF4',
                 cursor: 'pointer',
@@ -95,8 +97,8 @@ function DNRList() {
             indicatorSeparator: () => ({
               display: 'none',
             }),
-            dropdownIndicator: () => ({
-              display: 'none',
+            placeholder: () => ({
+              color: 'grey',
             }),
           }}
         ></Select>
