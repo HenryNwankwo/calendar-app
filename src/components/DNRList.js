@@ -12,6 +12,7 @@ function DNRList() {
   const { dnrOpenState, setDnrOpenState } = useContext(AppContext);
   const dnrListRef = useRef();
 
+  /* Creating a custom dropdown and the sync indicator for the do not repeat box */
   const CustomDropdownIndicator = (props) => {
     const { innerProps, innerRef } = props;
     return (
@@ -55,13 +56,11 @@ function DNRList() {
               height: 'auto',
               padding: '4px 16px 4px 16px',
               fontSize: '13px',
-              color: 'GrayText',
+              background: state.isSelected ? '#00B87C' : '',
+              color: state.isSelected ? '#ffffff' : 'GrayText',
               ':hover': {
                 backgroundColor: '#E1FDF4',
                 cursor: 'pointer',
-              },
-              ':selected': {
-                background: 'green',
               },
             }),
             menu: (baseStyle) => ({

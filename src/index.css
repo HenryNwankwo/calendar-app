@@ -98,24 +98,3 @@
 .dayCustomStyle span:nth-child(odd) {
   @apply bg-gray-100;
 }
-
-.customSelect {
-  position: relative;
-}
-/* .customSelect {
-  position: absolute;
-  width: 224px;
-} */
-/* .customSelect::before {
-  font-family: 'Font Awesome 6 Free';
-  @apply text-sm absolute top-1/4 left-1;
-  content: '\f00c';
-  display: block;
-}
-.customSelect::after {
-  font-family: 'Font Awesome 6 Free';
-  @apply text-sm absolute top-1/4 right-3;
-  content: '\f0d7';
-  display: block;
-}
- */
