@@ -24,21 +24,21 @@ function EventModal({ theState }) {
       </div>
 
       {/* Event Date, Time and Availability */}
-      <div className='flex flex-row py-1 justify-between text-sm'>
-        <span>
+      <div className='flex flex-row py-1 justify-between text-sm w-full flex-wrap'>
+        <div className='w-1/2 sm:w-1/3'>
           <p className='font-bold'>Date</p>
           <p className='text-icon-color'>1 Sept - 3 Sept</p>
-        </span>
-        <span className=''>
+        </div>
+        <div className='w-1/2 sm:w-1/4'>
           <p className='font-bold'>Time</p>
           <p className='flex flex-row items-center text-icon-color'>
             <FiClock className='text-lg text-icon-color mr-1' /> All Day
           </p>
-        </span>
-        <span>
+        </div>
+        <div className='mt-2 sm:mt-0 sm:w-1/3'>
           <p className='font-bold'>Availability</p>
           <p className='text-icon-color'>Busy</p>
-        </span>
+        </div>
       </div>
 
       {/* Event Description */}
