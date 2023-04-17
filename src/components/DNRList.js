@@ -18,6 +18,7 @@ function DNRList() {
       setCustomRecurrOpen(true);
       console.log('The option is:', selectedOption.value);
     } else {
+      setCustomRecurrOpen(false);
       console.log('The option is:', selectedOption);
     }
   };
