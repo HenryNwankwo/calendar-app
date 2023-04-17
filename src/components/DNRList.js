@@ -9,6 +9,18 @@ import { AiOutlineSync } from 'react-icons/ai';
 
 function DNRList() {
   const [dNRValue, setDNRValue] = useState(null);
+  const { customRecurrOpen, setCustomRecurrOpen } = useContext(AppContext);
+
+  /* Handling the change in options */
+
+  const handleOptionChange = (selectedOption) => {
+    if (selectedOption.value === 'Custom') {
+      setCustomRecurrOpen(true);
+      console.log('The option is:', selectedOption.value);
+    } else {
+      console.log('The option is:', selectedOption);
+    }
+  };
 
   /* Creating a custom dropdown and the sync indicator for the do not repeat box */
   const CustomDropdownIndicator = (props) => {
@@ -36,7 +48,7 @@ function DNRList() {
           defaultValue={options[0]}
           components={{ DropdownIndicator: CustomDropdownIndicator }}
           placeholder='Do not Repeat'
-          onChange={setDNRValue}
+          onChange={handleOptionChange}
           className='customSelect pl-4 flex relative text-icon-color border-b-2 border-solid border-bg-color-grey'
           dropDownIndicator={false}
           minMenuHeight={'100%'}

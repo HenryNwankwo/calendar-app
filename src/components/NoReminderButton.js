@@ -18,8 +18,13 @@ function NoReminderButton() {
     setReminderState,
     customRecurrOpen,
     setCustomRecurrOpen,
+    setShowPopUp,
   } = useContext(AppContext);
 
+  const cancelHandler = (e) => {
+    e.preventDefault();
+    setShowPopUp(false);
+  };
   return (
     <>
       <CustomButton
@@ -102,6 +107,7 @@ function NoReminderButton() {
             <CustomButton
               allClasses={`border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md`}
               textValue='Cancel'
+              onClick={(e) => cancelHandler(e)}
             ></CustomButton>
             <CustomButton
               allClasses={`border-1 bg-primary-color text-white text-sm px-11 hoverOnGreen hover:border-green-100 shadow-md outline-none  mb-3 sm:mb-0 `}

@@ -8,5 +8,5 @@ export const options = [
     value: 'Every Weekday (Monday to Friday)',
     label: 'Every Weekday (Monday to Friday)',
   },
-  { value: 'Custom...', label: 'Custom' },
+  { value: 'Custom', label: 'Custom' },
 ];
