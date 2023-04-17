@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import CustomRadioButton from './CustomRadioButton';
 
 function CustomRecurrence() {
+  const [noOfOcurrence, setNoOfOcurrence] = useState(10);
+
+  /* Handles the increment number of occurrence of custom occurence */
+  const handleIncrement = () => {
+    if (noOfOcurrence < 10) {
+      setNoOfOcurrence(noOfOcurrence + 1);
+    }
+  };
+
+  /* Handles the decrement number of occurrence of custom occurence */
+  const handleDecrement = () => {
+    if (noOfOcurrence > 1) {
+      setNoOfOcurrence(noOfOcurrence - 1);
+    }
+  };
   return (
     <>
       {/* Custom ocurrence group */}
@@ -48,6 +63,7 @@ function CustomRecurrence() {
         <div className='flex flex-col'>
           <p className='mb-2'>Ends</p>
           <div className='flex-row'>
+            {/* Never Group */}
             <div className='mb-2'>
               <CustomRadioButton
                 radioName='ends'
@@ -57,6 +73,7 @@ function CustomRecurrence() {
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
             </div>
+            {/* On Group */}
             <div className='flex flex-row mb-2'>
               <CustomRadioButton
                 radioName='ends'
@@ -69,6 +86,8 @@ function CustomRecurrence() {
                 Sept 1, 2021
               </span>
             </div>
+
+            {/* After Group */}
             <div className=' flex flex-row'>
               <CustomRadioButton
                 radioName='ends'
@@ -78,10 +97,16 @@ function CustomRecurrence() {
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
               <span className='flex flex-row items-center py-1 px-2 bg-gray-100 rounded justify-center'>
-                10{' '}
+                {noOfOcurrence}
                 <span>
-                  <RiArrowUpSLine className='text-xs mx-1 '></RiArrowUpSLine>
-                  <RiArrowDownSLine className='text-xs mx-1 '></RiArrowDownSLine>
+                  <RiArrowUpSLine
+                    className='text-xs mx-1 hover:cursor-pointer hover:font-bold '
+                    onClick={handleIncrement}
+                  ></RiArrowUpSLine>
+                  <RiArrowDownSLine
+                    className='text-xs mx-1 hover:cursor-pointer hover:font-bold'
+                    onClick={handleDecrement}
+                  ></RiArrowDownSLine>
                 </span>
                 Ocurrences
               </span>
