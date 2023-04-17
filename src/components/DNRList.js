@@ -10,16 +10,18 @@ import { AiOutlineSync } from 'react-icons/ai';
 function DNRList() {
   const [dNRValue, setDNRValue] = useState(null);
   const { customRecurrOpen, setCustomRecurrOpen } = useContext(AppContext);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   /* Handling the change in options */
 
-  const handleOptionChange = (selectedOption) => {
-    if (selectedOption.value === 'Custom') {
+  const handleOptionChange = (selected) => {
+    setSelectedOption(selected);
+    if (selected.value === 'Custom') {
       setCustomRecurrOpen(true);
-      console.log('The option is:', selectedOption.value);
+      console.log('The option is:', selected.value);
     } else {
       setCustomRecurrOpen(false);
-      console.log('The option is:', selectedOption);
+      console.log('The option is:', selected);
     }
   };
 
@@ -46,7 +48,7 @@ function DNRList() {
           menuPlacement='auto'
           menuPortalTarget={document.body}
           menuShouldScrollIntoView={true}
-          defaultValue={options[0]}
+          defaultValue={selectedOption || options[0]}
           components={{ DropdownIndicator: CustomDropdownIndicator }}
           placeholder='Do not Repeat'
           onChange={handleOptionChange}
