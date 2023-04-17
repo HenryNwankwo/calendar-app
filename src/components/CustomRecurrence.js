@@ -30,19 +30,48 @@ function CustomRecurrence() {
         <div className='flex items-center'>
           <p className='w-3/12 py-4'>Repeat every</p>
           <p className='w-20 p-4 ml-6'>1</p>
-          <div className='flex items-center justify-center w-20 h-9 rounded bg-gray-100'>
+          <div className='flex items-center justify-center w-23 h-9 rounded bg-gray-100'>
             <Select
-              className='ml-2'
+              className='ml-2 hover:cursor-pointer w-full'
               options={options}
               defaultValue={options[1]}
               menuPlacement='auto'
               menuPortalTarget={document.body}
               styles={{
+                control: (baseStyle, state) => ({
+                  border: 0,
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  fontSize: '13px',
+                  paddingLeft: 0,
+                }),
+                dropdownIndicator: (baseStyle) => ({
+                  ...baseStyle,
+                  paddingRight: '5px',
+                }),
+                indicatorSeparator: () => ({
+                  display: 'none',
+                }),
                 menu: (baseStyle, state) => ({
                   ...baseStyle,
-                  width: '',
-                  height: '',
+                  width: '77px',
+                  height: '147px',
                   outline: 'none',
+                }),
+                option: (baseStyle, state) => ({
+                  ...baseStyle,
+                  height: 'auto',
+                  padding: '4px 16px 4px 16px',
+                  fontSize: '13px',
+                  background: state.isSelected ? '#00B87C' : '',
+                  color: state.isSelected ? '#ffffff' : 'GrayText',
+                  ':hover': {
+                    backgroundColor: '#E1FDF4',
+                    cursor: 'pointer',
+                    color: state.isSelected ? 'GrayText' : '',
+                  },
                 }),
               }}
             ></Select>
