@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
+import Select from 'react-select';
 import CustomRadioButton from './CustomRadioButton';
+import { options } from '../assets/customRecurrOptions';
 
 function CustomRecurrence() {
   const [noOfOcurrence, setNoOfOcurrence] = useState(10);
@@ -18,6 +20,7 @@ function CustomRecurrence() {
       setNoOfOcurrence(noOfOcurrence - 1);
     }
   };
+
   return (
     <>
       {/* Custom ocurrence group */}
@@ -28,8 +31,23 @@ function CustomRecurrence() {
           <p className='w-3/12 py-4'>Repeat every</p>
           <p className='w-20 p-4 ml-6'>1</p>
           <div className='flex items-center justify-center w-20 h-9 rounded bg-gray-100'>
-            <span>Week</span>
-            <RiArrowDownSLine className='text-xl ml-2'></RiArrowDownSLine>
+            <Select
+              className='ml-2'
+              options={options}
+              defaultValue={options[1]}
+              menuPlacement='auto'
+              menuPortalTarget={document.body}
+              styles={{
+                menu: (baseStyle, state) => ({
+                  ...baseStyle,
+                  width: '',
+                  height: '',
+                  outline: 'none',
+                }),
+              }}
+            ></Select>
+            {/* <span>Week</span>
+            <RiArrowDownSLine className='text-xl ml-2'></RiArrowDownSLine> */}
           </div>
         </div>
         {/* Repeat on group */}
