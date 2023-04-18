@@ -28,8 +28,8 @@ function NoReminderButton() {
   return (
     <>
       <CustomButton
-        allClasses={` hoverOnGreen text-white flex items-center justify-center border-none outline-none w-full sm:w-44 shadow-md ${
-          reminderState ? 'bg-green-200' : 'bg-primary-color'
+        allClasses={` hoverOnGreen text-white flex items-center justify-center border-none outline-none w-full sm:w-44  ${
+          reminderState ? 'bg-green-200' : 'bg-primary-color shadow-md'
         }`}
         textValue={
           <p className='flex items-center px-1 py-2'>

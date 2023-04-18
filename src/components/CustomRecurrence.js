@@ -3,9 +3,11 @@ import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import Select from 'react-select';
 import CustomRadioButton from './CustomRadioButton';
 import { options } from '../assets/customRecurrOptions';
+import CustomCalendar from './CustomCalendar';
 
 function CustomRecurrence() {
   const [noOfOcurrence, setNoOfOcurrence] = useState(10);
+  const [showCalendar, setShowCalendar] = useState(false);
 
   /* Handles the increment number of occurrence of custom occurence */
   const handleIncrement = () => {
@@ -19,6 +21,12 @@ function CustomRecurrence() {
     if (noOfOcurrence > 1) {
       setNoOfOcurrence(noOfOcurrence - 1);
     }
+  };
+
+  /* Handles the open and close of the calendar component */
+
+  const showCalendarHandler = () => {
+    setShowCalendar(!showCalendar);
   };
 
   return (
@@ -129,9 +137,13 @@ function CustomRecurrence() {
                 radioGroupClass='w-4/12'
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
-              <span className='bg-gray-100 p-1 px-2 flex rounded justify-center'>
+              <span
+                className='bg-gray-100 p-1 px-2 flex rounded justify-center'
+                onClick={showCalendarHandler}
+              >
                 Sept 1, 2021
               </span>
+              {showCalendar && <CustomCalendar />}
             </div>
 
             {/* After Group */}
