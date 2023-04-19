@@ -32,7 +32,7 @@ function CustomRecurrence() {
   return (
     <>
       {/* Custom ocurrence group */}
-      <div className='text-sm text-txt-color bg-white'>
+      <div className='text-sm text-txt-color bg-white w-full'>
         <h6 className='font-bold mt-6 mb-3'>Custom Recurrence</h6>
         {/* Repeat every group */}
         <div className='flex items-center'>
@@ -115,7 +115,7 @@ function CustomRecurrence() {
           </div>
         </div>
         {/* ends group */}
-        <div className='flex flex-col'>
+        <div className='flex flex-col w-full'>
           <p className='mb-2'>Ends</p>
           <div className='flex-row'>
             {/* Never Group */}
@@ -129,7 +129,7 @@ function CustomRecurrence() {
               ></CustomRadioButton>
             </div>
             {/* On Group */}
-            <div className='flex flex-row mb-2 relative'>
+            <div className='flex flex-row mb-2 relative w-full'>
               <CustomRadioButton
                 radioName='ends'
                 radioID='on'
