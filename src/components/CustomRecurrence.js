@@ -129,7 +129,7 @@ function CustomRecurrence() {
               ></CustomRadioButton>
             </div>
             {/* On Group */}
-            <div className='flex flex-row mb-2'>
+            <div className='flex flex-row mb-2 relative'>
               <CustomRadioButton
                 radioName='ends'
                 radioID='on'
@@ -138,7 +138,7 @@ function CustomRecurrence() {
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
               <span
-                className='bg-gray-100 p-1 px-2 flex rounded justify-center'
+                className='bg-gray-100 p-1 px-2 flex rounded justify-center hover:cursor-pointer'
                 onClick={showCalendarHandler}
               >
                 Sept 1, 2021

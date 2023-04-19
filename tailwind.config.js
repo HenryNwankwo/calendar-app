@@ -29,6 +29,7 @@ module.exports = {
       height: {
         18: '71px',
         41: '165px',
+        65: '263px',
       },
       borderWidth: {
         1: '1px',
@@ -40,6 +41,7 @@ module.exports = {
         33: '135px',
         34: '139px',
         61: '243px',
+        69: '272px',
       },
       minHeight: {
         32: '128px',

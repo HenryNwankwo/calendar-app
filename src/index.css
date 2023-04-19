@@ -98,3 +98,10 @@
 .dayCustomStyle span:nth-child(odd) {
   @apply bg-gray-100;
 }
+
+/* React Calender custom styles */
+.react-calendar {
+  @apply w-full h-65 bg-white rounded-lg z-50;
+  max-width: 292px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
