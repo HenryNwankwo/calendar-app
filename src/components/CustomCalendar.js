@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import Calendar from 'react-calendar';
+import { AppContext } from '../App';
 
 function CustomCalendar() {
   const [isMenuTop, setIsMenuTop] = useState(false);
@@ -18,14 +19,19 @@ function CustomCalendar() {
       setIsMenuTop(isTop);
     }
   }, [isMenuTop]);
+
   return (
     <div
-      className={`absolute bg-white ${
+      className={`calendarMenu absolute  ${
         isMenuTop ? 'bottom-full mb-2' : 'top-full mt-2'
       } left-0 z-50 w-full sm:w-69`}
       ref={calendarMenuRef}
     >
-      <Calendar className='' />
+      <Calendar
+        className={`bg-white`}
+        defaultValue={calendarDate}
+        onChange={setCalendarDate}
+      />
     </div>
   );
 }

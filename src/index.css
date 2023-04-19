@@ -101,7 +101,28 @@
 
 /* React Calender custom styles */
 .react-calendar {
-  @apply w-full h-65 bg-white rounded-lg z-50;
+  @apply w-full h-65 bg-white rounded-lg;
   max-width: 292px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.react-calendar__navigation {
+  @apply text-white bg-primary-color rounded-t-lg justify-around;
+}
+.react-calendar__navigation__label {
+  @apply text-white font-bold;
+}
+.react-calendar__navigation__label:hover {
+  @apply bg-light-green;
+}
+.react-calendar__navigation__next-button,
+.react-calendar__navigation__prev-button {
+  @apply text-lg;
+}
+.react-calendar__navigation__next-button:hover,
+.react-calendar__navigation__prev-button:hover {
+  @apply rounded-full;
+}
+.react-calendar__navigation__next2-button,
+.react-calendar__navigation__prev2-button {
+  display: none;
 }

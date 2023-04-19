@@ -1,13 +1,37 @@
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import Select from 'react-select';
 import CustomRadioButton from './CustomRadioButton';
 import { options } from '../assets/customRecurrOptions';
 import CustomCalendar from './CustomCalendar';
+import { AppContext } from '../App';
 
 function CustomRecurrence() {
-  const [noOfOcurrence, setNoOfOcurrence] = useState(10);
   const [showCalendar, setShowCalendar] = useState(false);
+  const [noOfOcurrence, setNoOfOcurrence] = useState(10);
+  const dateRef = useRef(null);
+
+  /* Handling closing of Calendar menu on windows mouse event */
+  const handleWindowClick = (e) => {
+    const menuNode = document.querySelector('.calendarMenu');
+
+    if (
+      menuNode &&
+      !menuNode.contains(e.target) &&
+      !dateRef.current.contains(e.target)
+    ) {
+      setShowCalendar(false);
+    }
+  };
+
+  /* Closing the calendar menu on outside click */
+  useEffect(() => {
+    window.addEventListener('click', handleWindowClick);
+
+    return () => {
+      window.removeEventListener('click', handleWindowClick);
+    };
+  });
 
   /* Handles the increment number of occurrence of custom occurence */
   const handleIncrement = () => {
@@ -138,8 +162,9 @@ function CustomRecurrence() {
                 otherInputClass='radioActiveClass'
               ></CustomRadioButton>
               <span
-                className='bg-gray-100 p-1 px-2 flex rounded justify-center hover:cursor-pointer'
+                className=' bg-gray-100 p-1 px-2 flex rounded justify-center hover:cursor-pointer'
                 onClick={showCalendarHandler}
+                ref={dateRef}
               >
                 Sept 1, 2021
               </span>
