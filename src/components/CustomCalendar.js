@@ -4,7 +4,7 @@ import { AppContext } from '../App';
 
 function CustomCalendar() {
   const [isMenuTop, setIsMenuTop] = useState(false);
-  const [calendarDate, setCalendarDate] = useState(new Date());
+  const { calendarDate, setCalendarDate } = useContext(AppContext);
   const calendarMenuRef = useRef(null);
 
   /* Determining if to place calendar top or bottom */

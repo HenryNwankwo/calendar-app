@@ -1,15 +1,19 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import Select from 'react-select';
+import { format } from 'date-fns';
 import CustomRadioButton from './CustomRadioButton';
 import { options } from '../assets/customRecurrOptions';
 import CustomCalendar from './CustomCalendar';
 import { AppContext } from '../App';
 
 function CustomRecurrence() {
+  const { calendarDate, setCalendarDate } = useContext(AppContext);
   const [showCalendar, setShowCalendar] = useState(false);
   const [noOfOcurrence, setNoOfOcurrence] = useState(10);
   const dateRef = useRef(null);
+
+  const formattedDate = format(calendarDate, 'MMM d, yyyy');
 
   /* Handling closing of Calendar menu on windows mouse event */
   const handleWindowClick = (e) => {
@@ -166,7 +170,7 @@ function CustomRecurrence() {
                 onClick={showCalendarHandler}
                 ref={dateRef}
               >
-                Sept 1, 2021
+                {formattedDate}
               </span>
               {showCalendar && <CustomCalendar />}
             </div>

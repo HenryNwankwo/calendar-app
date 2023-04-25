@@ -28,6 +28,7 @@ function App() {
   const [reminderState, setReminderState] = useState(false);
   const [dnrOpenState, setDnrOpenState] = useState(false);
   const [customRecurrOpen, setCustomRecurrOpen] = useState(false);
+  const [calendarDate, setCalendarDate] = useState(new Date());
 
   return (
     <AppContext.Provider
@@ -62,6 +63,8 @@ function App() {
         setDnrOpenState,
         customRecurrOpen,
         setCustomRecurrOpen,
+        calendarDate,
+        setCalendarDate,
       }}
     >
       <Router>

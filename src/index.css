@@ -103,10 +103,11 @@
 .react-calendar {
   @apply w-full h-65 bg-white rounded-lg border-none;
   max-width: 292px;
+  max-height: auto;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 .react-calendar__navigation {
-  @apply text-white bg-primary-color rounded-t-lg justify-around h-8 flex items-center;
+  @apply text-white bg-primary-color rounded-t-lg justify-around h-8 flex items-center mb-1;
 }
 .react-calendar__navigation__label {
   @apply text-white font-bold h-full;
@@ -114,7 +115,6 @@
 
 .react-calendar__navigation__arrow {
   @apply flex items-center justify-center w-2 h-8;
-  /* min-width: 20px; */
   border-radius: 100%;
 }
 
@@ -147,7 +147,7 @@
 }
 
 .react-calendar__tile--now {
-  @apply bg-green-400;
+  @apply bg-green-400 text-white;
 }
 
 .react-calendar__tile--now:enabled:hover,
@@ -174,4 +174,13 @@
 
 .react-calendar--selectRange .react-calendar__tile--hover {
   @apply bg-light-green;
+}
+
+.react-calendar__viewContainer {
+  @apply h-full items-center justify-center;
+}
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 1.4em 0.5em;
 }
