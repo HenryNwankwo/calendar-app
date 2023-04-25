@@ -185,3 +185,10 @@
   padding: 1.4em 0.5em;
   border-radius: 100%;
 }
+.react-calendar__navigation button:disabled {
+  @apply hidden;
+}
+
+.react-calendar__tile:disabled {
+  @apply bg-gray-100 text-txt-color;
+}
