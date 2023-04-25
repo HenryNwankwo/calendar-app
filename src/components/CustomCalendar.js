@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useContext } from 'react';
 import Calendar from 'react-calendar';
-import { add } from 'date-fns';
+import { add, startOfMonth } from 'date-fns';
 import { AppContext } from '../App';
 
 function CustomCalendar() {
@@ -10,6 +10,7 @@ function CustomCalendar() {
 
   const currentDate = new Date();
   const futureDate = add(currentDate, { years: 3 });
+  const pastDate = startOfMonth(currentDate);
 
   /* Determining if to place calendar top or bottom */
   useEffect(() => {
@@ -36,6 +37,7 @@ function CustomCalendar() {
         value={calendarDate}
         onChange={setCalendarDate}
         showNeighboringMonth={false}
+        minDate={new Date(pastDate)}
         maxDate={new Date(futureDate)}
       />
     </div>

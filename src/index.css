@@ -186,7 +186,7 @@
   border-radius: 100%;
 }
 .react-calendar__navigation button:disabled {
-  @apply hidden;
+  @apply bg-light-green;
 }
 
 .react-calendar__tile:disabled {
