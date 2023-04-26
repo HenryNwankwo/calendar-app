@@ -30,10 +30,13 @@ function App() {
   const [customRecurrOpen, setCustomRecurrOpen] = useState(false);
   const [calendarDate, setCalendarDate] = useState(new Date());
   const [monthID, setMonthID] = useState();
+  const [noEvents, setNoEvents] = useState(false);
 
   return (
     <AppContext.Provider
       value={{
+        noEvents,
+        setNoEvents,
         monthID,
         setMonthID,
         year,

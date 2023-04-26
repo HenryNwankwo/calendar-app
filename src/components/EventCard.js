@@ -19,17 +19,30 @@ function EventCard() {
     setShowEditEvent,
     year,
     month,
+    noEvents,
+    setNoEvents,
   } = useContext(AppContext);
 
   const pickedMonth = new Date(`${year}-${month}`);
 
   /* Displays Events for a selected month */
-  const displayMonthEvents = (selectedMonth) => {
-    const startDate = startOfMonth(selectedMonth);
-    const endDate = endOfMonth(selectedMonth);
-    const daysInMonth = eachDayOfInterval({ start: startDate, end: endDate });
-    return daysInMonth;
-  };
+
+  const monthStartDate = startOfMonth(pickedMonth);
+  const monthEndDate = endOfMonth(pickedMonth);
+  const daysInMonth = eachDayOfInterval({
+    start: monthStartDate,
+    end: monthEndDate,
+  });
+
+  //Events in a month
+  const eventsInMonth = holidayList.filter((event) => {
+    const eventDate = event.startDate;
+
+    return eventDate >= monthStartDate && eventDate <= monthEndDate;
+  });
+  if (eventsInMonth <= 0) {
+    setNoEvents(true);
+  }
 
   //Calls an event delete pop up and assigns its id to a state
   const deleteEventMethod = (id) => {
@@ -54,51 +67,58 @@ function EventCard() {
 
   return (
     <div className=''>
-      {holidayList.map((holiday) => {
-        return (
-          <div
-            className='flex flex-col bg-bg-color-white mt-1.5 mx-4 md:mx-7 p-4 md:p-6 hover:bg-gray-50 hover:cursor-pointer shadow-md select-none'
-            style={{ borderLeft: `8px solid ${holiday.color}` }}
-            key={holiday.id}
-            ref={currentEventRef}
-            onClick={() => clickedEventHandler(holiday.id)}
-          >
-            <div className='flex justify-between mb-2'>
-              {/* Event Title */}
-              <span className='flex flex-row w-auto items-center'>
-                <h6 className='font-bold text-lg'>{holiday.eventTitle}</h6>
-                <span className='hoverRoundedGray ml-4 '>
-                  <RiNotification2Line className='text-xl hover:cursor-pointer text-primary-color' />
-                </span>
-              </span>
-              <span className='flex flex-row w-auto items-center'>
-                <span
-                  className='hoverRoundedGray mr-1'
-                  onClick={() => editEventHandler(holiday.id)}
+      {daysInMonth.map((day) => (
+        <div key={day}>
+          {eventsInMonth
+            .filter((event) => event.startDate.getDate() === day.getDate())
+            .map((holiday) => (
+              <div
+                className='flex flex-col bg-bg-color-white mt-1.5 mx-4 md:mx-7 p-4 md:p-6 hover:bg-gray-50 hover:cursor-pointer shadow-md select-none'
+                style={{ borderLeft: `8px solid ${holiday.color}` }}
+                key={holiday.id}
+                ref={currentEventRef}
+                onClick={() => clickedEventHandler(holiday.id)}
+              >
+                <div className='flex justify-between mb-2'>
+                  {/* Event Title */}
+                  <span className='flex flex-row w-auto items-center'>
+                    <h6 className='font-bold text-lg'>{holiday.eventTitle}</h6>
+                    <span className='hoverRoundedGray ml-4 '>
+                      <RiNotification2Line className='text-xl hover:cursor-pointer text-primary-color' />
+                    </span>
+                  </span>
+                  <span className='flex flex-row w-auto items-center'>
+                    <span
+                      className='hoverRoundedGray mr-1'
+                      onClick={() => editEventHandler(holiday.id)}
+                    >
+                      <FiEdit2 className='text-xl text-primary-color' />
+                    </span>
+                    <span
+                      className='hoverRoundedGray'
+                      onClick={() => deleteEventMethod(holiday.id)}
+                    >
+                      <RiDeleteBinLine className='text-xl hover:cursor-pointer text-primary-color' />
+                    </span>
+                  </span>
+                </div>
+                {/* Event Color */}
+                <p className='text-sm' style={{ color: holiday.color }}>
+                  {holiday.allDay
+                    ? 'All Day'
+                    : `${holiday.startTime} - ${holiday.endTime}`}
+                </p>
+                {/* Event Description */}
+                <p
+                  className='font-bold text-sm'
+                  style={{ color: holiday.color }}
                 >
-                  <FiEdit2 className='text-xl text-primary-color' />
-                </span>
-                <span
-                  className='hoverRoundedGray'
-                  onClick={() => deleteEventMethod(holiday.id)}
-                >
-                  <RiDeleteBinLine className='text-xl hover:cursor-pointer text-primary-color' />
-                </span>
-              </span>
-            </div>
-            {/* Event Color */}
-            <p className='text-sm' style={{ color: holiday.color }}>
-              {holiday.allDay
-                ? 'All Day'
-                : `${holiday.startTime} - ${holiday.endTime}`}
-            </p>
-            {/* Event Description */}
-            <p className='font-bold text-sm' style={{ color: holiday.color }}>
-              {holiday.description}
-            </p>
-          </div>
-        );
-      })}
+                  {holiday.description}
+                </p>
+              </div>
+            ))}
+        </div>
+      ))}
       {<EditEvent theEventID={currentEventID} />}
       {clickedEvent && (
         <ShowEventPopUp
