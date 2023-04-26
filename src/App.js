@@ -29,10 +29,13 @@ function App() {
   const [dnrOpenState, setDnrOpenState] = useState(false);
   const [customRecurrOpen, setCustomRecurrOpen] = useState(false);
   const [calendarDate, setCalendarDate] = useState(new Date());
+  const [monthID, setMonthID] = useState();
 
   return (
     <AppContext.Provider
       value={{
+        monthID,
+        setMonthID,
         year,
         setYear,
         month,
