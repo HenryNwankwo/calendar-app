@@ -186,7 +186,7 @@
   border-radius: 100%;
 }
 .react-calendar__navigation button:disabled {
-  @apply bg-light-green;
+  @apply cursor-not-allowed bg-primary-color text-primary-color;
 }
 
 .react-calendar__tile:disabled {

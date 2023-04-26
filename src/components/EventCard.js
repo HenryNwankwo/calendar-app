@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { RiDeleteBinLine, RiNotification2Line } from 'react-icons/ri';
 import { FiEdit2 } from 'react-icons/fi';
+import { startOfMonth, endOfMonth, eachDayOfInterval } from 'date-fns';
 import { AppContext } from './../App';
 import DeleteEvent from './DeleteEvent';
 import EditEvent from './EditEvent';
@@ -16,7 +17,19 @@ function EventCard() {
     setClickedEvent,
     showEditEvent,
     setShowEditEvent,
+    year,
+    month,
   } = useContext(AppContext);
+
+  const pickedMonth = new Date(`${year}-${month}`);
+
+  /* Displays Events for a selected month */
+  const displayMonthEvents = (selectedMonth) => {
+    const startDate = startOfMonth(selectedMonth);
+    const endDate = endOfMonth(selectedMonth);
+    const daysInMonth = eachDayOfInterval({ start: startDate, end: endDate });
+    return daysInMonth;
+  };
 
   //Calls an event delete pop up and assigns its id to a state
   const deleteEventMethod = (id) => {
