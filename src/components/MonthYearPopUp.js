@@ -5,8 +5,12 @@ import { AppContext } from './../App';
 import YearDropDown from './YearDropDown';
 
 const MonthYearPopUp = () => {
-  const { isYearClicked, year, setMonth, setIsYearClicked, setMonthID } =
+  const { isYearClicked, year, setMonth, setIsYearClicked } =
     useContext(AppContext);
+
+  const handleDate = (id, value) => {
+    setMonth(value);
+  };
 
   return (
     <>
@@ -33,10 +37,7 @@ const MonthYearPopUp = () => {
           {months.map((month) => {
             return (
               <span
-                onClick={() => {
-                  setMonth(month.value);
-                  setMonthID(month.id);
-                }}
+                onClick={() => handleDate(month.id, month.value)}
                 key={month.id}
                 className='px-2 py-1 m-1.5 text-center text-txt-color hover:text-gray-900 hover:cursor-pointer hover:bg-bg-color-grey'
               >

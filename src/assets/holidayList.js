@@ -19,7 +19,7 @@ export const eventList = [
   {
     id: 2,
     eventTitle: 'Wedding Party',
-    startDate: new Date(2024, 5, 8),
+    startDate: new Date('2024-5-8'),
     endDate: new Date(),
     startTime: '1:00PM',
     endTime: '6:00PM',
@@ -37,7 +37,7 @@ export const eventList = [
   {
     id: 3,
     eventTitle: 'My Birthday',
-    startDate: new Date(2013, 3, 7),
+    startDate: new Date('2023-3-7'),
     endDate: new Date(),
     startTime: '06:00PM',
     endTime: '8:00PM',
@@ -71,7 +71,7 @@ export const eventList = [
   {
     id: 5,
     eventTitle: 'Wedding Party',
-    startDate: new Date(2023, 8, 10),
+    startDate: new Date('2023-8-10'),
     endDate: new Date(),
     startTime: '1:00PM',
     endTime: '6:00PM',

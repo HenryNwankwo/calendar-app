@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { RiDeleteBinLine, RiNotification2Line } from 'react-icons/ri';
 import { FiEdit2 } from 'react-icons/fi';
 import { startOfMonth, endOfMonth, eachDayOfInterval } from 'date-fns';
@@ -9,6 +9,7 @@ import ShowEventPopUp from './ShowEventPopUp';
 function EventCard() {
   const {
     holidayList,
+    setHolidayList,
     currentEventID,
     setCurrentEventID,
     deleteEventPopUp,
@@ -19,16 +20,14 @@ function EventCard() {
     setShowEditEvent,
     year,
     month,
-    noEvents,
-    setNoEvents,
+    setIsEventsEmpty,
   } = useContext(AppContext);
 
-  const pickedMonth = new Date(`${year}-${month}`);
+  const pickedDateMonthAndYear = new Date(`${year}-${month}-01`);
 
   /* Displays Events for a selected month */
-
-  const monthStartDate = startOfMonth(pickedMonth);
-  const monthEndDate = endOfMonth(pickedMonth);
+  const monthStartDate = startOfMonth(pickedDateMonthAndYear);
+  const monthEndDate = endOfMonth(pickedDateMonthAndYear);
   const daysInMonth = eachDayOfInterval({
     start: monthStartDate,
     end: monthEndDate,
@@ -40,9 +39,13 @@ function EventCard() {
 
     return eventDate >= monthStartDate && eventDate <= monthEndDate;
   });
-  if (eventsInMonth <= 0) {
-    setNoEvents(true);
-  }
+
+  //renders appropriate view depending if there is events for the month
+  useEffect(() => {
+    if (eventsInMonth.length <= 0) {
+      setIsEventsEmpty(true);
+    }
+  });
 
   //Calls an event delete pop up and assigns its id to a state
   const deleteEventMethod = (id) => {

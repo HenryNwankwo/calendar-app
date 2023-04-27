@@ -1,6 +1,5 @@
 import React, { lazy, useContext } from 'react';
 import { AppContext } from '../App';
-import AddEvent from './AddEvent';
 import EventLoader from './loaders/EventLoader';
 
 //Lazy imports
