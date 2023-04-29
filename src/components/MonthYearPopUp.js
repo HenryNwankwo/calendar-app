@@ -3,13 +3,25 @@ import { months } from './../assets/content';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AppContext } from './../App';
 import YearDropDown from './YearDropDown';
+import { isSameMonth } from 'date-fns';
 
 const MonthYearPopUp = () => {
-  const { isYearClicked, year, setMonth, setIsYearClicked } =
-    useContext(AppContext);
+  const {
+    isYearClicked,
+    year,
+    setMonth,
+    setIsYearClicked,
+    holidayList,
+    setFilteredHolidayList,
+  } = useContext(AppContext);
 
   const handleDate = (id, value) => {
     setMonth(value);
+    const newDate = new Date(`${year}-${value}-01`);
+    const newEvents = holidayList.filter((holiday) =>
+      isSameMonth(holiday.startDate, newDate)
+    );
+    setFilteredHolidayList(newEvents);
   };
 
   return (

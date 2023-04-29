@@ -31,10 +31,13 @@ function App() {
   const [calendarDate, setCalendarDate] = useState(new Date());
   const [monthID, setMonthID] = useState();
   const [isEventsEmpty, setIsEventsEmpty] = useState();
+  const [filteredHolidayList, setFilteredHolidayList] = useState(holidayList);
 
   return (
     <AppContext.Provider
       value={{
+        filteredHolidayList,
+        setFilteredHolidayList,
         isEventsEmpty,
         setIsEventsEmpty,
         monthID,

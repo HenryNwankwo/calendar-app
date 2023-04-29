@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { RiDeleteBinLine, RiNotification2Line } from 'react-icons/ri';
 import { FiEdit2 } from 'react-icons/fi';
 import { startOfMonth, endOfMonth, eachDayOfInterval } from 'date-fns';
@@ -6,10 +6,8 @@ import { AppContext } from './../App';
 import DeleteEvent from './DeleteEvent';
 import EditEvent from './EditEvent';
 import ShowEventPopUp from './ShowEventPopUp';
-function EventCard() {
+function EventCard({ theHolidayList }) {
   const {
-    holidayList,
-    setHolidayList,
     currentEventID,
     setCurrentEventID,
     deleteEventPopUp,
@@ -20,7 +18,6 @@ function EventCard() {
     setShowEditEvent,
     year,
     month,
-    setIsEventsEmpty,
   } = useContext(AppContext);
 
   const pickedDateMonthAndYear = new Date(`${year}-${month}-01`);
@@ -31,20 +28,6 @@ function EventCard() {
   const daysInMonth = eachDayOfInterval({
     start: monthStartDate,
     end: monthEndDate,
-  });
-
-  //Events in a month
-  const eventsInMonth = holidayList.filter((event) => {
-    const eventDate = event.startDate;
-
-    return eventDate >= monthStartDate && eventDate <= monthEndDate;
-  });
-
-  //renders appropriate view depending if there is events for the month
-  useEffect(() => {
-    if (eventsInMonth.length <= 0) {
-      setIsEventsEmpty(true);
-    }
   });
 
   //Calls an event delete pop up and assigns its id to a state
@@ -72,7 +55,7 @@ function EventCard() {
     <div className=''>
       {daysInMonth.map((day) => (
         <div key={day}>
-          {eventsInMonth
+          {theHolidayList
             .filter((event) => event.startDate.getDate() === day.getDate())
             .map((holiday) => (
               <div

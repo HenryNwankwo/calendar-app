@@ -11,7 +11,7 @@ const MainContent = () => {
     setIsYearClicked,
     isMonthClicked,
     isYearClicked,
-    holidayList,
+    filteredHolidayList,
   } = useContext(AppContext);
   return (
     <main
@@ -23,9 +23,9 @@ const MainContent = () => {
         }
       }}
     >
-      {holidayList.length !== 0 ? (
+      {filteredHolidayList.length !== 0 ? (
         <>
-          <EventCard />
+          <EventCard theHolidayList={filteredHolidayList} />
         </>
       ) : (
         <>
