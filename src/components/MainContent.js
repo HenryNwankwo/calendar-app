@@ -1,6 +1,7 @@
 import React, { lazy, useContext } from 'react';
 import { AppContext } from '../App';
 import EventLoader from './loaders/EventLoader';
+import NoHolidays from './NoHolidays';
 
 //Lazy imports
 const EventCard = lazy(() => import('./EventCard.js'));
@@ -29,8 +30,7 @@ const MainContent = () => {
         </>
       ) : (
         <>
-          <div>There is no content</div>
-          <EventLoader />
+          <NoHolidays />
         </>
       )}
     </main>
