@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../App';
-
 import MainContent from '../components/MainContent';
 import Navbar from '../components/Navbar';
 import AddEvent from '../components/AddEvent';
@@ -8,7 +7,6 @@ import AddEvent from '../components/AddEvent';
 function CalendarApp() {
   const {
     isAddEventOpen,
-    setIsAddEventOpen,
     isMonthClicked,
     isYearClicked,
     setIsMonthClicked,

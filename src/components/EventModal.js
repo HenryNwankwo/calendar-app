@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import { FiClock } from 'react-icons/fi';
-import { RiNotification2Line, RiArrowDownSLine } from 'react-icons/ri';
-import { AiOutlineClose } from 'react-icons/ai';
-import CustomButton from './CustomButton';
 import NoReminderButton from './NoReminderButton';
 import ShowReminderGroup from './ShowReminderGroup';
 

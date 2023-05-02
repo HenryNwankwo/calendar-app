@@ -8,7 +8,7 @@ import CustomCalendar from './CustomCalendar';
 import { AppContext } from '../App';
 
 function CustomRecurrence() {
-  const { calendarDate, setCalendarDate } = useContext(AppContext);
+  const { calendarDate } = useContext(AppContext);
   const [showCalendar, setShowCalendar] = useState(false);
   const [noOfOcurrence, setNoOfOcurrence] = useState(10);
   const dateRef = useRef(null);

@@ -1,14 +1,8 @@
 import React from 'react';
 import CustomTextInput from './CustomTextInput';
 import CustomInputLabel from './CustomInputLabel';
-import CustomCheckbox from './CustomCheckbox';
-import { FiEdit, FiCalendar, FiClock } from 'react-icons/fi';
-import {
-  RiArrowDownSLine,
-  RiCloseLine,
-  RiCloseCircleLine,
-  RiArrowDropDownFill,
-} from 'react-icons/ri';
+import { FiCalendar, FiClock } from 'react-icons/fi';
+import { RiArrowDownSLine } from 'react-icons/ri';
 
 function DateAndTimeGroup() {
   return (

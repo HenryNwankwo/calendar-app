@@ -1,12 +1,9 @@
 import React, { useContext, useState } from 'react';
-
 import { FiEdit, FiCalendar, FiClock } from 'react-icons/fi';
-import { AiOutlineSync } from 'react-icons/ai';
 import {
   RiArrowDownSLine,
   RiCloseLine,
   RiCloseCircleLine,
-  RiArrowDropDownFill,
 } from 'react-icons/ri';
 import Modal from 'react-modal';
 import { CirclePicker } from 'react-color';
@@ -16,7 +13,6 @@ import { AppContext } from '../App';
 import CustomButton from './CustomButton';
 import CustomTextInput from './CustomTextInput';
 import CustomInputLabel from './CustomInputLabel';
-import CustomCheckbox from './CustomCheckbox';
 import ToggleSwitch from './ToggleSwitch';
 import DateAndTimeGroup from './DateAndTimeGroup';
 import { EditorState } from 'draft-js';

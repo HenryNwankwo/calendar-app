@@ -8,6 +8,7 @@ import EditEvent from './EditEvent';
 import ShowEventPopUp from './ShowEventPopUp';
 function EventCard({ theHolidayList }) {
   const {
+    filteredHolidayList,
     currentEventID,
     setCurrentEventID,
     deleteEventPopUp,
@@ -55,7 +56,7 @@ function EventCard({ theHolidayList }) {
     <div className=''>
       {daysInMonth.map((day) => (
         <div key={day}>
-          {theHolidayList
+          {filteredHolidayList
             .filter((event) => event.startDate.getDate() === day.getDate())
             .map((holiday) => (
               <div

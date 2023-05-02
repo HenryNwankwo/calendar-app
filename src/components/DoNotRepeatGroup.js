@@ -1,15 +1,8 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
-import CustomTextInput from './CustomTextInput';
+import React, { useContext, useEffect, useRef } from 'react';
+
 import CustomInputLabel from './CustomInputLabel';
 import CustomCheckbox from './CustomCheckbox';
-import { FiEdit, FiCalendar, FiClock } from 'react-icons/fi';
-import { AiOutlineSync } from 'react-icons/ai';
-import {
-  RiArrowDownSLine,
-  RiCloseLine,
-  RiCloseCircleLine,
-  RiArrowDropDownFill,
-} from 'react-icons/ri';
+
 import DNRList from './DNRList';
 import { AppContext } from '../App';
 
@@ -18,8 +11,7 @@ function DoNotRepeatGroup({
   allDayGroupClass,
   inputLabelClass,
 }) {
-  const { dnrOpenState, setDnrOpenState, customRecurrOpen } =
-    useContext(AppContext);
+  const { setDnrOpenState, customRecurrOpen } = useContext(AppContext);
   const dnrListRef = useRef();
 
   /* closing the Do not repeat dropdown on mousedown */

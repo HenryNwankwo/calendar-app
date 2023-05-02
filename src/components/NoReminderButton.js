@@ -1,25 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import CustomButton from './CustomButton';
-import {
-  RiNotification2Line,
-  RiArrowDownSLine,
-  RiArrowUpSLine,
-} from 'react-icons/ri';
+import { RiNotification2Line, RiArrowDownSLine } from 'react-icons/ri';
 import { AppContext } from '../App';
 import DateAndTimeGroup from './DateAndTimeGroup';
 import DoNotRepeatGroup from './DoNotRepeatGroup';
-import DNRList from './DNRList';
 import CustomRadioButton from './CustomRadioButton';
 import CustomRecurrence from './CustomRecurrence';
 
 function NoReminderButton() {
-  const {
-    reminderState,
-    setReminderState,
-    customRecurrOpen,
-    setCustomRecurrOpen,
-    setShowPopUp,
-  } = useContext(AppContext);
+  const { reminderState, setReminderState, customRecurrOpen, setShowPopUp } =
+    useContext(AppContext);
 
   const cancelHandler = (e) => {
     e.preventDefault();

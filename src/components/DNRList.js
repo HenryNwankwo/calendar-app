@@ -1,15 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../App';
-import Select, { components } from 'react-select';
+import Select from 'react-select';
 import { options } from '../assets/dnrOptions';
 import { RiArrowDropDownFill } from 'react-icons/ri';
-import CustomTextInput from './CustomTextInput';
-import CustomInputLabel from './CustomInputLabel';
+
 import { AiOutlineSync } from 'react-icons/ai';
 
 function DNRList() {
-  const [dNRValue, setDNRValue] = useState(null);
-  const { customRecurrOpen, setCustomRecurrOpen } = useContext(AppContext);
+  const { setCustomRecurrOpen } = useContext(AppContext);
   const [selectedOption, setSelectedOption] = useState(null);
 
   /* Handling the change in options */
