@@ -25,6 +25,7 @@ function EventCard({ theHolidayList }) {
         <div key={day}>
           {theHolidayList
             .filter((event) => event.startDate.getDate() === day.getDate())
+            .sort((a, b) => a.startDate - b.startDate)
             .map((holiday) => (
               <span key={holiday.id}>
                 <Acard holiday={holiday} />

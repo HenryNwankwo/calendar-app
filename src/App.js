@@ -31,12 +31,16 @@ function App() {
   const [calendarDate, setCalendarDate] = useState(new Date());
   const [monthID, setMonthID] = useState();
   const [isEventsEmpty, setIsEventsEmpty] = useState();
+
+  //Setting up the initial state of the events carrying the events of the current month and sorting it too
   const [filteredHolidayList, setFilteredHolidayList] = useState(
-    holidayList.filter(
-      (holiday) =>
-        holiday.startDate.getMonth() === new Date().getMonth() &&
-        holiday.startDate.getFullYear() === new Date().getFullYear()
-    )
+    holidayList
+      .filter(
+        (holiday) =>
+          holiday.startDate.getMonth() === new Date().getMonth() &&
+          holiday.startDate.getFullYear() === new Date().getFullYear()
+      )
+      .sort((a, b) => a.startDate - b.startDate)
   );
   const [selectedNewDate, setSelectedNewDate] = useState(new Date());
 
