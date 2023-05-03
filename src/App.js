@@ -31,11 +31,20 @@ function App() {
   const [calendarDate, setCalendarDate] = useState(new Date());
   const [monthID, setMonthID] = useState();
   const [isEventsEmpty, setIsEventsEmpty] = useState();
-  const [filteredHolidayList, setFilteredHolidayList] = useState(holidayList);
+  const [filteredHolidayList, setFilteredHolidayList] = useState(
+    holidayList.filter(
+      (holiday) =>
+        holiday.startDate.getMonth() === new Date().getMonth() &&
+        holiday.startDate.getFullYear() === new Date().getFullYear()
+    )
+  );
+  const [selectedNewDate, setSelectedNewDate] = useState(new Date());
 
   return (
     <AppContext.Provider
       value={{
+        selectedNewDate,
+        setSelectedNewDate,
         filteredHolidayList,
         setFilteredHolidayList,
         isEventsEmpty,

@@ -13,6 +13,7 @@ const MonthYearPopUp = () => {
     setIsYearClicked,
     holidayList,
     setFilteredHolidayList,
+    setSelectedNewDate,
   } = useContext(AppContext);
 
   const handleDate = (id, value) => {
@@ -22,6 +23,7 @@ const MonthYearPopUp = () => {
       isSameMonth(holiday.startDate, newDate)
     );
     setFilteredHolidayList(newEvents);
+    setSelectedNewDate(newDate);
   };
 
   return (

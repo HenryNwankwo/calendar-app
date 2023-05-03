@@ -3,7 +3,7 @@ import { AppContext } from '../App';
 import { RiDeleteBinLine, RiNotification2Line } from 'react-icons/ri';
 import { FiEdit2 } from 'react-icons/fi';
 
-function Acard({ holiday }) {
+function Acard({ holiday, key }) {
   const {
     setCurrentEventID,
     deleteEventPopUp,
@@ -38,7 +38,7 @@ function Acard({ holiday }) {
       <div
         className='flex flex-col bg-bg-color-white mt-1.5 mx-4 md:mx-7 p-4 md:p-6 hover:bg-gray-50 hover:cursor-pointer shadow-md select-none'
         style={{ borderLeft: `8px solid ${holiday.color}` }}
-        key={holiday.id}
+        key={key}
         ref={currentEventRef}
         onClick={() => clickedEventHandler(holiday.id)}
       >
@@ -74,6 +74,10 @@ function Acard({ holiday }) {
         {/* Event Description */}
         <p className='font-bold text-sm' style={{ color: holiday.color }}>
           {holiday.description}
+        </p>
+        {/* Delete later */}
+        <p className='font-bold text-sm'>
+          {holiday.startDate.toLocaleDateString()}
         </p>
       </div>
     </>

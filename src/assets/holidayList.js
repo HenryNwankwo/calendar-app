@@ -2,7 +2,7 @@ export const eventList = [
   {
     id: 1,
     eventTitle: 'Company Picnic',
-    startDate: new Date(),
+    startDate: new Date('2023-7-12'),
     endDate: new Date(),
     startTime: '09:10AM',
     endTime: '2:00PM',
