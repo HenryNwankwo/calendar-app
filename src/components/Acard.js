@@ -76,8 +76,8 @@ function Acard({ holiday, key }) {
           {holiday.description}
         </p>
         {/* Delete later */}
-        <p className='font-bold text-sm'>
-          {holiday.startDate.toLocaleDateString()}
+        <p className='font-bold text-sm mt-2'>
+          {holiday.startDate.toDateString()}
         </p>
       </div>
     </>

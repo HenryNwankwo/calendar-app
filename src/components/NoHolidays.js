@@ -9,15 +9,17 @@ function NoHolidays() {
     .sort((a, b) => a.startDate - b.startDate)
     .slice(0, 3);
   return (
-    <div className='w-full h-auto bg-line-color flex flex-col'>
-      <div className='flex justify-center items-center h-96 w-full'>
-        <h5 className='text-txt-color text-center font-bold'>
+    <div className='w-full h-screen md:h-auto bg-line-color flex flex-col'>
+      <div className='flex justify-center items-center h-1/2 md:h-80 lg:h-96 w-full'>
+        <p className='text-center font-bold text-gray-400 text-xl'>
           No Holidays this month
-        </h5>
+        </p>
       </div>
 
       <div>
-        <p className='text-lg mb-3 mx-4'>Upcoming Holidays</p>
+        <p className='text-lg mb-3 mx-4 font-bold text-txt-color'>
+          Upcoming Holidays
+        </p>
 
         {upComingHolidays.map((holiday) => (
           <span key={holiday.id}>
