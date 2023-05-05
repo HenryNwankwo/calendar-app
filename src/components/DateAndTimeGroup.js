@@ -20,6 +20,19 @@ function DateAndTimeGroup() {
     value: format(time, 'HH:mm'),
     label: format(time, 'hh:mm a'),
   }));
+
+  //Custom Dropdown indicator for time
+  const CustomIndicator = (props) => {
+    const { innerProps, innerRef } = props;
+    return (
+      <span ref={innerRef} {...innerProps}>
+        <FiClock className='text-lg text-icon-color absolute left-0' />
+        <RiArrowDownSLine className='text-icon-color text-lg' />
+      </span>
+    );
+  };
+
+  const timeHandler = () => {};
   return (
     <>
       {/* date and time group */}
@@ -50,11 +63,16 @@ function DateAndTimeGroup() {
 
         <div className='flex relative w-5/12'>
           <Select
-            className='ml-2 hover:cursor-pointer w-full'
             options={options}
             placeholder='Time'
             menuPlacement='auto'
             menuPortalTarget={document.body}
+            menuShouldScrollIntoView={true}
+            onChange={timeHandler}
+            className='customSelect pl-4 flex relative text-icon-color border-b-2 border-solid border-bg-color-grey cursor-pointer'
+            components={{ DropdownIndicator: CustomIndicator }}
+            dropDownIndicator={false}
+            minMenuHeight={'100%'}
             styles={{
               control: (baseStyle, state) => ({
                 border: 0,
@@ -62,12 +80,8 @@ function DateAndTimeGroup() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                fontSize: '13px',
+                fontSize: '18px',
                 paddingLeft: 0,
-              }),
-              dropdownIndicator: (baseStyle) => ({
-                ...baseStyle,
-                paddingRight: '5px',
               }),
               indicatorSeparator: () => ({
                 display: 'none',
@@ -75,12 +89,17 @@ function DateAndTimeGroup() {
               menu: (baseStyle, state) => ({
                 ...baseStyle,
                 width: '100px',
-                height: '221px',
+                maxHeight: '221px',
                 outline: 'none',
                 borderRadius: '4px',
                 scrollbarWidth: 'thin',
-                scrollbarColor: '#00B87C',
+                scrollbarColor: '#00B87C transparent',
+                overflowY: 'auto',
               }),
+              // Style the scrollbar thumb
+              '::-webkit-scrollbar-thumb': {
+                background: '#00B87C',
+              },
               option: (baseStyle, state) => ({
                 ...baseStyle,
                 height: 'auto',
@@ -96,7 +115,7 @@ function DateAndTimeGroup() {
               }),
             }}
           ></Select>
-          <CustomTextInput
+          {/* <CustomTextInput
             name='reminderTIme'
             id='reminderTIme'
             placeholder='Time'
@@ -117,7 +136,7 @@ function DateAndTimeGroup() {
                 }
               />
             }
-          />
+          /> */}
         </div>
       </div>
     </>
