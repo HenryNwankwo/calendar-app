@@ -69,7 +69,7 @@ function DateAndTimeGroup() {
             menuPortalTarget={document.body}
             menuShouldScrollIntoView={true}
             onChange={timeHandler}
-            className='customSelect pl-4 flex relative text-icon-color border-b-2 border-solid border-bg-color-grey cursor-pointer'
+            className='customSelect pl-4 flex relative text-icon-color border-b-2 border-solid border-bg-color-grey cursor-pointer w-full'
             components={{ DropdownIndicator: CustomIndicator }}
             dropDownIndicator={false}
             minMenuHeight={'100%'}
@@ -80,7 +80,6 @@ function DateAndTimeGroup() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                fontSize: '18px',
                 paddingLeft: 0,
               }),
               indicatorSeparator: () => ({
@@ -88,13 +87,14 @@ function DateAndTimeGroup() {
               }),
               menu: (baseStyle, state) => ({
                 ...baseStyle,
-                width: '100px',
-                maxHeight: '221px',
+                width: '106px',
+                height: '221px',
                 outline: 'none',
                 borderRadius: '4px',
                 scrollbarWidth: 'thin',
                 scrollbarColor: '#00B87C transparent',
-                overflowY: 'auto',
+                overflowY: 'hidden',
+                fontSize: '13px',
               }),
               // Style the scrollbar thumb
               '::-webkit-scrollbar-thumb': {
@@ -103,7 +103,7 @@ function DateAndTimeGroup() {
               option: (baseStyle, state) => ({
                 ...baseStyle,
                 height: 'auto',
-                padding: '4px 16px 4px 16px',
+                padding: '5px 16px',
                 fontSize: '13px',
                 background: state.isSelected ? '#00B87C' : '',
                 color: state.isSelected ? '#ffffff' : 'GrayText',
