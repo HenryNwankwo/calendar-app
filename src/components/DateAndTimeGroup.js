@@ -10,11 +10,15 @@ function DateAndTimeGroup() {
   const startTime = startOfDay(new Date());
   const endTime = endOfDay(new Date());
 
-  const timeArray = eachMinuteOfInterval({
-    start: startTime,
-    end: endTime,
-    step: 15,
-  });
+  const timeArray = eachMinuteOfInterval(
+    {
+      start: startTime,
+      end: endTime,
+    },
+    {
+      step: 15,
+    }
+  );
 
   const options = timeArray.map((time) => ({
     value: format(time, 'HH:mm'),
@@ -96,7 +100,7 @@ function DateAndTimeGroup() {
               }),
               menuList: (base) => ({
                 ...base,
-
+                height: '221px',
                 '::-webkit-scrollbar': {
                   width: '8px',
                   height: '0px',
