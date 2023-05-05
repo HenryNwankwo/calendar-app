@@ -3,8 +3,23 @@ import CustomTextInput from './CustomTextInput';
 import CustomInputLabel from './CustomInputLabel';
 import { FiCalendar, FiClock } from 'react-icons/fi';
 import { RiArrowDownSLine } from 'react-icons/ri';
+import Select from 'react-select';
+import { endOfDay, startOfDay, eachMinuteOfInterval, format } from 'date-fns';
 
 function DateAndTimeGroup() {
+  const startTime = startOfDay(new Date());
+  const endTime = endOfDay(new Date());
+
+  const timeArray = eachMinuteOfInterval({
+    start: startTime,
+    end: endTime,
+    step: 15,
+  });
+
+  const options = timeArray.map((time) => ({
+    value: format(time, 'HH:mm'),
+    label: format(time, 'hh:mm a'),
+  }));
   return (
     <>
       {/* date and time group */}
@@ -34,6 +49,53 @@ function DateAndTimeGroup() {
         {/* time group */}
 
         <div className='flex relative w-5/12'>
+          <Select
+            className='ml-2 hover:cursor-pointer w-full'
+            options={options}
+            placeholder='Time'
+            menuPlacement='auto'
+            menuPortalTarget={document.body}
+            styles={{
+              control: (baseStyle, state) => ({
+                border: 0,
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                fontSize: '13px',
+                paddingLeft: 0,
+              }),
+              dropdownIndicator: (baseStyle) => ({
+                ...baseStyle,
+                paddingRight: '5px',
+              }),
+              indicatorSeparator: () => ({
+                display: 'none',
+              }),
+              menu: (baseStyle, state) => ({
+                ...baseStyle,
+                width: '100px',
+                height: '221px',
+                outline: 'none',
+                borderRadius: '4px',
+                scrollbarWidth: 'thin',
+                scrollbarColor: '#00B87C',
+              }),
+              option: (baseStyle, state) => ({
+                ...baseStyle,
+                height: 'auto',
+                padding: '4px 16px 4px 16px',
+                fontSize: '13px',
+                background: state.isSelected ? '#00B87C' : '',
+                color: state.isSelected ? '#ffffff' : 'GrayText',
+                ':hover': {
+                  backgroundColor: '#E1FDF4',
+                  cursor: 'pointer',
+                  color: state.isSelected ? 'GrayText' : '',
+                },
+              }),
+            }}
+          ></Select>
           <CustomTextInput
             name='reminderTIme'
             id='reminderTIme'

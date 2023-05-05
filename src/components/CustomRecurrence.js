@@ -111,8 +111,6 @@ function CustomRecurrence() {
                 }),
               }}
             ></Select>
-            {/* <span>Week</span>
-            <RiArrowDownSLine className='text-xl ml-2'></RiArrowDownSLine> */}
           </div>
         </div>
         {/* Repeat on group */}
