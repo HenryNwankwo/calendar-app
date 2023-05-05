@@ -91,15 +91,28 @@ function DateAndTimeGroup() {
                 height: '221px',
                 outline: 'none',
                 borderRadius: '4px',
-                scrollbarWidth: 'thin',
-                scrollbarColor: '#00B87C transparent',
                 overflowY: 'hidden',
                 fontSize: '13px',
               }),
-              // Style the scrollbar thumb
-              '::-webkit-scrollbar-thumb': {
-                background: '#00B87C',
-              },
+              menuList: (base) => ({
+                ...base,
+
+                '::-webkit-scrollbar': {
+                  width: '8px',
+                  height: '0px',
+                },
+                '::-webkit-scrollbar-track': {
+                  background: '#E1FDF4',
+                },
+                '::-webkit-scrollbar-thumb': {
+                  background: '#00B87C',
+                  borderRadius: '8px',
+                },
+                '::-webkit-scrollbar-thumb:hover': {
+                  background: 'green',
+                },
+              }),
+
               option: (baseStyle, state) => ({
                 ...baseStyle,
                 height: 'auto',
@@ -115,6 +128,7 @@ function DateAndTimeGroup() {
               }),
             }}
           ></Select>
+
           {/* <CustomTextInput
             name='reminderTIme'
             id='reminderTIme'
