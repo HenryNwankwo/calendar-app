@@ -236,7 +236,7 @@ function AddEvent() {
 
                 {/* Time zone group */}
                 <div className='flex relative mt-6 md:mt-0 w-5/12 md:w-3/12 flex-col'>
-                  <p className='text-sm font-semibold text-gray-800'>
+                  <p className='text-sm font-semibold text-gray-800 mt-0'>
                     Timezone
                   </p>
                   <Select
@@ -397,9 +397,9 @@ function AddEvent() {
                 </div>
               </div>
               {/* Cancel and create event button groups */}
-              <div className='flex justify-between mb-6 mt-16'>
+              <div className='flex justify-between mb-6 mt-10 md:mt-16 flex-col-reverse md:flex-row '>
                 <CustomButton
-                  allClasses='border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md'
+                  allClasses='border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md mt-2 md:mt-0'
                   textValue='Cancel'
                   onClick={() => setIsAddEventOpen(false)}
                 />
@@ -442,7 +442,7 @@ function AddEvent() {
               {/* Does not Repeat group */}
 
               <DoNotRepeatGroup inputLabelClass='md:right-17'></DoNotRepeatGroup>
-              {/* Cancel and create event button groups */}
+              {/* Save Reminder button group */}
               <div className='flex justify-end mb-6 mt-16'>
                 <CustomButton
                   allClasses='border-1 bg-primary-color text-white text-sm px-11 hoverOnGreen hover:border-green-100 shadow-md hover:cursor-pointer'
