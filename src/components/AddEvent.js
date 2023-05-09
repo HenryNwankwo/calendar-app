@@ -7,6 +7,7 @@ import {
 } from 'react-icons/ri';
 import Modal from 'react-modal';
 import { CirclePicker } from 'react-color';
+import Select from 'react-select';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { AppContext } from '../App';
@@ -17,6 +18,7 @@ import ToggleSwitch from './ToggleSwitch';
 import DateAndTimeGroup from './DateAndTimeGroup';
 import { EditorState } from 'draft-js';
 import DoNotRepeatGroup from './DoNotRepeatGroup';
+import { gmtOptions } from './../assets/gmtOptions';
 
 //Setted add event modal oveylay color and app root
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,.5)';
@@ -34,6 +36,19 @@ function AddEvent() {
     setDescriptionState(editorState);
   };
 
+  //Custom Indicator for timezone
+  const CustomIndicator = (props) => {
+    const { innerRef, innerProps } = props;
+    return (
+      <span ref={innerRef} {...innerProps}>
+        <RiArrowDownSLine className='text-icon-color text-lg' />
+      </span>
+    );
+  };
+
+  const timeZoneHandler = (e) => {
+    console.log(e);
+  };
   return (
     <>
       {/* Add event and Reminder modal */}
@@ -161,9 +176,9 @@ function AddEvent() {
                 </div>
               </div>
               {/* Start Time, End Time and Time zone groups */}
-              <div className='mt-6 flex justify-between relative flex-wrap'>
+              <div className='mt-2 flex justify-between relative flex-wrap'>
                 {/* Start Time group */}
-                <div className='flex relative w-5/12 md:w-4/12'>
+                <div className='flex relative w-5/12 md:w-4/12 mt-3'>
                   <CustomTextInput
                     name='startTime'
                     id='startTime'
@@ -192,7 +207,7 @@ function AddEvent() {
 
                 {/* endtime group */}
 
-                <div className='flex relative w-5/12 md:w-4/12'>
+                <div className='flex relative w-5/12 md:w-4/12 mt-3'>
                   <CustomTextInput
                     name='endTime'
                     id='endTime'
@@ -220,30 +235,76 @@ function AddEvent() {
                 </div>
 
                 {/* Time zone group */}
-                <div className='flex relative mt-6 md:mt-0 w-5/12 md:w-3/12'>
-                  <CustomTextInput
-                    name='timeZone'
-                    id='timeZone'
-                    placeholder='+0 GMT'
-                    otherClasses='pl-1 pr-6'
-                    inputGroupClasses='flex flex-col relative'
-                    labelComponent={
-                      <CustomInputLabel
-                        name='timeZone'
-                        otherClasses='text-xs font-bold absolute left-0 -top-4 text-txt-color'
-                        labelIcon='Time Zone'
-                      />
-                    }
-                    secondLabel={
-                      <CustomInputLabel
-                        name='timeZone'
-                        otherClasses='absolute right-0 mt-1'
-                        labelIcon={
-                          <RiArrowDownSLine className='text-icon-color text-lg' />
-                        }
-                      />
-                    }
-                  />
+                <div className='flex relative mt-6 md:mt-0 w-5/12 md:w-3/12 flex-col'>
+                  <p className='text-sm font-semibold text-gray-800'>
+                    Timezone
+                  </p>
+                  <Select
+                    options={gmtOptions}
+                    placeholder='Time'
+                    menuPlacement='auto'
+                    defaultValue={gmtOptions[12]}
+                    menuPortalTarget={document.body}
+                    menuShouldScrollIntoView={true}
+                    onChange={timeZoneHandler}
+                    className='customSelect flex relative text-icon-color border-b-2 border-solid border-bg-color-grey cursor-pointer w-full text-sm h-6'
+                    components={{ DropdownIndicator: CustomIndicator }}
+                    dropDownIndicator={false}
+                    minMenuHeight={'100%'}
+                    styles={{
+                      control: (baseStyle, state) => ({
+                        border: 0,
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }),
+                      indicatorSeparator: () => ({
+                        display: 'none',
+                      }),
+                      menu: (baseStyle, state) => ({
+                        ...baseStyle,
+                        width: '96px',
+                        height: '221px',
+                        outline: 'none',
+                        borderRadius: '4px',
+                        overflowY: 'hidden',
+                        fontSize: '13px',
+                      }),
+                      menuList: (base) => ({
+                        ...base,
+                        height: '221px',
+                        '::-webkit-scrollbar': {
+                          width: '8px',
+                          height: '0px',
+                        },
+                        '::-webkit-scrollbar-track': {
+                          background: '#E1FDF4',
+                        },
+                        '::-webkit-scrollbar-thumb': {
+                          background: '#00B87C',
+                          borderRadius: '8px',
+                        },
+                        '::-webkit-scrollbar-thumb:hover': {
+                          background: 'green',
+                        },
+                      }),
+
+                      option: (baseStyle, state) => ({
+                        ...baseStyle,
+                        height: 'auto',
+                        padding: '5px 16px',
+                        fontSize: '13px',
+                        background: state.isSelected ? '#00B87C' : '',
+                        color: state.isSelected ? '#ffffff' : 'GrayText',
+                        ':hover': {
+                          backgroundColor: '#E1FDF4',
+                          cursor: 'pointer',
+                          color: state.isSelected ? 'GrayText' : '',
+                        },
+                      }),
+                    }}
+                  ></Select>
                 </div>
               </div>
               {/* All day toggle switch */}
