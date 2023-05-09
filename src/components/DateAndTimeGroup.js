@@ -132,29 +132,6 @@ function DateAndTimeGroup() {
               }),
             }}
           ></Select>
-
-          {/* <CustomTextInput
-            name='reminderTIme'
-            id='reminderTIme'
-            placeholder='Time'
-            otherClasses='px-6'
-            labelComponent={
-              <CustomInputLabel
-                name='reminderTIme'
-                otherClasses='mt-1 hover:cursor-pointer'
-                labelIcon={<FiClock className='text-lg text-icon-color' />}
-              />
-            }
-            secondLabel={
-              <CustomInputLabel
-                name='reminderTIme'
-                otherClasses='absolute right-0 mt-1 hover:cursor-pointer'
-                labelIcon={
-                  <RiArrowDownSLine className='text-icon-color text-lg' />
-                }
-              />
-            }
-          /> */}
         </div>
       </div>
     </>
