@@ -3,8 +3,12 @@ import { AppContext } from '../App';
 import CustomButton from './CustomButton';
 
 function DeleteEvent({ theEventID, trigger, theKey }) {
-  const { deleteEventPopUp, setDeleteEventPopUp, holidayList, setHolidayList } =
-    useContext(AppContext);
+  const {
+    deleteEventPopUp,
+    setDeleteEventPopUp,
+    filteredHolidayList,
+    setFilteredHolidayList,
+  } = useContext(AppContext);
 
   //close event popup function
   const closeEventPopUp = () => {
@@ -13,7 +17,9 @@ function DeleteEvent({ theEventID, trigger, theKey }) {
 
   //Delete an event function
   const deleteAnEvent = (id) => {
-    setHolidayList(holidayList.filter((holiday) => holiday.id !== id));
+    setFilteredHolidayList(
+      filteredHolidayList.filter((holiday) => holiday.id !== id)
+    );
     closeEventPopUp();
   };
   return trigger ? (
