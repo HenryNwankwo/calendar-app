@@ -28,24 +28,9 @@ const MonthYearPopUp = () => {
 
   return (
     <>
-      <div
-        className='flex flex-col rounded h-41 w-61 fixed bg-bg-color-white top-12 shadow-md ml-2 mt-1'
-        onClick={() => {
-          if (isYearClicked) {
-            setIsYearClicked(false);
-          }
-        }}
-      >
-        <div className='text-white w-full bg-primary-color px-3 h-6 flex flex-row rounded-t'>
-          <span
-            className='text-white font-medium hover:cursor-pointer flex'
-            onClick={() => {
-              setIsYearClicked(!isYearClicked);
-            }}
-          >
-            {year}
-            <RiArrowDropDownLine className='text-2xl' />
-          </span>
+      <div className='flex flex-col rounded h-41 w-61 fixed bg-bg-color-white top-12 shadow-md ml-2 mt-1'>
+        <div className='text-white w-full bg-primary-color px-3 h-6 flex flex-row rounded-t items-center'>
+          <YearDropDown />
         </div>
         <div className='grid grid-cols-4 grid-rows-3 mx-auto'>
           {months.map((month) => {
@@ -61,8 +46,6 @@ const MonthYearPopUp = () => {
           })}
         </div>
       </div>
-
-      {isYearClicked && <YearDropDown />}
     </>
   );
 };

@@ -40,7 +40,7 @@ const YearDropDown = () => {
       <Select
         options={options}
         defaultValue={options[0]}
-        className='absolute w-20 mt-15 ml-6 text-sm bg-transparent text-white'
+        className='absolute w-30 ml-1 text-sm bg-transparent text-white'
         onChange={yearChangeHandler}
         menuPlacement='auto'
         menuPortalTarget={document.body}
@@ -49,10 +49,22 @@ const YearDropDown = () => {
           control: (baseStyle) => ({
             border: 0,
             width: '100%',
-            height: '10px',
+            height: '15px',
             display: 'flex',
             justifyContent: 'center',
             background: 'none',
+            color: 'white',
+          }),
+          dropdownIndicator: (baseStyle) => ({
+            color: 'white',
+            fontSize: '10px',
+          }),
+          placeholder: (baseStyle) => ({
+            ...baseStyle,
+            color: 'white',
+          }),
+          singleValue: (baseStyle) => ({
+            ...baseStyle,
             color: 'white',
           }),
           indicatorSeparator: () => ({
