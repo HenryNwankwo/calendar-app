@@ -8,6 +8,7 @@ function NoHolidays() {
     .filter((holiday) => holiday.startDate > selectedNewDate)
     .sort((a, b) => a.startDate - b.startDate)
     .slice(0, 3);
+
   return (
     <div className='w-full h-screen md:h-auto bg-line-color flex flex-col'>
       <div className='flex justify-center items-center h-1/2 md:h-80 lg:h-96 w-full'>
@@ -15,18 +16,21 @@ function NoHolidays() {
           No Holidays this month
         </p>
       </div>
+      {upComingHolidays.length !== 0 ? (
+        <div>
+          <p className='text-lg mb-3 mx-4 font-bold text-txt-color'>
+            Upcoming Holidays
+          </p>
 
-      <div>
-        <p className='text-lg mb-3 mx-4 font-bold text-txt-color'>
-          Upcoming Holidays
-        </p>
-
-        {upComingHolidays.map((holiday) => (
-          <span key={holiday.id}>
-            <Acard holiday={holiday} />
-          </span>
-        ))}
-      </div>
+          {upComingHolidays.map((holiday) => (
+            <span key={holiday.id}>
+              <Acard holiday={holiday} />
+            </span>
+          ))}
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 }

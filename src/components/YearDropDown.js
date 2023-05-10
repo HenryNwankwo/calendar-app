@@ -1,11 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import Select from 'react-select';
 import { AppContext } from '../App';
 
 const YearDropDown = () => {
-  const { setYear, isYearClicked, setIsYearClicked, yearRef, monthRef } =
-    useContext(AppContext);
-  const [dropDownYear] = useState(new Date().getFullYear());
+  const { setYear, year } = useContext(AppContext);
+  const [selectedYear, setSelectedYear] = useState(year);
 
   //Generating year options
   const currentYear = new Date().getFullYear();
@@ -17,30 +16,15 @@ const YearDropDown = () => {
 
   const yearChangeHandler = (e) => {
     setYear(e.value);
+    setSelectedYear(e.value);
   };
 
-  //Closing the year dropdown
-  /* const yearClickedHandler = (e) => {
-    if (yearRef.current && !yearRef.current.contains(e.target)) {
-      setIsYearClicked(false);
-    }
-    e.stopPropagation();
-  };
-  useEffect(() => {
-    const yearHandler = yearClickedHandler();
-
-    window.addEventListener('mousedown', yearClickedHandler);
-
-    return () => {
-      window.removeEventListener('mousedown', yearClickedHandler);
-    };
-  }); */
   return (
     <>
       <Select
         options={options}
         defaultValue={options[0]}
-        className='absolute w-30 ml-1 text-sm bg-transparent text-white'
+        className='absolute w-24 ml-1 text-sm bg-transparent text-white'
         onChange={yearChangeHandler}
         menuPlacement='auto'
         menuPortalTarget={document.body}
@@ -52,12 +36,16 @@ const YearDropDown = () => {
             height: '15px',
             display: 'flex',
             justifyContent: 'center',
+            alignItems: 'center',
             background: 'none',
             color: 'white',
           }),
           dropdownIndicator: (baseStyle) => ({
+            ...baseStyle,
             color: 'white',
-            fontSize: '10px',
+            ':hover': {
+              color: 'yellow',
+            },
           }),
           placeholder: (baseStyle) => ({
             ...baseStyle,
@@ -66,6 +54,14 @@ const YearDropDown = () => {
           singleValue: (baseStyle) => ({
             ...baseStyle,
             color: 'white',
+            fontSize: '16px',
+            ':hover': {
+              color: 'yellow',
+            },
+          }),
+          input: (baseStyle) => ({
+            ...baseStyle,
+            caretColor: 'white',
           }),
           indicatorSeparator: () => ({
             display: 'none',
