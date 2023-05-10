@@ -54,6 +54,9 @@ module.exports = {
         106: '425px',
         '1/2': '50%',
       },
+      margin: {
+        15: '60px',
+      },
       fontFamily: {
         Lato: ['Lato', 'sans-serif'],
       },

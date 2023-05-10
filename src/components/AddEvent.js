@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { FiEdit, FiCalendar, FiClock } from 'react-icons/fi';
 import {
   RiArrowDownSLine,
@@ -24,6 +24,8 @@ import { gmtOptions } from './../assets/gmtOptions';
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,.5)';
 Modal.setAppElement('#root');
 function AddEvent() {
+  const colorPickerRef = useRef(null);
+  const [isMenuUp, setIsMenuUp] = useState(false);
   const editorState = EditorState.createEmpty();
   const { isAddEventOpen, setIsAddEventOpen, whichTab, setWhichTab } =
     useContext(AppContext);
@@ -45,10 +47,23 @@ function AddEvent() {
       </span>
     );
   };
-
+  //Handles the input event of he timezone select menu
   const timeZoneHandler = (e) => {
     console.log(e);
   };
+
+  //Handles the menu placement of the colorPicker
+  useEffect(() => {
+    if (colorPickerRef.current) {
+      const parentRect =
+        colorPickerRef.current.parentElement.getBoundingClientRect();
+      const colorPickerRect = colorPickerRef.current.getBoundingClientRect();
+      const isUp = parentRect.top + colorPickerRect.height > window.innerHeight;
+
+      setIsMenuUp(isUp);
+    }
+  }, [isMenuUp]);
+
   return (
     <>
       {/* Add event and Reminder modal */}
@@ -360,7 +375,7 @@ function AddEvent() {
                     otherClasses='w-8/12'
                   />
                   <div
-                    className='relative flex flex-row items-center hover:cursor-pointer ml-2 md:ml-10 w-3/12'
+                    className={`relative flex flex-row items-center hover:cursor-pointer ml-2 md:ml-10 w-3/12 `}
                     onClick={() => setisColorClicked(!isColorClicked)}
                   >
                     <span
@@ -369,12 +384,17 @@ function AddEvent() {
                     ></span>
                     <RiArrowDownSLine className='text-icon-color text-lg ml-2' />
                     {isColorClicked && (
-                      <div className='absolute bg-white top-0 left-0 shadow-md flex justify-center items-center rounded py-6 pl-5 mt-7'>
+                      <div
+                        className={`absolute bg-white top-0 left-0 shadow-md flex justify-center items-center rounded py-6 pl-5 mt-7 ${
+                          isMenuUp ? 'top-full mb-2' : 'bottom-full mt-2'
+                        }`}
+                      >
                         <CirclePicker
                           className='colorGroup absolute top-0 left-0 bg-white pl-4 pt-4 mt-2 shadow-md rounded'
                           width='118px'
                           color={color}
                           circleSpacing={22}
+                          ref={colorPickerRef}
                           colors={[
                             '#2573F6',
                             '#8CB7FF',
@@ -397,9 +417,9 @@ function AddEvent() {
                 </div>
               </div>
               {/* Cancel and create event button groups */}
-              <div className='flex justify-between mb-6 mt-10 md:mt-16 flex-col-reverse md:flex-row '>
+              <div className='flex justify-between mb-6 mt-10 md:mt-16 flex-col-reverse sm:flex-row '>
                 <CustomButton
-                  allClasses='border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md mt-2 md:mt-0'
+                  allClasses='border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md mt-2 sm:mt-0'
                   textValue='Cancel'
                   onClick={() => setIsAddEventOpen(false)}
                 />

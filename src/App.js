@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy } from 'react';
+import React, { useState, Suspense, lazy, useRef } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PageLoader from './components/loaders/PageLoader';
 import { eventList } from './assets/holidayList';
@@ -44,9 +44,15 @@ function App() {
   );
   const [selectedNewDate, setSelectedNewDate] = useState(new Date());
 
+  //All Refs
+  const yearRef = useRef(null);
+  const monthRef = useRef(null);
+
   return (
     <AppContext.Provider
       value={{
+        yearRef,
+        monthRef,
         selectedNewDate,
         setSelectedNewDate,
         filteredHolidayList,
