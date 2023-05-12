@@ -370,29 +370,6 @@ function AddEvent() {
                     className={`relative flex items-center hover:cursor-pointer ml-2 md:ml-10 w-3/12 h-6 `}
                   >
                     <ColorPicker colorOptions={colorOptions} />
-                    {/*isColorClicked && (
-
-
-                      
-                      <div
-                        className={`absolute bg-white top-0 left-0 shadow-md flex justify-center items-center rounded py-6 pl-5 mt-7 ${
-                          isMenuUp ? 'top-full mb-2' : 'bottom-full mt-2'
-                        }`}
-                      >
-                      
-                         <CirclePicker
-                          className='colorGroup absolute top-0 left-0 bg-white pl-4 pt-4 mt-2 shadow-md rounded'
-                          width='118px'
-                          color={color}
-                          circleSpacing={22}
-                          ref={colorPickerRef}
-                          colors={colorOptions}
-                          onChange={(updatedColor) =>
-                            setColor(updatedColor.hex)
-                          }
-                        /> }
-                      </div>
-                    )*/}
                   </div>
                 </div>
               </div>
