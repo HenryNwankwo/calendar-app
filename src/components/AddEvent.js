@@ -19,19 +19,16 @@ import DateAndTimeGroup from './DateAndTimeGroup';
 import { EditorState } from 'draft-js';
 import DoNotRepeatGroup from './DoNotRepeatGroup';
 import { gmtOptions } from './../assets/gmtOptions';
+import ColorPicker from './ColorPicker';
 
 //Setted add event modal oveylay color and app root
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,.5)';
 Modal.setAppElement('#root');
 function AddEvent() {
-  const colorPickerRef = useRef(null);
-  const [isMenuUp, setIsMenuUp] = useState(false);
   const editorState = EditorState.createEmpty();
   const { isAddEventOpen, setIsAddEventOpen, whichTab, setWhichTab } =
     useContext(AppContext);
-  const [color, setColor] = useState('#00B87C');
-  const [isColorClicked, setIsColorClicked] = useState(false);
-  const [isSelected, setIsSelected] = useState(null);
+
   const [descriptionState, setDescriptionState] = useState(editorState);
 
   //onchange funnction for the editor state
@@ -53,18 +50,6 @@ function AddEvent() {
     console.log(e);
   };
 
-  //Handles the menu placement of the colorPicker
-  useEffect(() => {
-    if (colorPickerRef.current) {
-      const parentRect =
-        colorPickerRef.current.parentElement.getBoundingClientRect();
-      const colorPickerRect = colorPickerRef.current.getBoundingClientRect();
-      const isUp = parentRect.top + colorPickerRect.height > window.innerHeight;
-
-      setIsMenuUp(isUp);
-    }
-  }, [isMenuUp]);
-
   //options for color picker
   const colorOptions = [
     '#2573F6',
@@ -79,12 +64,6 @@ function AddEvent() {
     '#999999',
   ];
 
-  //Handles the events of color Clicked.
-  const colorClickedHandler = (theColor) => {
-    setIsColorClicked(true);
-    setColor(theColor);
-    setIsSelected(theColor);
-  };
   return (
     <>
       {/* Add event and Reminder modal */}
@@ -94,10 +73,7 @@ function AddEvent() {
         contentLabel='Add Event'
         className='absolute bottom-auto top-0 right-0 left-0 -translate-x-1/2 -translate-y-1/2 mx-auto bg-white w-screen h-auto max-h-screen md:w-106 outline-none overflow-y-auto scrollBar scrollBar-border-radius'
       >
-        <div
-          className='flex justify-center items-center w-full h-14 md:bg-primary-color md:text-white px-6'
-          onClick={() => setIsColorClicked(false)}
-        >
+        <div className='flex justify-center items-center w-full h-14 md:bg-primary-color md:text-white px-6'>
           <span
             className='flex justify-center items-center cursor-pointer md:order-3'
             onClick={() => setIsAddEventOpen(false)}
@@ -111,10 +87,7 @@ function AddEvent() {
         </div>
 
         {/* Event and Reminder navigation tabs  group*/}
-        <div
-          className='flex justify-between px-6 md:mt-3'
-          onClick={() => setIsColorClicked(false)}
-        >
+        <div className='flex justify-between px-6 md:mt-3'>
           <CustomButton
             allClasses={`text-primary-color px-10 ${
               whichTab === 'event' && 'bg-light-green'
@@ -133,10 +106,7 @@ function AddEvent() {
 
         {whichTab === 'event' && (
           //Create event form groups
-          <div
-            className='flex px-6 mt-5'
-            onClick={() => isColorClicked && setIsColorClicked(false)}
-          >
+          <div className='flex px-6 mt-5'>
             <form action='' className='w-full'>
               {/*  Add title group */}
               <div className='flex w-full relative'>
@@ -397,30 +367,9 @@ function AddEvent() {
                   />
                   {/* Color Picker group */}
                   <div
-                    className={`relative flex flex-row items-center hover:cursor-pointer ml-2 md:ml-10 w-3/12 `}
-                    onClick={() => setIsColorClicked(!isColorClicked)}
+                    className={`relative flex items-center hover:cursor-pointer ml-2 md:ml-10 w-3/12 h-6 `}
                   >
-                    <span
-                      className='block rounded-full w-6 h-6'
-                      style={{ backgroundColor: color }}
-                    ></span>
-                    <RiArrowDownSLine className='text-icon-color text-lg ml-2' />
-                    <div className='absolute top-1 shadow-md flex justify-center items-center flex-wrap rounded py-2 mt-7 w-26 bg-white border-1 border-solid border-red-500'>
-                      {colorOptions.map((eachColor) => (
-                        <span
-                          className={`block w-6 h-6 rounded-full mx-2 my-1 hover:cursor-pointer hover:opacity-70 hover:shadow-md ${
-                            isSelected === eachColor &&
-                            'border-2 border-solid border-gray-600 shadow-md'
-                          }`}
-                          style={{
-                            backgroundColor:
-                              isSelected === eachColor ? '#ffffff' : eachColor,
-                          }}
-                          onClick={() => colorClickedHandler(eachColor)}
-                          key={eachColor}
-                        ></span>
-                      ))}
-                    </div>
+                    <ColorPicker colorOptions={colorOptions} />
                     {/*isColorClicked && (
 
 
@@ -448,7 +397,7 @@ function AddEvent() {
                 </div>
               </div>
               {/* Cancel and create event button groups */}
-              <div className='flex justify-between mb-6 mt-10 md:mt-16 flex-col-reverse sm:flex-row '>
+              <div className='flex justify-between mb-6 mt-8 flex-col-reverse sm:flex-row '>
                 <CustomButton
                   allClasses='border-1 bg-white text-primary-color text-bg-primary-color text-sm px-11 hoverOnGreen-2 hover:border-light-green shadow-md mt-2 sm:mt-0'
                   textValue='Cancel'
@@ -464,10 +413,7 @@ function AddEvent() {
         )}
         {whichTab === 'reminder' && (
           //Create Reminder form groups
-          <div
-            className='flex px-6 mt-5'
-            onClick={() => isColorClicked && setIsColorClicked(false)}
-          >
+          <div className='flex px-6 mt-5'>
             <form action='' className='w-full'>
               {/*  Add title group */}
               <div className='flex w-full relative'>
