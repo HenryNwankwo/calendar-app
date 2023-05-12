@@ -29,6 +29,7 @@ const YearDropDown = () => {
         menuPlacement='auto'
         menuPortalTarget={document.body}
         menuShouldScrollIntoView={true}
+        isSearchable={false}
         styles={{
           control: (baseStyle) => ({
             border: 0,

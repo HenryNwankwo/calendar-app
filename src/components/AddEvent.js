@@ -30,7 +30,7 @@ function AddEvent() {
   const { isAddEventOpen, setIsAddEventOpen, whichTab, setWhichTab } =
     useContext(AppContext);
   const [color, setColor] = useState('#00B87C');
-  const [isColorClicked, setisColorClicked] = useState(false);
+  const [isColorClicked, setIsColorClicked] = useState(false);
   const [descriptionState, setDescriptionState] = useState(editorState);
 
   //onchange funnction for the editor state
@@ -64,6 +64,25 @@ function AddEvent() {
     }
   }, [isMenuUp]);
 
+  //options for color picker
+  const colorOptions = [
+    '#2573F6',
+    '#8CB7FF',
+    '#8F3985',
+    '#C2185B',
+    '#FF9800',
+    '#FFEB3B',
+    '#00B87C',
+    '#D0E888',
+    '#454545',
+    '#999999',
+  ];
+
+  //Handles the events of color Clicked.
+  const colorClickedHandler = (theColor) => {
+    setIsColorClicked(true);
+    setColor(theColor);
+  };
   return (
     <>
       {/* Add event and Reminder modal */}
@@ -75,7 +94,7 @@ function AddEvent() {
       >
         <div
           className='flex justify-center items-center w-full h-14 md:bg-primary-color md:text-white px-6'
-          onClick={() => setisColorClicked(false)}
+          onClick={() => setIsColorClicked(false)}
         >
           <span
             className='flex justify-center items-center cursor-pointer md:order-3'
@@ -92,7 +111,7 @@ function AddEvent() {
         {/* Event and Reminder navigation tabs  group*/}
         <div
           className='flex justify-between px-6 md:mt-3'
-          onClick={() => setisColorClicked(false)}
+          onClick={() => setIsColorClicked(false)}
         >
           <CustomButton
             allClasses={`text-primary-color px-10 ${
@@ -114,7 +133,7 @@ function AddEvent() {
           //Create event form groups
           <div
             className='flex px-6 mt-5'
-            onClick={() => isColorClicked && setisColorClicked(false)}
+            onClick={() => isColorClicked && setIsColorClicked(false)}
           >
             <form action='' className='w-full'>
               {/*  Add title group */}
@@ -374,45 +393,49 @@ function AddEvent() {
                     placeholder='Enter the Event Tag'
                     otherClasses='w-8/12'
                   />
+                  {/* Color Picker group */}
                   <div
                     className={`relative flex flex-row items-center hover:cursor-pointer ml-2 md:ml-10 w-3/12 `}
-                    onClick={() => setisColorClicked(!isColorClicked)}
+                    onClick={() => setIsColorClicked(!isColorClicked)}
                   >
                     <span
                       className='block rounded-full w-6 h-6'
                       style={{ backgroundColor: color }}
                     ></span>
                     <RiArrowDownSLine className='text-icon-color text-lg ml-2' />
-                    {isColorClicked && (
+                    <div className='absolute top-1 shadow-md flex justify-center items-center flex-wrap rounded py-2 mt-7 w-26 bg-white border-1 border-solid border-red-500'>
+                      {colorOptions.map((eachColor) => (
+                        <span
+                          className='block w-6 h-6 rounded-full mx-2 my-1 hover:cursor-pointer'
+                          style={{ backgroundColor: eachColor }}
+                          onClick={() => colorClickedHandler(eachColor)}
+                          key={eachColor}
+                        ></span>
+                      ))}
+                    </div>
+                    {/*isColorClicked && (
+
+
+                      
                       <div
                         className={`absolute bg-white top-0 left-0 shadow-md flex justify-center items-center rounded py-6 pl-5 mt-7 ${
                           isMenuUp ? 'top-full mb-2' : 'bottom-full mt-2'
                         }`}
                       >
-                        <CirclePicker
+                      
+                         <CirclePicker
                           className='colorGroup absolute top-0 left-0 bg-white pl-4 pt-4 mt-2 shadow-md rounded'
                           width='118px'
                           color={color}
                           circleSpacing={22}
                           ref={colorPickerRef}
-                          colors={[
-                            '#2573F6',
-                            '#8CB7FF',
-                            '#8F3985',
-                            '#C2185B',
-                            '#FF9800',
-                            '#FFEB3B',
-                            '#00B87C',
-                            '#D0E888',
-                            '#454545',
-                            '#999999',
-                          ]}
+                          colors={colorOptions}
                           onChange={(updatedColor) =>
                             setColor(updatedColor.hex)
                           }
-                        />
+                        /> }
                       </div>
-                    )}
+                    )*/}
                   </div>
                 </div>
               </div>
@@ -435,7 +458,7 @@ function AddEvent() {
           //Create Reminder form groups
           <div
             className='flex px-6 mt-5'
-            onClick={() => isColorClicked && setisColorClicked(false)}
+            onClick={() => isColorClicked && setIsColorClicked(false)}
           >
             <form action='' className='w-full'>
               {/*  Add title group */}
