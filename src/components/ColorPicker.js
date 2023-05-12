@@ -7,6 +7,8 @@ function ColorPicker({ colorOptions }) {
   const [color, setColor] = useState('#00B87C');
   const [isColorClicked, setIsColorClicked] = useState(false);
   const colorPickerRef = useRef(null);
+  const colorDropdownRef = useRef(null);
+  const colorInputSelector = useRef(null);
 
   //Handles the menu placement of the colorPicker
   useEffect(() => {
@@ -21,6 +23,25 @@ function ColorPicker({ colorOptions }) {
     }
   }, [isMenuUp]);
 
+  //Handles the outsideClicked event of the dropdown
+  useEffect(() => {
+    const evtHandler = (e) => {
+      if (
+        colorDropdownRef.current &&
+        !colorDropdownRef.current.contains(e.target) &&
+        colorInputSelector.current &&
+        !colorInputSelector.current.contains(e.target)
+      ) {
+        setIsColorClicked(false);
+      }
+    };
+    window.addEventListener('mousedown', evtHandler);
+
+    return () => {
+      window.removeEventListener('mousedown', evtHandler);
+    };
+  });
+
   //Handles the events of color Clicked.
   const colorClickedHandler = (theColor) => {
     setIsColorClicked(true);
@@ -33,6 +54,7 @@ function ColorPicker({ colorOptions }) {
       <div
         className='flex flex-row hover:cursor-pointer'
         onClick={() => setIsColorClicked(!isColorClicked)}
+        ref={colorInputSelector}
       >
         <span
           className='block rounded-full w-6 h-6'
@@ -44,6 +66,7 @@ function ColorPicker({ colorOptions }) {
         className={`absolute top-1 shadow-md flex justify-center items-center flex-wrap rounded py-2 mt-7 w-26 h-auto bg-white ${
           isMenuUp ? 'bottom-full mb-2' : 'top-full mt-2'
         }`}
+        ref={colorDropdownRef}
       >
         {isColorClicked &&
           colorOptions.map((eachColor) => (
