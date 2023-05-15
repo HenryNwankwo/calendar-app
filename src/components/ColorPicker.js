@@ -12,16 +12,33 @@ function ColorPicker({ colorOptions }) {
 
   //Handles the menu placement of the colorPicker
   useEffect(() => {
-    if (colorPickerRef.current) {
+    const dropdownHeight = colorDropdownRef.current.offsetHeight;
+    const colorPickerHeight = colorInputSelector.current.offsetHeight;
+    const handleResize = () => {
+      const colorPickerTop =
+        colorInputSelector.current.getBoundingClientRect().top;
+      const remainingHeight =
+        window.innerHeight - colorPickerTop - colorPickerHeight;
+
+      setIsMenuUp(remainingHeight < dropdownHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+
+    /* if (colorDropdownRef.current) {
       const parentRect =
-        colorPickerRef.current.parentElement.getBoundingClientRect();
-      const colorPickerRect = colorPickerRef.current.getBoundingClientRect();
+        colorDropdownRef.current.parentElement.getBoundingClientRect();
+      const colorDropdownRect =
+        colorDropdownRef.current.getBoundingClientRect();
       const isUp =
-        parentRect.bottom + colorPickerRect.height > window.innerHeight;
+        parentRect.bottom + colorDropdownRect.height > window.innerHeight;
 
       setIsMenuUp(isUp);
-    }
-  }, [isMenuUp]);
+    } */
+  }, []);
 
   //Handles the outsideClicked event of the dropdown
   useEffect(() => {
@@ -52,7 +69,7 @@ function ColorPicker({ colorOptions }) {
   return (
     <>
       <div
-        className='flex flex-row hover:cursor-pointer'
+        className='flex flex-row hover:cursor-pointer w-full items-center'
         onClick={() => setIsColorClicked(!isColorClicked)}
         ref={colorInputSelector}
       >
@@ -63,7 +80,7 @@ function ColorPicker({ colorOptions }) {
         <RiArrowDownSLine className='text-icon-color text-lg ml-2' />
       </div>
       <div
-        className={`absolute top-1 shadow-md flex justify-center items-center flex-wrap rounded py-2 mt-7 w-26 h-auto bg-white ${
+        className={`absolute top-1 shadow-md flex justify-center items-center flex-wrap rounded py-2 mt-7 w-26 h-44 bg-white ${
           isMenuUp ? 'bottom-full mb-2' : 'top-full mt-2'
         }`}
         ref={colorDropdownRef}
