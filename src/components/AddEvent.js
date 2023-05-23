@@ -367,7 +367,7 @@ function AddEvent() {
                   />
                   {/* Color Picker group */}
                   <div
-                    className={`relative flex items-center hover:cursor-pointer ml-2 md:ml-10 w-3/12 h-6 `}
+                    className={`relative flex items-center hover:cursor-pointer ml-2 md:ml-10 w-3/12 h-6 border-1 border-red-400 border-solid`}
                   >
                     <ColorPicker colorOptions={colorOptions} />
                   </div>
